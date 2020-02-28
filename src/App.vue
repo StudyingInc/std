@@ -1,32 +1,40 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
+    <TopLine />
   </div>
 </template>
+
+<script>
+
+import "./static/bg.js";
+import TopLine from "./components/TopLine";
+import "./static/styles.css";
+export default {
+  name: "App",
+  components: {
+    TopLine
+  }
+}
+
+</script>
 
 <style lang="scss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
+  //text-align: center;
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+.header {
+  margin-top: 300px;
+  display: block;
+}
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.animated-bg{
+  z-index: -1;
+  top:0;
+  position: absolute;
 }
 </style>
