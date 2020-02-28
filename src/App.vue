@@ -5,7 +5,6 @@
 </template>
 
 <script>
-
 import "./static/bg.js";
 import TopLine from "./components/TopLine";
 import "./static/styles.css";
@@ -14,8 +13,7 @@ export default {
   components: {
     TopLine
   }
-}
-
+};
 </script>
 
 <style lang="scss">
@@ -23,8 +21,8 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  //text-align: center;
   color: #2c3e50;
+  color: #0d0d22;
 }
 
 .header {
@@ -32,9 +30,9 @@ export default {
   display: block;
 }
 
-.animated-bg{
+.animated-bg {
   z-index: -1;
-  top:0;
+  top: 0px;
   position: absolute;
 }
 </style>
