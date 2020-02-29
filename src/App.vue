@@ -1,17 +1,22 @@
 <template>
   <div id="app">
     <TopLine />
+    <MainHeader />
   </div>
 </template>
 
 <script>
 import "./static/bg.js";
-import TopLine from "./components/TopLine";
 import "./static/styles.css";
+
+import TopLine from "./components/TopLine";
+import MainHeader from "./components/MainHeader";
+
 export default {
   name: "App",
   components: {
-    TopLine
+    TopLine,
+    MainHeader
   }
 };
 </script>
@@ -33,6 +38,6 @@ export default {
 .animated-bg {
   z-index: -1;
   top: 0px;
-  position: absolute;
+  position: fixed;
 }
 </style>

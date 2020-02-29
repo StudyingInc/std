@@ -3,7 +3,7 @@
     <div class="container">
       <router-link to="/" class="logo">
         STUDY
-        <div class="inc">Inc</div>
+        <div class="inc">Inc.</div>
       </router-link>
       <div class="nav-toggler" @click="navHandle">
         <i class="fas fa-bars"></i>
@@ -38,7 +38,8 @@ export default {
         { id: "2", name: "ISA", url: "/isa" },
         { id: "3", name: "Форум", url: "/forum" },
         { id: "4", name: "Конакты", url: "/about" }
-      ]
+      ],
+      opened: false
     };
   },
   methods: {
@@ -62,7 +63,7 @@ export default {
         $(".nav-toggler").css("background", "#fafafa");
         $(".nav-toggler").css("color", "#0d0d22");
       }
-    }
+    },
   }
 };
 </script>

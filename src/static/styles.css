@@ -1,0 +1,9 @@
+input, textarea, select{
+    outline: none !important;
+    box-shadow: none !important;
+    /* border: 0 !important; */
+}
+
+input:focus, textarea:focus, select:focus{
+    border:0;
+}
