@@ -11,7 +11,6 @@ import "./static/styles.css";
 
 import TopLine from "./components/TopLine";
 import MainHeader from "./components/MainHeader";
-
 export default {
   name: "App",
   components: {

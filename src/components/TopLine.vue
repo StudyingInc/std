@@ -63,7 +63,7 @@ export default {
         $(".nav-toggler").css("background", "#fafafa");
         $(".nav-toggler").css("color", "#0d0d22");
       }
-    },
+    }
   }
 };
 </script>
@@ -73,7 +73,7 @@ export default {
   display: flex;
   justify-content: flex-end;
   position: relative;
-  width: 100vw;
+  width: 100%;
   height: 60px;
   line-height: 60px;
   background: #fafafa;
