@@ -89,7 +89,18 @@
             ></span>
           </div>
         </div>
-        <div class="stats"></div>
+        <div class="stats">
+          <div class="slide">
+            <div class="slide-head"></div>
+            <div class="control-left" @click="slideLeft">
+              <i class="fas fa-chevron-left"></i>
+            </div>
+            <div class="control-right" @click="slideRight">
+              <i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="slide-text"></div>
+          </div>
+        </div>
       </div>
     </div>
   </header>
@@ -100,6 +111,51 @@ import $ from "jquery";
 
 export default {
   name: "MainHeader",
+  computed: {},
+  data() {
+    return {
+      slideNumber: 0,
+      slides: [
+        {
+          id: "0",
+          img:
+            "https://cdn.pixabay.com/photo/2020/02/27/18/54/popcorn-4885565_1280.jpg",
+          head: "Head 1",
+          text: "Lorem ipsum dolor sit  adipisicing elit. Natus, nemo?"
+        },
+        {
+          id: "1",
+          img:
+            "https://cdn.pixabay.com/photo/2016/07/22/16/29/fog-1535201_1280.jpg",
+          head: "Head 2",
+          text:
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, vero."
+        },
+        {
+          id: "2",
+          img:
+            "https://cdn.pixabay.com/photo/2016/02/16/21/07/books-1204029_1280.jpg",
+          head: "Head 3",
+          text: "iLorem ipsum dolor sit amet consectetur. Autem, quos!"
+        },
+        {
+          id: "3",
+          img:
+            "https://cdn.pixabay.com/photo/2014/09/07/21/50/library-438389_1280.jpg",
+          head: "Head 4",
+          text: "forum"
+        },
+        {
+          id: "4",
+          img:
+            "https://cdn.pixabay.com/photo/2020/02/06/20/01/university-library-4825366_1280.jpg",
+          head: "Head 5",
+          text: "about"
+        }
+      ],
+      opened: false
+    };
+  },
   methods: {
     inMode: function() {
       $(".up-mode")
@@ -120,12 +176,127 @@ export default {
         .css("color", "#fafafa");
       $(".up-form").css("display", "block");
       $(".in-form").css("display", "none");
+    },
+    changeSlide: function() {
+      var slideNumber = this.slideNumber;
+
+      setTimeout(() => {
+        if (this.slideNumber != slideNumber) {
+          clearTimeout();
+          slideNumber = this.slideNumber;
+        } else {
+          this.slideNumber < this.slides.length - 1
+            ? (this.slideNumber += 1)
+            : (this.slideNumber = 0);
+          $(".slide").css(
+            "background",
+            "url(" + this.slides[this.slideNumber].img + ")"
+          );
+          $(".slide-head").html(this.slides[this.slideNumber].head);
+          $(".slide-text").html(this.slides[this.slideNumber].text);
+        }
+        this.changeSlide();
+      }, 4000);
+    },
+    slideLeft: function() {
+      clearInterval();
+      this.slideNumber > 0
+        ? this.slideNumber--
+        : (this.slideNumber = this.slides.length - 1);
+      $(".slide").css(
+        "background",
+        "url(" + this.slides[this.slideNumber].img + ")"
+      );
+      $(".slide-head").html(this.slides[this.slideNumber].head);
+      $(".slide-text").html(this.slides[this.slideNumber].text);
+    },
+    slideRight: function() {
+      clearInterval();
+      this.slideNumber < this.slides.length - 1
+        ? this.slideNumber++
+        : (this.slideNumber = 0);
+      $(".slide").css(
+        "background",
+        "url(" + this.slides[this.slideNumber].img + ")"
+      );
+      $(".slide-head").html(this.slides[this.slideNumber].head);
+      $(".slide-text").html(this.slides[this.slideNumber].text);
     }
+  },
+  mounted() {
+    $(".slide").css("background", "url(" + this.slides[0].img + ")");
+    $(".slide-head").html(this.slides[0].head);
+    $(".slide-text").html(this.slides[0].text);
+
+    this.changeSlide();
   }
 };
 </script>
 
 <style lang="scss">
+.slide {
+  width: 100%;
+  height: 100%;
+  background-position: center center !important;
+  background: #2b2d42;
+  background-size: cover !important;
+  transition: all 1s;
+  font-family: "Comfortaa";
+
+  .slide-head {
+    display: block;
+    padding: 0 7px;
+    color: #fafafa;
+    position: absolute;
+    font-size: 1.2em;
+    margin: 20px;
+    height: 35px;
+    line-height: 37px;
+    background: #00000055;
+    border-radius: 7px;
+  }
+
+  .slide-text {
+    display: block;
+    width: fit-content;
+    line-height: 18px;
+    padding: 7px;
+    color: #fafafa;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin-right: 40px;
+    font-size: 0.9em;
+    background: #00000055;
+    border-radius: 7px;
+  }
+
+  .control-left,
+  .control-right {
+    z-index: 1;
+    text-shadow: 0px 0px 2px #000;
+    display: block;
+    height: 8%;
+    padding: 3px 6px;
+    color: #ffffffcc;
+    position: absolute;
+    left: 0px;
+    top: 46%;
+    font-size: 1.1em;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: 0.3s;
+
+    &:hover {
+      color: #ffffffff !important;
+    }
+  }
+  .control-right {
+    left: initial;
+    right: 0px;
+  }
+}
+
 header > .container {
   margin-top: 20px;
   display: flex;
@@ -336,6 +507,7 @@ a.remind-btn {
   margin-top: 10px;
   box-shadow: 0 0 2px 2px #57575715 !important;
   backdrop-filter: blur(5px);
+  overflow: hidden;
 }
 
 @media screen and (max-width: 991px) {
