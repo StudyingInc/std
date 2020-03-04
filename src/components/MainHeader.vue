@@ -92,12 +92,22 @@
         <div class="stats">
           <div class="slide">
             <div class="slide-head"></div>
+            <div class="control-dots">
+              <div
+                class="dot"
+                v-for="slide of slides"
+                v-bind:key="slide.id"
+                @click="choseSlide(slide.id)"
+              ></div>
+            </div>
+
             <div class="control-left" @click="slideLeft">
               <i class="fas fa-chevron-left"></i>
             </div>
             <div class="control-right" @click="slideRight">
               <i class="fas fa-chevron-right"></i>
             </div>
+
             <div class="slide-text"></div>
           </div>
         </div>
@@ -177,17 +187,29 @@ export default {
       $(".up-form").css("display", "block");
       $(".in-form").css("display", "none");
     },
+    highlightDots: function() {
+      var dots = $(".control-dots").children(".dot");
+      for (var i = 0; i < dots.length; i++) {
+        if (i == this.slideNumber) {
+          $(dots[i]).css("background", "#ffffffff");
+        } else {
+          $(dots[i]).css("background", "transparent");
+        }
+      }
+    },
     changeSlide: function() {
       var slideNumber = this.slideNumber;
-
+      clearInterval();
+      this.highlightDots();
       setTimeout(() => {
         if (this.slideNumber != slideNumber) {
           clearTimeout();
           slideNumber = this.slideNumber;
         } else {
           this.slideNumber < this.slides.length - 1
-            ? (this.slideNumber += 1)
+            ? this.slideNumber++
             : (this.slideNumber = 0);
+          console.log(this.slideNumber);
           $(".slide").css(
             "background",
             "url(" + this.slides[this.slideNumber].img + ")"
@@ -203,6 +225,7 @@ export default {
       this.slideNumber > 0
         ? this.slideNumber--
         : (this.slideNumber = this.slides.length - 1);
+      this.highlightDots();
       $(".slide").css(
         "background",
         "url(" + this.slides[this.slideNumber].img + ")"
@@ -215,6 +238,20 @@ export default {
       this.slideNumber < this.slides.length - 1
         ? this.slideNumber++
         : (this.slideNumber = 0);
+      this.highlightDots();
+      $(".slide").css(
+        "background",
+        "url(" + this.slides[this.slideNumber].img + ")"
+      );
+      $(".slide-head").html(this.slides[this.slideNumber].head);
+      $(".slide-text").html(this.slides[this.slideNumber].text);
+    },
+    choseSlide: function(curent) {
+      clearTimeout();
+      clearTimeout();
+      this.slideNumber = curent;
+      console.log(this.slideNumber);
+      this.changeSlide();
       $(".slide").css(
         "background",
         "url(" + this.slides[this.slideNumber].img + ")"
@@ -223,8 +260,13 @@ export default {
       $(".slide-text").html(this.slides[this.slideNumber].text);
     }
   },
+
   mounted() {
     $(".slide").css("background", "url(" + this.slides[0].img + ")");
+    $(".control-dots")
+      .children(".dot")
+      .eq(0)
+      .css("background", "#ffffffff");
     $(".slide-head").html(this.slides[0].head);
     $(".slide-text").html(this.slides[0].text);
 
@@ -235,6 +277,7 @@ export default {
 
 <style lang="scss">
 .slide {
+  display: block;
   width: 100%;
   height: 100%;
   background-position: center center !important;
@@ -249,23 +292,23 @@ export default {
     color: #fafafa;
     position: absolute;
     font-size: 1.2em;
-    margin: 20px;
+    margin: 20px 20px;
     height: 35px;
     line-height: 37px;
     background: #00000055;
     border-radius: 7px;
+    float: left;
   }
 
   .slide-text {
     display: block;
+    position: relative;
     width: fit-content;
     line-height: 18px;
     padding: 7px;
     color: #fafafa;
-    position: absolute;
-    bottom: 20px;
-    left: 20px;
-    margin-right: 40px;
+    margin: 0 20px;
+    bottom: -75%;
     font-size: 0.9em;
     background: #00000055;
     border-radius: 7px;
@@ -276,12 +319,12 @@ export default {
     z-index: 1;
     text-shadow: 0px 0px 2px #000;
     display: block;
-    height: 8%;
+    height: 20px;
     padding: 3px 6px;
     color: #ffffffcc;
-    position: absolute;
+    float: left;
+    margin-top: 140px;
     left: 0px;
-    top: 46%;
     font-size: 1.1em;
     border-radius: 7px;
     cursor: pointer;
@@ -291,9 +334,38 @@ export default {
       color: #ffffffff !important;
     }
   }
+
   .control-right {
+    float: right;
     left: initial;
-    right: 0px;
+    margin-right: -150px;
+  }
+
+  .control-dots {
+    width: 130px;
+    height: 20px;
+    margin-top: 28px !important;
+    margin-right: 20px !important;
+    padding-top: 6px;
+    display: flex;
+    float: right;
+    background: #00000055;
+    justify-content: space-around;
+    margin: 0 auto;
+    border-radius: 10px;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid #fafafabb;
+      transition: all 0.3s ease-in-out;
+
+      &:hover {
+        cursor: pointer;
+        background: #fafafaff;
+      }
+    }
   }
 }
 
