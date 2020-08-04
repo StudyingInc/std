@@ -1,11 +1,8 @@
 .DS_Store
-<<<<<<< HEAD
 node_modules/.cache
 /dist
-=======
 node_modules/
 /dist
->>>>>>> 1ee06a47485a78054ee4ac57d24c61947427d2ad
 
 # local env files
 .env.local

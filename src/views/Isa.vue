@@ -1,7 +1,7 @@
 <template>
   <div>
     <TopLine />
-    <div class="about">about page</div>
+    <div class="about">isa page</div>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 import TopLine from "@/components/TopLine.vue";
 
 export default {
-  name: "About",
+  name: "Isa",
   components: {
     TopLine
   }

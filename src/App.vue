@@ -1,7 +1,6 @@
 <template>
   <div id="app">
-    <TopLine />
-    <MainHeader />
+    <router-view></router-view>
   </div>
 </template>
 
@@ -9,15 +8,13 @@
 import "./static/bg.js";
 import "./static/styles.css";
 
-import TopLine from "./components/TopLine";
-import MainHeader from "./components/MainHeader";
+
 export default {
   name: "App",
   components: {
-    TopLine,
-    MainHeader
   }
 };
+
 </script>
 
 <style lang="scss">
