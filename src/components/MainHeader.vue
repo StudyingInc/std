@@ -124,6 +124,7 @@ export default {
   computed: {},
   data() {
     return {
+      sliderToggle: false,
       slideNumber: 0,
       slides: [
         {
@@ -201,6 +202,9 @@ export default {
       var slideNumber = this.slideNumber;
       clearInterval();
       this.highlightDots();
+      if (!this.sliderToggle) {
+        return;
+      }
       setTimeout(() => {
         if (this.slideNumber != slideNumber) {
           clearTimeout();
@@ -260,15 +264,24 @@ export default {
       $(".slide-text").html(this.slides[this.slideNumber].text);
     }
   },
-
+  beforeDestroy() {
+    this.sliderToggle = false;
+    clearTimeout();
+    clearInterval();
+  },
   mounted() {
-    $(".slide").css("background", "url(" + this.slides[0].img + ")");
+    this.slideNumber = 0;
+    this.sliderToggle = true;
+    $(".slide").css(
+      "background",
+      "url(" + this.slides[this.slideNumber].img + ")"
+    );
     $(".control-dots")
       .children(".dot")
       .eq(0)
       .css("background", "#ffffffff");
-    $(".slide-head").html(this.slides[0].head);
-    $(".slide-text").html(this.slides[0].text);
+    $(".slide-head").html(this.slides[this.slideNumber].head);
+    $(".slide-text").html(this.slides[this.slideNumber].text);
 
     this.changeSlide();
   }
