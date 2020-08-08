@@ -33,7 +33,7 @@ const routes = [
     path: "/about",
     name: "About",
     component: () => import("../views/About.vue")
-  },
+  }
 ];
 
 const router = new VueRouter({

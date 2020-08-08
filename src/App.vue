@@ -8,13 +8,10 @@
 import "./static/bg.js";
 import "./static/styles.css";
 
-
 export default {
   name: "App",
-  components: {
-  }
+  components: {}
 };
-
 </script>
 
 <style lang="scss">
