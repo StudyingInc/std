@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import "./static/bg.js";
+// import "./static/bg.js";
 import "./static/styles.css";
 
 export default {
@@ -15,6 +15,11 @@ export default {
 </script>
 
 <style lang="scss">
+
+:root{
+  --primary: #2b2d42;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

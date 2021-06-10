@@ -9,7 +9,7 @@
 import TopLine from "@/components/TopLine.vue";
 
 export default {
-  name: "About",
+  name: "Contacts",
   components: {
     TopLine
   }
