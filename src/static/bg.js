@@ -1,12 +1,12 @@
 (function() {
-  var canvas = document.createElement("canvas"),
-    ctx = canvas.getContext("2d"),
+  var canvas = document.createElement('canvas'),
+    ctx = canvas.getContext('2d'),
     w = (canvas.width = innerWidth),
     h = (canvas.height = innerHeight),
     particles = [],
     properties = {
-      bgColor: "rgba(241, 231, 221, 1)",
-      particleColor: "rgba(38, 42, 87,1)",
+      bgColor: 'rgba(241, 231, 221, 1)',
+      particleColor: 'rgba(38, 42, 87,1)',
       particleRadius: 4,
       particleCount:
         (document.body.clientWidth + document.body.clientHeight) / 15,
@@ -15,8 +15,8 @@
       particleLife: 50
     };
 
-  document.querySelector("body").appendChild(canvas);
-  canvas.className = "animated-bg";
+  document.querySelector('body').appendChild(canvas);
+  canvas.className = 'animated-bg';
   canvas.blur(canvas);
   window.onresize = function() {
     (w = canvas.width = innerWidth), (h = canvas.height = innerHeight);
@@ -85,8 +85,8 @@
         length = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
         if (length < properties.lineLength) {
           opacity = 1 - length / properties.lineLength;
-          ctx.lineWidth = "0.3";
-          ctx.strokeStyle = "rgba(38, 42, 87, " + opacity + ")";
+          ctx.lineWidth = '0.3';
+          ctx.strokeStyle = 'rgba(38, 42, 87, ' + opacity + ')';
           ctx.beginPath();
           ctx.moveTo(x1, y1);
           ctx.lineTo(x2, y2);

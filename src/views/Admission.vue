@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import TopLine from "@/components/TopLine.vue";
+import TopLine from '@/components/TopLine.vue';
 
 export default {
-  name: "Admission",
+  name: 'Admission',
   components: {
     TopLine
   }
@@ -17,10 +17,10 @@ export default {
 </script>
 
 <style scoped>
-@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 
 .about {
-  font-family: "Varela Round", sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 60pt;
   font-weight: bold;
   margin: 100px;

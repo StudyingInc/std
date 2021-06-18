@@ -22,46 +22,46 @@
 </template>
 
 <script>
-import $ from "jquery";
+import $ from 'jquery';
 
-if ($(".nav-toggler").is(":visible")) {
-  $(".nav").fadeOut();
+if ($('.nav-toggler').is(':visible')) {
+  $('.nav').fadeOut();
 }
 
 export default {
-  name: "TopLine",
+  name: 'TopLine',
   data() {
     return {
       links: [
-        { id: "0", name: "Поступление", url: "/apply" },
-        { id: "1", name: "Учеба", url: "/edu" },
-        { id: "2", name: "ISA", url: "/isa" },
-        { id: "3", name: "Форум", url: "/forum" },
-        { id: "4", name: "Конакты", url: "/about" }
+        { id: '0', name: 'Поступление', url: '/apply' },
+        { id: '1', name: 'Учеба', url: '/edu' },
+        { id: '2', name: 'ISA', url: '/isa' },
+        { id: '3', name: 'Форум', url: '/forum' },
+        { id: '4', name: 'Конакты', url: '/about' }
       ],
       opened: false
     };
   },
   methods: {
     navHandle: function() {
-      if (!$(".nav").is(":visible")) {
-        $(".nav")
-          .css("display", "flex")
+      if (!$('.nav').is(':visible')) {
+        $('.nav')
+          .css('display', 'flex')
           .hide()
           .fadeIn();
-        $(".nav-toggler").css("background", "#0d0d22");
-        $(".nav-toggler").css("color", "#fafafa");
+        $('.nav-toggler').css('background', '#0d0d22');
+        $('.nav-toggler').css('color', '#fafafa');
       } else {
-        $(".nav").fadeOut("slow");
-        $(".nav-toggler").css("background", "#fafafa");
-        $(".nav-toggler").css("color", "#0d0d22");
+        $('.nav').fadeOut('slow');
+        $('.nav-toggler').css('background', '#fafafa');
+        $('.nav-toggler').css('color', '#0d0d22');
       }
     },
     hideNav: function() {
-      if ($(".nav-toggler").is(":visible")) {
-        $(".nav").fadeOut("slow");
-        $(".nav-toggler").css("background", "#fafafa");
-        $(".nav-toggler").css("color", "#0d0d22");
+      if ($('.nav-toggler').is(':visible')) {
+        $('.nav').fadeOut('slow');
+        $('.nav-toggler').css('background', '#fafafa');
+        $('.nav-toggler').css('color', '#0d0d22');
       }
     }
   }
@@ -79,13 +79,13 @@ export default {
   background: #fafafa;
   top: 0;
   z-index: 1;
-  font-family: "Comfortaa";
+  font-family: 'Comfortaa';
   box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.4);
   box-sizing: border-box;
 }
 
 .logo {
-  font-family: "Comfortaa", "PT Sans";
+  font-family: 'Comfortaa', 'PT Sans';
   float: left;
   font-weight: bold;
   font-size: 1.3em;
@@ -123,7 +123,7 @@ export default {
     display: inline-block;
     text-decoration: none;
     color: #5f5f5f;
-    font-family: "Comfortaa";
+    font-family: 'Comfortaa';
     font-weight: 500;
     transition: all 0.2s;
     padding: 2px 12px;
@@ -191,7 +191,7 @@ export default {
     display: inline;
     text-decoration: none;
     color: #5f5f5f;
-    font-family: "Comfortaa";
+    font-family: 'Comfortaa';
     font-weight: 500;
     transition: all 0.2s;
     padding: 2px 12px;

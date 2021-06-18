@@ -132,7 +132,7 @@
           <h2>A dream of prestigious education is a reality</h2>
           <p>
             By contacting us today, you are laying the foundation for a
-            large-scale perspective of your life into the future.
+            large-scale perspective of your life into the future
           </p>
           <nav class="main_nav">
             <router-link class="nav_item" to="admission">
@@ -294,25 +294,6 @@
               </svg>
             </router-link>
           </nav>
-          <div class="pandora_stones">
-            <div class="stage">
-              <figure class="ball bubble">
-                <img src="../assets/stones/direct.svg" />
-              </figure>
-              <figure class="ball bubble">
-                <img src="../assets/stones/forum.svg" />
-              </figure>
-              <figure class="ball bubble">
-                <img src="../assets/stones/globe.svg" />
-              </figure>
-              <figure class="ball bubble">
-                <img src="../assets/stones/school.svg" />
-              </figure>
-              <figure class="ball bubble">
-                <img src="../assets/stones/exam.svg" />
-              </figure>
-            </div>
-          </div>
         </div>
       </div>
       <div class="auth_and_search">
@@ -372,6 +353,25 @@
         </div>
       </div>
     </div>
+
+    <div class="curtain">
+      <h1>Usefull links</h1>
+      <div class="cards container">
+        <div class="card">
+          <h2>About ISA</h2>
+          <p>
+            Here you can learn about the ISA in details
+          </p>
+        </div>
+        <div class="card">
+          <h2>Contacts</h2>
+          <p>
+            Here you'll find information on how to contact us
+          </p>
+        </div>
+      </div>
+    </div>
+
     <div class="keep_scrolling">
       Scroll to get acquainted
     </div>
@@ -400,137 +400,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.ball {
-  display: inline-block;
-  width: 100%;
-  height: 100%;
-  border-radius: 100%;
-  position: relative;
-  background: radial-gradient(
-    circle at bottom,
-    #81e8f6,
-    #76deef 10%,
-    #055194 80%,
-    #062745 100%
-  );
-}
-.ball:before {
-  content: '';
-  position: absolute;
-  top: 1%;
-  left: 5%;
-  width: 90%;
-  height: 90%;
-  border-radius: 100%;
-  background: radial-gradient(
-    circle at top,
-    rgba(255, 255, 255, 0.7),
-    rgba(255, 255, 255, 0) 58%
-  );
-  -webkit-filter: blur(5px);
-  filter: blur(5px);
-  z-index: 2;
-}
-.ball:after {
-  content: '';
-  position: absolute;
-  display: none;
-  top: 5%;
-  left: 10%;
-  width: 80%;
-  height: 80%;
-  border-radius: 100%;
-  -webkit-filter: blur(1px);
-  filter: blur(1px);
-  z-index: 2;
-  -webkit-transform: rotateZ(-30deg);
-  transform: rotateZ(-30deg);
-}
-.ball .shadow {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(
-    circle,
-    rgba(0, 0, 0, 0.4),
-    rgba(0, 0, 0, 0.1) 40%,
-    rgba(0, 0, 0, 0) 50%
-  );
-  -webkit-transform: rotateX(90deg) translateZ(-160px);
-  transform: rotateX(90deg) translateZ(-160px);
-  z-index: 1;
-}
-.ball.plain {
-  background: black;
-}
-.ball.plain:before,
-.ball.plain:after {
-  display: none;
-}
-.ball.bubble {
-  background: radial-gradient(
-    circle at 50% 55%,
-    rgba(240, 245, 255, 0.4),
-    rgba(240, 245, 255, 0.4) 40%,
-    rgba(225, 238, 255, 0.2) 60%,
-    rgba(43, 130, 255, 0.1)
-  );
-  -webkit-animation: bubble-anim 2s ease-out infinite;
-  animation: bubble-anim 2s ease-out infinite;
-}
-.ball.bubble:before {
-  -webkit-filter: blur(0);
-  filter: blur(0);
-  height: 80%;
-  width: 40%;
-  background: radial-gradient(
-    circle at 130% 130%,
-    rgba(255, 255, 255, 0) 0,
-    rgba(255, 255, 255, 0) 46%,
-    rgba(255, 255, 255, 0.4) 50%,
-    rgba(255, 255, 255, 0.4) 58%,
-    rgba(255, 255, 255, 0) 60%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  -webkit-transform: translateX(131%) translateY(58%) rotateZ(168deg)
-    rotateX(10deg);
-  transform: translateX(131%) translateY(58%) rotateZ(168deg) rotateX(10deg);
-}
-.ball.bubble:after {
-  display: block;
-  background: radial-gradient(
-    circle at 50% 80%,
-    rgba(255, 255, 255, 0),
-    rgba(255, 255, 255, 0) 74%,
-    #ffffff66 80%,
-    #ffffff66 84%,
-    rgba(255, 255, 255, 0) 100%
-  );
-}
-
-.stage {
-  width: 60px;
-  height: 60px;
-  display: none;
-  margin: 20px;
-  -webkit-perspective: 180px;
-  -moz-perspective: 180px;
-  -ms-perspective: 180px;
-  -o-perspective: 180px;
-  perspective: 180px;
-  -webkit-perspective-origin: 50% 50%;
-  -moz-perspective-origin: 50% 50%;
-  -ms-perspective-origin: 50% 50%;
-  -o-perspective-origin: 50% 50%;
-  perspective-origin: 50% 50%;
-
-  img {
-    width: 26px;
-    margin: 17px;
-  }
-}
-
-///////////////////////////////////////
 .animated {
   background: linear-gradient(
     237deg,
@@ -582,6 +451,10 @@ header {
   position: relative;
   width: 100%;
 
+  .curtain {
+    display: none;
+  }
+
   .keep_scrolling {
     position: absolute;
     bottom: 30px;
@@ -592,19 +465,7 @@ header {
   }
 
   .dark {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
     z-index: -1;
-    transition: background-color 0.3s ease-in-out;
-
-    &.to_top {
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 0;
-    }
   }
 }
 
@@ -861,6 +722,11 @@ header {
     }
   }
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+  * {
+    display: none !important;
+  }
+}
 
 @media screen and (max-width: 1200px) {
   header .container .notion h2 {
@@ -875,119 +741,172 @@ header {
       margin-left: -250px;
       width: 100%;
     }
-  }
 
-  header .container .notion {
-    width: 100%;
-    padding-top: 50px;
+    .dark {
+      display: block;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      z-index: -1;
+      transition: background-color 0.3s ease-in-out;
 
-    .header_content {
-      height: calc(70vh - 100px);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      h2 {
-        font-size: 1.9em;
+      &.to_top {
+        background: rgba(0, 0, 0, 0.6);
+        z-index: 0;
       }
     }
+  }
 
-    .topline {
-      z-index: 100;
-      .full_logo {
-        height: 35px;
+  header {
+    height: 100vh;
+
+    .curtain {
+      background: #fff6;
+      height: 40vh;
+      display: block;
+      align-items: center;
+      color: #333;
+      font-family: 'Comfortaa', sans-serif;
+
+      h1 {
+        text-align: center;
+        font-size: 1.6em;
+        color: var(--primary);
+        padding: 30px 0;
+        margin: 0;
       }
-      #nav_trigger {
-        cursor: pointer;
-        display: block;
-        height: 35px;
-        width: 35px;
 
-        svg {
-          width: 30px;
-          height: 30px;
+      .cards {
+        display: flex;
+        justify-content: space-evenly;
 
-          line {
-            transition: all 0.3s ease-in-out;
-            transform-origin: center;
+        &.container {
+          height: auto;
+        }
 
-            &.rotated {
-              stroke: #fafafa;
-              &:first-child {
-                transform: translateX(-4px) translateY(2.5px) rotate(45deg);
-              }
+        .card {
+          display: flex;
+          width: 45%;
+          padding: 20px;
+          box-sizing: border-box;
+          box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          background: rgba(250, 250, 250, 0.5);
+          font-family: 'Comfortaa', sans-serif;
+          flex-direction: column;
+          justify-content: flex-start;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
 
-              &:nth-child(2) {
-                transform: translateX(-4px) translateY(-5px) rotate(-45deg);
+          &:hover {
+            background: rgba(250, 250, 250, 0.7);
+            box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+          }
+
+          h2 {
+            font-size: 1.5em;
+            color: var(--primary);
+          }
+
+          p {
+            font-size: 1em;
+            color: #666;
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+          }
+        }
+      }
+    }
+    .container {
+      height: 60vh;
+    }
+
+    .container .notion {
+      width: 100%;
+      height: 60vh;
+      padding-top: 50px;
+
+      .header_content {
+        height: calc(70vh - 100px);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h2 {
+          font-size: 1.9em;
+          text-align: center;
+          // width: 80%;
+          align-self: center;
+        }
+        p {
+          // display: none;
+          text-align: center;
+        }
+      }
+
+      .topline {
+        .full_logo {
+          height: 35px;
+          margin-left: -15px;
+          margin-bottom: 0;
+        }
+        #nav_trigger {
+          z-index: 100;
+          cursor: pointer;
+          display: block;
+          height: 35px;
+          width: 35px;
+
+          svg {
+            width: 30px;
+            height: 30px;
+
+            line {
+              transition: all 0.3s ease-in-out;
+              transform-origin: center;
+
+              &.rotated {
+                stroke: #fafafa;
+                &:first-child {
+                  transform: translateX(-4px) translateY(2.5px) rotate(45deg);
+                }
+
+                &:nth-child(2) {
+                  transform: translateX(-4px) translateY(-5px) rotate(-45deg);
+                }
               }
             }
           }
         }
       }
-    }
 
-    .main_nav {
-      display: none;
-    }
-    .stage {
-      display: flex;
-      width: 280px;
-      height: 250px;
-      margin: 0 auto;
-      padding: 0;
-      align-self: center;
-      // gap: 20px;
-      // justify-content: center;
-      // align-items: center;
-      // border: 1px solid #000;
-      position: relative;
+      .main_nav {
+        display: none;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        a.nav_item {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 60px;
+          position: relative;
+          color: #2b2d42;
+          font-size: 0.8em;
 
-      figure {
-        position: absolute;
-        width: 70px;
-        height: 70px;
-        margin: 0;
-        padding: 0;
-        animation: 1s linear 0s infinite bubble_anim;
+          svg {
+            width: 75px;
+            transition: all 0.25s ease-in-out;
 
-        &:first-child {
-          top: 90px;
-          left: 30px;
-          animation-delay: 0s;
-        }
+            path {
+              fill: var(--primary);
+            }
+          }
 
-        &:nth-child(2) {
-          top: 10px;
-          left: 70px;
-          animation-delay: 0.2s;
-        }
-
-        &:nth-child(3) {
-          top: 160px;
-          left: 100px;
-          animation-delay: 0.4s;
-        }
-
-        &:nth-child(4) {
-          top: 30px;
-          left: 160px;
-          animation-delay: 0.6s;
-        }
-
-        &:nth-child(5) {
-          top: 110px;
-          left: 190px;
-          animation-delay: 0.8s;
-        }
-
-        // &:nth-child(6) {
-        //   top: 0px;
-        //   left: 150px;
-        // }
-
-        img {
-          width: 30px;
-          height: 30px;
-          margin: 20px;
+          &:after {
+            opacity: 1;
+          }
         }
       }
     }
@@ -998,18 +917,41 @@ header {
 }
 
 @media screen and (max-width: 767px) {
+  header .curtain .cards .card {
+    h2 {
+      font-size: 1.3em;
+    }
+    p {
+      font-size: 0.8em;
+    }
+  }
+
   header .container .notion {
     width: 100%;
     padding-top: 50px;
     h2 {
-      font-size: 1.6em;
+      font-size: 1.5em;
     }
     p {
       font-size: 1.2em;
     }
 
     .topline .full_logo {
-      margin-bottom: 50px;
+      margin-bottom: 0px;
+    }
+
+    .main_nav {
+      justify-content: space-around;
+      flex-wrap: wrap;
+      a.nav_item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        position: relative;
+        color: #2b2d42;
+        font-size: 0.8em;
+      }
     }
   }
 }
@@ -1020,29 +962,82 @@ header {
       font-size: 0.8em;
     }
 
+    .curtain {
+      height: 40vh;
+      h1 {
+        font-size: 1.4em;
+      }
+    }
+
+    .container {
+      height: 60vh;
+    }
+
     .container .notion {
       width: 100%;
       padding-top: 50px;
+      height: 60vh;
 
       .header_content {
         h2 {
-          font-size: 1.3em;
+          font-size: 1.5em;
         }
         p {
-          font-size: 0.9em;
+          font-size: 1.1em;
+          text-align: center;
         }
       }
 
       .topline {
         .full_logo {
-          height: 30px;
-          width: 140px;
-          margin: 0 0 30px 0;
+          margin: 0;
         }
         .nav_trigger {
           height: 30px;
           width: 30px;
         }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 375px) {
+  header .container {
+    height: 50vh;
+  }
+  header .container .notion {
+    padding-top: 20px;
+    .topline {
+      .full_logo {
+        height: 30px;
+        width: 140px;
+        margin: 0;
+      }
+    }
+
+    .header_content {
+      height: 40vh;
+      h2 {
+        font-size: 1.1em;
+      }
+      p {
+        font-size: 0.9em;
+        text-align: center;
+      }
+    }
+  }
+  header .curtain {
+    height: 50vh;
+
+    h1 {
+      font-size: 1.2em;
+    }
+    .cards .card {
+      h2 {
+        font-size: 1em;
+      }
+      p {
+        font-size: 0.65em;
       }
     }
   }

@@ -6,17 +6,16 @@
 
 <script>
 // import "./static/bg.js";
-import "./static/styles.css";
+import './static/styles.css';
 
 export default {
-  name: "App",
+  name: 'App',
   components: {}
 };
 </script>
 
 <style lang="scss">
-
-:root{
+:root {
   --primary: #2b2d42;
 }
 
