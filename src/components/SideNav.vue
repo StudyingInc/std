@@ -65,7 +65,7 @@
         fill="#2F0C2B"
       />
     </svg>
-    <router-link class="nav_item" to="./">Home</router-link>
+    <router-link class="nav_item" to="/">Home</router-link>
     <router-link class="nav_item" to="admission">Admission</router-link>
     <router-link class="nav_item" to="study">Study</router-link>
     <router-link class="nav_item" to="isa">ISA</router-link>
@@ -79,35 +79,32 @@
 
 <script>
 export default {
-  name: 'SideNav'
+  name: "SideNav",
 };
 </script>
 
 <style lang="scss">
 .side_nav {
   display: none;
-  font-family: 'Comfotraa', sans-serif;
+  font-family: "Comfotraa", sans-serif;
 }
 @media screen and (max-width: 991px) {
   .side_nav {
     position: fixed;
     display: flex;
     align-items: center;
-    // justify-content: center;
     flex-direction: column;
-    width: 250px;
+    width: 230px;
     flex-wrap: wrap;
-    // width: 100%;
     height: 100vh;
     top: 0;
     left: 100vw;
-    // gap: 30px;
     background: #fafafa;
     box-shadow: 7px 0px 20px 0 rgba(0, 0, 0, 0.3);
     transition: left 0.3s ease-in-out;
 
     svg {
-      margin: 50px 0;
+      margin: 40px 0;
       width: 100px;
       path,
       rect {
@@ -130,7 +127,26 @@ export default {
 
     &.show_nav {
       left: 0;
-      left: calc(100vw - 250px);
+      left: calc(100vw - 230px);
+    }
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .side_nav {
+    flex-wrap: nowrap;
+    svg {
+      margin: 10px 0 20px 0;
+    }
+  }
+}
+
+@media screen and (max-height: 500px) {
+  .side_nav {
+    padding-top: 10px;
+    justify-content: center;
+    svg {
+      display: none;
     }
   }
 }
