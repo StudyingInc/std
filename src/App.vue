@@ -5,7 +5,6 @@
 </template>
 
 <script>
-// import "./static/bg.js";
 import './static/styles.css';
 
 export default {

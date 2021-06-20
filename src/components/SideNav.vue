@@ -79,14 +79,14 @@
 
 <script>
 export default {
-  name: "SideNav",
+  name: 'SideNav'
 };
 </script>
 
 <style lang="scss">
 .side_nav {
   display: none;
-  font-family: "Comfotraa", sans-serif;
+  font-family: 'Comfotraa', sans-serif;
 }
 @media screen and (max-width: 991px) {
   .side_nav {
