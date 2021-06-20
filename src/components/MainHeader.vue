@@ -374,7 +374,7 @@
       </div>
     </div>
 
-    <div class="keep_scrolling">
+    <div class="keep_scrolling" ref="keep_scrolling">
       Scroll to get acquainted
     </div>
     <div class="dark" :class="{ to_top: nav_show }"></div>
@@ -383,21 +383,21 @@
 </template>
 
 <script>
-import SideNav from '@/components/SideNav';
+import SideNav from "@/components/SideNav";
 
 export default {
-  name: 'MainHeader',
+  name: "MainHeader",
   computed: {},
   components: {
-    SideNav
+    SideNav,
   },
   data() {
     return {
-      tab: 'sign-in',
-      nav_show: false
+      tab: "sign-in",
+      nav_show: false,
     };
   },
-  methods: {}
+  methods: {},
 };
 </script>
 
@@ -464,6 +464,11 @@ header {
     transform: translateX(-50%);
     color: rgba(54, 54, 54, 0.8);
     cursor: default;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      cursor: pointer;
+      font-size: 1.1em;
+    }
   }
 
   .dark {
@@ -483,7 +488,7 @@ header {
     padding-top: 100px;
     height: 100vh;
     width: 57%;
-    font-family: 'Comfortaa', sans-serif;
+    font-family: "Comfortaa", sans-serif;
     color: #fafafa;
 
     .topline {
@@ -560,19 +565,19 @@ header {
         }
 
         &:first-child::after {
-          content: 'Admission';
+          content: "Admission";
         }
         &:nth-child(2)::after {
-          content: 'Study';
+          content: "Study";
         }
         &:nth-child(3)::after {
-          content: 'Contacts';
+          content: "Contacts";
         }
         &:nth-child(4)::after {
-          content: 'ISA';
+          content: "ISA";
         }
         &:nth-child(5)::after {
-          content: 'Forum';
+          content: "Forum";
         }
       }
     }
@@ -631,7 +636,7 @@ header {
     }
 
     .auth {
-      font-family: 'Comfortaa', sans-serif;
+      font-family: "Comfortaa", sans-serif;
       width: 350px;
       align-self: flex-end;
       display: flex;
@@ -765,7 +770,7 @@ header {
       display: block;
       align-items: center;
       color: #333;
-      font-family: 'Comfortaa', sans-serif;
+      font-family: "Comfortaa", sans-serif;
 
       h1 {
         text-align: center;
@@ -791,7 +796,7 @@ header {
           box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
           border-radius: 8px;
           background: rgba(250, 250, 250, 0.5);
-          font-family: 'Comfortaa', sans-serif;
+          font-family: "Comfortaa", sans-serif;
           flex-direction: column;
           justify-content: flex-start;
           cursor: pointer;

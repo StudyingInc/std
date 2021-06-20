@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import './static/styles.css';
+import "./static/styles.css";
 
 export default {
-  name: 'App',
-  components: {}
+  name: "App",
+  components: {},
 };
 </script>
 
