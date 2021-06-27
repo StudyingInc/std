@@ -8,6 +8,7 @@
       :text="item.text"
       :img="item.img"
       :even="counter % 2 != 0"
+      class="disable_selection"
     />
   </section>
 </template>
@@ -67,5 +68,8 @@ export default {
 <style lang="scss" scoped>
 section {
   width: 100%;
+}
+.disable_selection {
+  user-select: none;
 }
 </style>

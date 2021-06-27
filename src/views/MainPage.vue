@@ -1,65 +1,66 @@
 <template>
-  <div>
+  <div v-body-scroll-lock="mobile" v-touch:swipe="swipeHandler">
     <MainHeader />
     <Presentation />
   </div>
 </template>
 
 <script>
-import MainHeader from "@/components/MainHeader.vue";
-import Presentation from "@/components/Presentation.vue";
+import MainHeader from '@/components/MainHeader.vue';
+import Presentation from '@/components/Presentation.vue';
 
-import { debounce } from "debounce";
+import { debounce } from 'debounce';
 
 export default {
-  name: "MainPage",
+  name: 'MainPage',
   components: {
     MainHeader,
-    Presentation,
+    Presentation
   },
   data() {
     return {
+      mobile: false,
       sections: [
-        "header",
-        "history",
-        "book",
-        "gadget",
-        "not_available",
-        "opportunity",
-        "final",
+        'header',
+        'history',
+        'book',
+        'gadget',
+        'not_available',
+        'opportunity',
+        'final'
       ],
-      currentSection: 0,
+      currentSection: 0
     };
   },
   mounted() {
     document
-      .querySelector(".keep_scrolling")
-      .addEventListener("click", this.scrollToPresentation);
+      .querySelector('.keep_scrolling')
+      .addEventListener('click', this.scrollToPresentation);
 
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
       )
     ) {
-      //mobile
+      this.mobile = true;
     } else {
-      window.addEventListener("wheel", debounce(this.onWheel, 300));
-      window.addEventListener("scroll", debounce(this.scrollChecker, 200));
-      window.addEventListener("keydown", this.onKeyPrssed);
+      window.addEventListener('wheel', debounce(this.onWheel, 300));
+      window.addEventListener('scroll', debounce(this.scrollChecker, 200));
+      window.addEventListener('keydown', this.onKeyPrssed);
     }
   },
   methods: {
     scrollToPresentation() {
       this.currentSection = 1;
-      let element = document.getElementById("history");
-      element.scrollIntoView({ block: "start", behavior: "smooth" });
+      let element = document.getElementById('history');
+      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
     },
     _scrollTo(id) {
       let el = document.getElementById(id);
       var element_offset = el.getBoundingClientRect().top;
       window.scrollTo({
         top: document.documentElement.scrollTop + element_offset,
-        behavior: "smooth",
+        behavior: 'smooth'
       });
     },
     onWheel(e) {
@@ -137,7 +138,19 @@ export default {
       };
       requestAnimationFrame(fn);
     },
-  },
+    swipeHandler(direction) {
+      if (
+        direction == 'top' &&
+        this.sections.length - 1 > this.currentSection
+      ) {
+        this.currentSection++;
+        this._scrollTo(this.sections[this.currentSection]);
+      } else if (direction == 'bottom' && this.currentSection > 0) {
+        this.currentSection -= 1;
+        this._scrollTo(this.sections[this.currentSection]);
+      }
+    }
+  }
 };
 </script>
 

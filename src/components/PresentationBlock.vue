@@ -106,4 +106,56 @@ section.presentation_block {
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  section.presentation_block .container {
+    flex-direction: column;
+    justify-content: center;
+
+    .image {
+      padding: 45px;
+      img {
+        height: 18vw;
+      }
+    }
+
+    p {
+      width: 80%;
+      font-size: 1.3em;
+      margin-top: 10vh;
+    }
+    &.reversed {
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  section.presentation_block .container {
+    flex-direction: column;
+    justify-content: center;
+    max-width: 95%;
+    width: 95%;
+    p {
+      width: 80%;
+      font-size: 1.2em;
+      margin-top: 10vh;
+    }
+
+    .image {
+      padding: 30px;
+      img {
+        height: 20vw;
+      }
+    }
+
+    &.reversed {
+      max-width: 95%;
+      width: 95%;
+      flex-direction: column;
+      justify-content: center;
+    }
+  }
+}
 </style>
