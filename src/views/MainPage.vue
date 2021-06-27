@@ -6,36 +6,37 @@
 </template>
 
 <script>
-import MainHeader from '@/components/MainHeader.vue';
-import Presentation from '@/components/Presentation.vue';
+import MainHeader from "@/components/MainHeader.vue";
+import Presentation from "@/components/Presentation.vue";
 
-import { debounce } from 'debounce';
+import { debounce } from "debounce";
+import smoothscroll from "smoothscroll-polyfill";
 
 export default {
-  name: 'MainPage',
+  name: "MainPage",
   components: {
     MainHeader,
-    Presentation
+    Presentation,
   },
   data() {
     return {
       mobile: false,
       sections: [
-        'header',
-        'history',
-        'book',
-        'gadget',
-        'not_available',
-        'opportunity',
-        'final'
+        "header",
+        "history",
+        "book",
+        "gadget",
+        "not_available",
+        "opportunity",
+        "final",
       ],
-      currentSection: 0
+      currentSection: 0,
     };
   },
   mounted() {
     document
-      .querySelector('.keep_scrolling')
-      .addEventListener('click', this.scrollToPresentation);
+      .querySelector(".keep_scrolling")
+      .addEventListener("click", this.scrollToPresentation);
 
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -43,24 +44,27 @@ export default {
       )
     ) {
       this.mobile = true;
+      window.addEventListener("scroll", debounce(this.scrollChecker, 200));
+      smoothscroll.polyfill();
+      window.__forceSmoothScrollPolyfill__ = true;
     } else {
-      window.addEventListener('wheel', debounce(this.onWheel, 300));
-      window.addEventListener('scroll', debounce(this.scrollChecker, 200));
-      window.addEventListener('keydown', this.onKeyPrssed);
+      window.addEventListener("wheel", this.onWheel);
+      window.addEventListener("scroll", debounce(this.scrollChecker, 200));
+      window.addEventListener("keydown", this.onKeyPrssed);
     }
   },
   methods: {
     scrollToPresentation() {
       this.currentSection = 1;
-      let element = document.getElementById('history');
-      element.scrollIntoView({ block: 'start', behavior: 'smooth' });
+      let element = document.getElementById("history");
+      element.scrollIntoView({ block: "start", behavior: "smooth" });
     },
     _scrollTo(id) {
       let el = document.getElementById(id);
       var element_offset = el.getBoundingClientRect().top;
       window.scrollTo({
         top: document.documentElement.scrollTop + element_offset,
-        behavior: 'smooth'
+        behavior: "smooth",
       });
     },
     onWheel(e) {
@@ -106,51 +110,19 @@ export default {
       }
       console.log(this.currentSection);
     },
-    scroll(el, direction) {
-      //native js scroll function for mobile browsers
-      var duration = 2000,
-        start = new Date().getTime();
-
-      var fn = function() {
-        var top = el.getBoundingClientRect().top - 96,
-          now = new Date().getTime() - start,
-          result = Math.round((top * now) / duration);
-
-        result =
-          result > direction * top ? top : result == 0 ? direction : result;
-
-        var pageHeight = Math.max(
-          document.body.scrollHeight,
-          document.documentElement.scrollHeight,
-          document.body.offsetHeight,
-          document.documentElement.offsetHeight,
-          document.body.clientHeight,
-          document.documentElement.clientHeight
-        );
-        if (
-          direction * top > 0 &&
-          pageHeight - window.pageYOffset >
-            direction * document.documentElement.clientHeight
-        ) {
-          window.scrollBy(0, result);
-          requestAnimationFrame(fn);
-        }
-      };
-      requestAnimationFrame(fn);
-    },
     swipeHandler(direction) {
       if (
-        direction == 'top' &&
+        direction == "top" &&
         this.sections.length - 1 > this.currentSection
       ) {
         this.currentSection++;
         this._scrollTo(this.sections[this.currentSection]);
-      } else if (direction == 'bottom' && this.currentSection > 0) {
+      } else if (direction == "bottom" && this.currentSection > 0) {
         this.currentSection -= 1;
         this._scrollTo(this.sections[this.currentSection]);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
