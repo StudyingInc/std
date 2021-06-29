@@ -372,11 +372,15 @@
           </p>
         </div>
       </div>
+      <div class="keep_scrolling" ref="keep_scrolling">
+        Scroll to get acquainted
+      </div>
     </div>
 
     <div class="keep_scrolling" ref="keep_scrolling">
       Scroll to get acquainted
     </div>
+
     <div class="dark" :class="{ to_top: nav_show }"></div>
     <SideNav :class="{ show_nav: nav_show }" />
   </header>
@@ -384,6 +388,7 @@
 
 <script>
 import SideNav from "@/components/SideNav";
+import { debounce } from "debounce";
 
 export default {
   name: "MainHeader",
@@ -395,9 +400,26 @@ export default {
     return {
       tab: "sign-in",
       nav_show: false,
+      mobile: false,
     };
   },
-  methods: {},
+  mounted() {
+    this.getClientHeight();
+    window.addEventListener("resize", debounce(this.getClientHeight, 200));
+  },
+  methods: {
+    getClientHeight() {
+      let viewHeight;
+      let body = document.querySelector("body");
+      body.classList.add("hidden");
+      viewHeight = document.documentElement.clientHeight;
+      body.classList.remove("hidden");
+      document.documentElement.style.setProperty(
+        "--viewHeight",
+        `${viewHeight}px`
+      );
+    },
+  },
 };
 </script>
 
@@ -450,12 +472,9 @@ export default {
 }
 
 header {
+  height: var(--viewHeight);
   position: relative;
   width: 100%;
-
-  .curtain {
-    display: none;
-  }
 
   .keep_scrolling {
     position: absolute;
@@ -471,13 +490,17 @@ header {
     }
   }
 
+  .curtain {
+    display: none;
+  }
+
   .dark {
     z-index: -1;
   }
 }
 
 .container {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -486,7 +509,7 @@ header {
     display: flex;
     flex-direction: column;
     padding-top: 100px;
-    height: 100vh;
+    height: 100%;
     width: 57%;
     font-family: "Comfortaa", sans-serif;
     color: #fafafa;
@@ -587,7 +610,7 @@ header {
     display: flex;
     width: 43%;
     padding-top: 105px;
-    height: 100vh;
+    height: var(--viewHeight);
     flex-direction: column;
 
     .search_line {
@@ -750,7 +773,7 @@ header {
       top: 0;
       left: 0;
       width: 100%;
-      height: 100vh;
+      height: var(--viewHeight);
       z-index: -1;
       transition: background-color 0.3s ease-in-out;
 
@@ -762,22 +785,44 @@ header {
   }
 
   header {
-    height: 100vh;
-    height: -webkit-fill-available;
+    height: var(--viewHeight);
+
+    .keep_scrolling {
+      display: none;
+    }
 
     .curtain {
       background: #fff6;
-      height: 40vh;
-      display: block;
+      height: calc(0.4 * var(--viewHeight));
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
       align-items: center;
       color: #333;
       font-family: "Comfortaa", sans-serif;
+
+      .keep_scrolling {
+        display: block;
+        position: relative;
+        bottom: 0;
+        margin: 10px 0;
+        width: 100%;
+        text-align: center;
+
+        color: rgba(54, 54, 54, 0.8);
+        cursor: default;
+        transition: all 0.2s ease-in-out;
+        &:hover {
+          cursor: pointer;
+          font-size: 1.1em;
+        }
+      }
 
       h1 {
         text-align: center;
         font-size: 1.6em;
         color: var(--primary);
-        padding: 30px 0;
+        padding: 20px 0;
         margin: 0;
       }
 
@@ -824,16 +869,16 @@ header {
       }
     }
     .container {
-      height: 60vh;
+      height: calc(0.6 * var(--viewHeight));
     }
 
     .container .notion {
       width: 100%;
-      height: 60vh;
+      height: calc(0.6 * var(--viewHeight));
       padding-top: 50px;
 
       .header_content {
-        height: calc(70vh - 100px);
+        height: calc(0.6 * var(--viewHeight) - 100px);
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -922,16 +967,16 @@ header {
 @media screen and (max-width: 991px) and (orientation: landscape) {
   header {
     .header_content {
-      height: 100vh;
+      height: var(--viewHeight);
       height: -webkit-fill-available;
     }
 
     .container {
-      height: 100vh;
+      height: var(--viewHeight);
       .notion {
         padding-top: 30px;
         .header_content {
-          height: 100vh;
+          height: var(--viewHeight);
           margin-top: 45px;
 
           h2 {
@@ -1008,15 +1053,15 @@ header {
 @media screen and (max-width: 767px) and (max-height: 360px) and (orientation: landscape) {
   header {
     .header_content {
-      height: 100vh;
+      height: var(--viewHeight);
     }
 
     .container {
-      height: 100vh;
+      height: var(--viewHeight);
       .notion {
         padding-top: 30px;
         .header_content {
-          height: 100vh;
+          height: var(--viewHeight);
           margin-top: 45px;
 
           h2 {
@@ -1048,12 +1093,11 @@ header {
 
 @media screen and (max-width: 500px) and (orientation: portrait) {
   header {
-    .keep_scrolling {
-      font-size: 0.8em;
-    }
-
     .curtain {
-      height: 40vh;
+      .keep_scrolling {
+        font-size: 0.8em;
+      }
+      height: calc(0.4 * var(--viewHeight));
       h1 {
         font-size: 1.4em;
       }
@@ -1088,7 +1132,7 @@ header {
 
 @media screen and (max-width: 375px) and (orientation: portrait) {
   header .container {
-    height: 60vh;
+    height: calc(0.6 * var(--viewHeight));
   }
   header .container .notion {
     padding-top: 20px;
@@ -1101,7 +1145,7 @@ header {
     }
 
     .header_content {
-      height: 60vh;
+      height: calc(0.6 * var(--viewHeight));
       h2 {
         font-size: 1.2em;
       }
@@ -1112,7 +1156,7 @@ header {
     }
   }
   header .curtain {
-    height: 40vh;
+    height: calc(0.4 * var(--viewHeight));
 
     h1 {
       font-size: 1.2em;
@@ -1129,7 +1173,7 @@ header {
 }
 
 @media screen and (max-width: 375px) and (max-height: 700px) and (orientation: portrait) {
-  .animated .keep_scrolling {
+  .curtain .keep_scrolling {
     bottom: 10px;
   }
 }
@@ -1137,13 +1181,13 @@ header {
 @media screen and (max-width: 375px) and (max-height: 600px) and (orientation: portrait) {
   header {
     .container {
-      height: 55vh;
+      height: calc(0.55 * var(--viewHeight));
       .notion .header_content {
-        height: 55vh;
+        height: calc(0.55 * var(--viewHeight));
       }
     }
     .curtain {
-      height: 45vh;
+      height: calc(0.45 * var(--viewHeight));
     }
   }
 }
@@ -1151,9 +1195,9 @@ header {
 @media screen and (max-width: 300px) and (orientation: portrait) {
   header {
     .container {
-      height: 50vh;
+      height: calc(0.5 * var(--viewHeight));
       .notion .header_content {
-        height: 50vh;
+        height: calc(0.5 * var(--viewHeight));
         h2 {
           font-size: 1.1em;
         }
@@ -1163,7 +1207,7 @@ header {
       }
     }
     .curtain {
-      height: 50vh;
+      height: calc(0.5 * var(--viewHeight));
     }
   }
 }

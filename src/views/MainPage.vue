@@ -1,5 +1,6 @@
 <template>
-  <div v-body-scroll-lock="mobile" v-touch:swipe="swipeHandler">
+  <!-- <div v-body-scroll-lock="mobile" v-touch:swipe="swipeHandler"> -->
+  <div>
     <MainHeader />
     <Presentation />
   </div>
@@ -9,7 +10,7 @@
 import MainHeader from "@/components/MainHeader.vue";
 import Presentation from "@/components/Presentation.vue";
 
-import { debounce } from "debounce";
+// import { debounce } from "debounce";
 import smoothscroll from "smoothscroll-polyfill";
 
 export default {
@@ -34,24 +35,12 @@ export default {
     };
   },
   mounted() {
-    document
-      .querySelector(".keep_scrolling")
-      .addEventListener("click", this.scrollToPresentation);
+    document.querySelectorAll(".keep_scrolling").forEach((el) => {
+      el.addEventListener("click", this.scrollToPresentation);
+    });
 
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      this.mobile = true;
-      window.addEventListener("scroll", debounce(this.scrollChecker, 200));
-      smoothscroll.polyfill();
-      window.__forceSmoothScrollPolyfill__ = true;
-    } else {
-      window.addEventListener("wheel", this.onWheel);
-      window.addEventListener("scroll", debounce(this.scrollChecker, 200));
-      window.addEventListener("keydown", this.onKeyPrssed);
-    }
+    smoothscroll.polyfill();
+    window.__forceSmoothScrollPolyfill__ = true;
   },
   methods: {
     scrollToPresentation() {
