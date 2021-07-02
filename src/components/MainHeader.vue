@@ -416,7 +416,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`
+        `${viewHeight}px`,
       );
     },
   },

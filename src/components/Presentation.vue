@@ -103,90 +103,103 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   data() {
-    return {};
+    return {
+      bg_list: [
+        "#2b2d42",
+        "#f98d8d",
+        "#aec1ed",
+        "#312b2b",
+        "#f7b030",
+        "#e3e1c9",
+      ],
+    };
   },
   mounted() {
-    document
-      .querySelectorAll(".presentation_block .container")
-      .forEach((el) => {
-        const img = el.querySelector(".image");
-        const p = el.querySelector("p");
-        if (el.classList.contains("reversed")) {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: el,
-              start: "top center",
-              end: "top bottom",
-              markers: true,
-              toggleActions: "play none none reset",
-              once: true,
-            },
-          });
-
-          tl.from(img, {
-            x: 200,
-            opacity: 0,
-            duration: 1,
-          });
-
-          tl.from(
-            p,
-            {
-              y: 150,
-              opacity: 0,
-              duration: 1,
-            },
-            "-=1"
-          );
-        } else {
-          const tl = gsap.timeline({
-            scrollTrigger: {
-              trigger: el,
-              start: "top center",
-              end: "top bottom",
-              markers: true,
-              toggleActions: "play none none reset",
-              once: true,
-            },
-          });
-
-          tl.from(img, {
-            x: -200,
-            opacity: 0,
-            duration: 1,
-          });
-
-          tl.from(
-            p,
-            {
-              y: 150,
-              opacity: 0,
-              duration: 1,
-            },
-            "-=1"
-          );
-        }
+    gsap.utils.toArray(".presentation_block").forEach((section, i) => {
+      gsap.from("#" + section.id + " .image", {
+        scale: 0.3,
+        opacity: 0,
+        scrollTrigger: {
+          id: "image",
+          trigger: section,
+          start: "top 80%",
+          end: "top center",
+          scrub: true,
+          pinSpacing: false,
+          // markers: true,
+        },
       });
+
+      gsap.from("#" + section.id + " p", {
+        y: 100,
+        opacity: 0,
+        scrollTrigger: {
+          id: "p",
+          trigger: section,
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: true,
+          pinSpacing: false,
+          // markers: true,
+        },
+      });
+
+      gsap.to(".presentation", {
+        background: this.bg_list[0],
+        scrollTrigger: {
+          trigger: "#header",
+          start: "top top",
+          // markers: true,
+        },
+      });
+
+      gsap.to("#" + section.id, {
+        opacity: 0,
+        scrollTrigger: {
+          id: section.id,
+          trigger: section,
+          start: "bottom 30%",
+          end: "bottom top",
+          scrub: true,
+          pinSpacing: false,
+          // markers: true,
+        },
+      });
+
+      gsap.fromTo(
+        ".presentation",
+        {
+          background: i == 0 ? "#2b2d42" : this?.bg_list[i - 1],
+        },
+        {
+          background: this.bg_list[i],
+          scrollTrigger: {
+            id: section.id,
+            trigger: section,
+            start: "top center",
+            end: "bottom center",
+            scrub: true,
+            pinSpacing: false,
+            // markers: true,
+          },
+        },
+      );
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .presentation {
-  // background: #fafafa67;
-  // position: absolute;
-  // height: 100vh;
-  // top: 100vh;
   display: flex;
   flex-direction: column;
   width: 100vw;
   overflow: hidden;
-  // margin-bottom: -550vh;
+  background: #2b2d42;
   section {
     position: relative;
-    // top: 0;
-    // left: 0;
     width: 100%;
+    padding: 50px 0;
   }
 }
 .disable_selection {
@@ -198,7 +211,6 @@ section.presentation_block {
   font-family: "Comfortaa", sans-serif;
 
   .container {
-    height: 40vh;
     display: flex;
     justify-content: space-around;
     // background: #fafafa;
@@ -213,17 +225,15 @@ section.presentation_block {
       font-weight: 400;
       font-size: 1.1em;
       line-height: 1.6em;
-      // border-radius: 7px;
-      // background: #fffbfa;
-      // box-shadow: inset 0 0 3px #776c6780;
       text-align: justify;
+      // color: inverse(10%);
+      padding: 20px;
+      border-radius: 10px;
     }
 
     .image {
       display: flex;
       background: #fafafa;
-      // box-shadow: inset 0 0 3px #776c6780;
-      // border: 1px solid #908f8f2f;
       border-radius: 50%;
       padding: 4%;
       justify-content: center;
@@ -237,24 +247,23 @@ section.presentation_block {
 
   &.history {
     // background: #705936;
-    background: #2b2d4285;
+    // background: #2b2d4285;
     color: #fafafa;
   }
 
   &.book {
-    background: #f98d8d85;
+    // background: #f98d8d85;
     color: #fafafa;
   }
 
   &.gadget {
-    background: #aec1ed85;
-    color: #312b2b;
+    // background: #aec1ed85;
+    color: #fafafa;
   }
 
   &.not_available {
-    background: #312b2b85;
+    // background: #312b2b85;
     color: #fafafa;
-
     .image {
       padding: 3%;
       // background: transparent;
@@ -265,12 +274,12 @@ section.presentation_block {
   }
 
   &.opportunity {
-    background: #f7b03085;
+    // background: #f7b03085;
     color: #fafafa;
   }
 
   &.final {
-    background: #e3e1c985;
+    // background: #e3e1c985;
     color: #312b2b;
     .image {
       padding: 2%;

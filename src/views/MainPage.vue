@@ -46,7 +46,7 @@ export default {
     };
   },
   mounted() {
-    document.querySelectorAll(".keep_scrolling").forEach((el) => {
+    document.querySelectorAll(".keep_scrolling").forEach(el => {
       el.addEventListener("click", this.scrollToPresentation);
     });
 
@@ -103,7 +103,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`
+        `${viewHeight}px`,
       );
     },
     scrollToPresentation() {
@@ -208,7 +208,10 @@ export default {
 
 footer {
   padding: 50px;
+  color: #fafafa;
+  font-size: 1.2em;
+  letter-spacing: 1px;
   // margin: 10px;
-  border: 3px solid #000;
+  // border: 3px solid #000;
 }
 </style>
