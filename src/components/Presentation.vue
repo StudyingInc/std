@@ -1,6 +1,9 @@
 <template>
   <section class="presentation">
-    <section class="presentation_block disable_selection history" id="history">
+    <section
+      class="presentation_block pb disable_selection history"
+      id="history"
+    >
       <div class="container">
         <div class="image">
           <img src="@/assets/presentation/pen.svg" />
@@ -13,7 +16,7 @@
       </div>
     </section>
 
-    <section class="presentation_block disable_selection book" id="book">
+    <section class="presentation_block pb disable_selection book" id="book">
       <div class="container reversed">
         <div class="image">
           <img src="@/assets/presentation/book.svg" />
@@ -26,7 +29,7 @@
       </div>
     </section>
 
-    <section class="presentation_block disable_selection gadget" id="gadget">
+    <section class="presentation_block pb disable_selection gadget" id="gadget">
       <div class="container">
         <div class="image">
           <img src="@/assets/presentation/gadget.svg" />
@@ -41,7 +44,7 @@
     </section>
 
     <section
-      class="presentation_block disable_selection not_available"
+      class="presentation_block pb disable_selection not_available"
       id="not_available"
     >
       <div class="container reversed">
@@ -58,7 +61,7 @@
     </section>
 
     <section
-      class="presentation_block disable_selection opportunity"
+      class="presentation_block pb disable_selection opportunity"
       id="opportunity"
     >
       <div class="container">
@@ -75,7 +78,7 @@
       </div>
     </section>
 
-    <section class="presentation_block disable_selection final" id="final">
+    <section class="presentation_block pb disable_selection final" id="final">
       <div class="container reversed">
         <div class="image">
           <img src="@/assets/presentation/final.svg" />
@@ -93,29 +96,112 @@
 </template>
 
 <script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
+
 export default {
   data() {
     return {};
+  },
+  mounted() {
+    document
+      .querySelectorAll(".presentation_block .container")
+      .forEach((el) => {
+        const img = el.querySelector(".image");
+        const p = el.querySelector("p");
+        if (el.classList.contains("reversed")) {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: el,
+              start: "top center",
+              end: "top bottom",
+              markers: true,
+              toggleActions: "play none none reset",
+              once: true,
+            },
+          });
+
+          tl.from(img, {
+            x: 200,
+            opacity: 0,
+            duration: 1,
+          });
+
+          tl.from(
+            p,
+            {
+              y: 150,
+              opacity: 0,
+              duration: 1,
+            },
+            "-=1"
+          );
+        } else {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: el,
+              start: "top center",
+              end: "top bottom",
+              markers: true,
+              toggleActions: "play none none reset",
+              once: true,
+            },
+          });
+
+          tl.from(img, {
+            x: -200,
+            opacity: 0,
+            duration: 1,
+          });
+
+          tl.from(
+            p,
+            {
+              y: 150,
+              opacity: 0,
+              duration: 1,
+            },
+            "-=1"
+          );
+        }
+      });
   },
 };
 </script>
 
 <style lang="scss" scoped>
-section {
-  width: 100%;
+.presentation {
+  // background: #fafafa67;
+  // position: absolute;
+  // height: 100vh;
+  // top: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  overflow: hidden;
+  // margin-bottom: -550vh;
+  section {
+    position: relative;
+    // top: 0;
+    // left: 0;
+    width: 100%;
+  }
 }
 .disable_selection {
   user-select: none;
 }
 
 section.presentation_block {
-  width: 100%;
+  width: 100vw;
   font-family: "Comfortaa", sans-serif;
 
   .container {
-    height: 100vh;
+    height: 40vh;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    // background: #fafafa;
     align-items: center;
 
     &.reversed {
@@ -125,65 +211,71 @@ section.presentation_block {
     p {
       width: 60%;
       font-weight: 400;
-      font-size: 1.4em;
-      line-height: 1.8em;
+      font-size: 1.1em;
+      line-height: 1.6em;
+      // border-radius: 7px;
+      // background: #fffbfa;
+      // box-shadow: inset 0 0 3px #776c6780;
       text-align: justify;
     }
 
     .image {
       display: flex;
       background: #fafafa;
+      // box-shadow: inset 0 0 3px #776c6780;
+      // border: 1px solid #908f8f2f;
       border-radius: 50%;
-      padding: 5%;
+      padding: 4%;
       justify-content: center;
       align-items: center;
 
       img {
-        height: 12vw;
+        height: 10vw;
       }
     }
   }
 
   &.history {
     // background: #705936;
-    background: #2b2d42;
+    background: #2b2d4285;
     color: #fafafa;
   }
 
   &.book {
-    background: #f98d8d;
+    background: #f98d8d85;
     color: #fafafa;
   }
 
   &.gadget {
-    background: #aec1ed;
+    background: #aec1ed85;
     color: #312b2b;
   }
 
   &.not_available {
-    background: #312b2b;
+    background: #312b2b85;
     color: #fafafa;
 
     .image {
-      padding: 45px;
+      padding: 3%;
+      // background: transparent;
       img {
-        height: 13vw;
+        height: 12vw;
       }
     }
   }
 
   &.opportunity {
-    background: #f7b030;
+    background: #f7b03085;
     color: #fafafa;
   }
 
   &.final {
-    background: #e3e1c9;
+    background: #e3e1c985;
     color: #312b2b;
     .image {
-      padding: 45px;
+      padding: 2%;
       img {
-        height: 13vw;
+        height: 12vw;
       }
     }
   }

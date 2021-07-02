@@ -425,20 +425,20 @@ export default {
 
 <style lang="scss" scoped>
 .animated {
-  background: linear-gradient(
-    237deg,
-    #a6c0fe,
-    #f68084,
-    #9492ec,
-    #55cf96,
-    #9795f0,
-    #f072b6
-  );
-  background-size: 600% 600%;
+  // background: linear-gradient(
+  //   237deg,
+  //   #a6c0fe,
+  //   #f68084,
+  //   #9492ec,
+  //   #55cf96,
+  //   #9795f0,
+  //   #f072b6
+  // );
+  // background-size: 600% 600%;
 
-  -webkit-animation: bg_anim 40s ease infinite alternate;
-  -moz-animation: bg_anim 40s ease infinite alternate;
-  animation: bg_anim 40s ease infinite alternate;
+  // -webkit-animation: bg_anim 40s ease infinite alternate;
+  // -moz-animation: bg_anim 40s ease infinite alternate;
+  // animation: bg_anim 40s ease infinite alternate;
 }
 
 @keyframes bg_anim {
@@ -453,28 +453,10 @@ export default {
   }
 }
 
-@keyframes bubble_anim {
-  0% {
-    transform: rotate(0);
-  }
-  25% {
-    transform: translateY(50%);
-  }
-  50% {
-    transform: translateY(-50%) translateX(-55%);
-  }
-  75% {
-    transform: translateY(50%);
-  }
-  100% {
-    transform: rotate(0deg);
-  }
-}
-
 header {
   height: var(--viewHeight);
   position: relative;
-  width: 100%;
+  width: 100vw;
 
   .keep_scrolling {
     position: absolute;
@@ -773,13 +755,13 @@ header {
       top: 0;
       left: 0;
       width: 100%;
-      height: var(--viewHeight);
+      height: 100vh;
       z-index: -1;
       transition: background-color 0.3s ease-in-out;
 
       &.to_top {
         background: rgba(0, 0, 0, 0.6);
-        z-index: 0;
+        z-index: 1;
       }
     }
   }

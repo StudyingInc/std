@@ -79,14 +79,14 @@
 
 <script>
 export default {
-  name: 'SideNav'
+  name: "SideNav",
 };
 </script>
 
 <style lang="scss">
 .side_nav {
   display: none;
-  font-family: 'Comfotraa', sans-serif;
+  font-family: "Comfotraa", sans-serif;
 }
 @media screen and (max-width: 991px) {
   .side_nav {
@@ -102,6 +102,7 @@ export default {
     background: #fafafa;
     box-shadow: 7px 0px 20px 0 rgba(0, 0, 0, 0.3);
     transition: left 0.3s ease-in-out;
+    z-index: 1;
 
     svg {
       margin: 40px 0;

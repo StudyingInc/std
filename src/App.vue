@@ -5,11 +5,11 @@
 </template>
 
 <script>
-import './static/styles.css';
+import "./static/styles.css";
 
 export default {
-  name: 'App',
-  components: {}
+  name: "App",
+  components: {},
 };
 </script>
 
@@ -24,6 +24,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   color: #0d0d22;
+  overflow: hidden;
 }
 
 .header {
