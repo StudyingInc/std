@@ -105,17 +105,18 @@ export default {
   data() {
     return {
       bg_list: [
-        "#2b2d42",
-        "#f98d8d",
-        "#aec1ed",
-        "#312b2b",
-        "#f7b030",
-        "#e3e1c9",
+        "#FAD0C4",
+        "#FCD1D3",
+        "#FDD1E2",
+        "#FED1F1",
+        "#FFD1F8",
+        "#FFD1FF",
       ],
+      gradients: [],
     };
   },
   mounted() {
-    gsap.utils.toArray(".presentation_block").forEach((section, i) => {
+    gsap.utils.toArray(".presentation_block").forEach((section /*, i*/) => {
       gsap.from("#" + section.id + " .image", {
         scale: 0.3,
         opacity: 0,
@@ -124,31 +125,22 @@ export default {
           trigger: section,
           start: "top 80%",
           end: "top center",
-          scrub: true,
+          scrub: 1,
           pinSpacing: false,
           // markers: true,
         },
       });
 
       gsap.from("#" + section.id + " p", {
-        y: 100,
+        y: () => window.innerHeight * 0.2,
         opacity: 0,
         scrollTrigger: {
           id: "p",
           trigger: section,
           start: "top 80%",
           end: "bottom 80%",
-          scrub: true,
+          scrub: 1,
           pinSpacing: false,
-          // markers: true,
-        },
-      });
-
-      gsap.to(".presentation", {
-        background: this.bg_list[0],
-        scrollTrigger: {
-          trigger: "#header",
-          start: "top top",
           // markers: true,
         },
       });
@@ -160,46 +152,129 @@ export default {
           trigger: section,
           start: "bottom 30%",
           end: "bottom top",
-          scrub: true,
+          scrub: 0.5,
           pinSpacing: false,
           // markers: true,
         },
       });
-
-      gsap.fromTo(
-        ".presentation",
-        {
-          background: i == 0 ? "#2b2d42" : this?.bg_list[i - 1],
-        },
-        {
-          background: this.bg_list[i],
-          scrollTrigger: {
-            id: section.id,
-            trigger: section,
-            start: "top center",
-            end: "bottom center",
-            scrub: true,
-            pinSpacing: false,
-            // markers: true,
-          },
-        },
-      );
     });
+
+    gsap.fromTo(
+      ".presentation",
+      {
+        // backgroundImage: this.gradients[0],
+        // background: "#f68084",
+        background: "#2b2d42",
+      },
+      {
+        background: "#f68084",
+        // backgroundImage: this.gradients[2],
+        scrollTrigger: {
+          trigger: ".presentation",
+          start: () =>
+            "+=" +
+            (window.innerHeight / window.innerWidth) * window.innerHeight +
+            " top",
+          end: "bottom center",
+          scrub: 1.5,
+          pinSpacing: false,
+
+          // markers: true,
+        },
+      }
+    );
+    gsap.from(".presentation", {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: "#history",
+        start: () => "-=" + window.innerHeight * 0.8 + " top",
+        end: "center center",
+        scrub: 0.7,
+        pinSpacing: false,
+        // markers: true,
+        // once: true,
+      },
+    });
+
+    //after slides
+
+    // gsap.from("#about", {
+    //   opacity: 0,
+    //   x: () => window.innerWidth * 0.1,
+    //   scrollTrigger: {
+    //     trigger: "#about",
+    //     start: "top bottom",
+    //     end: "center bottom",
+    //     scrub: 0.7,
+    //     // pinSpacing: false,
+    //     // markers: true,
+    //     // once: true,
+    //   },
+    // });
+    // const tl = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: "#about",
+    //     start: "top bottom",
+    //     end: "+=50%",
+    //     scrub: true,
+    //     pin: true,
+    //     markers: true,
+    //     pinSpacing: true,
+    //   },
+    // });
+
+    // tl.fromTo(".about", { scale: 0 }, { scale: 1 }, 0);
+    // tl.from(".about", { opacity: 0, y: () => window.innerHeight * 0.2 }, 0);
+    // tl.fromTo(
+    //   ".presentation",
+    //   { background: "#f68084" },
+    //   { background: "#f6808400" },
+    //   0
+    // );
   },
 };
 </script>
 
 <style lang="scss" scoped>
+// *{background: #353753;
 .presentation {
   display: flex;
   flex-direction: column;
   width: 100vw;
-  overflow: hidden;
-  background: #2b2d42;
+  // overflow: hidden;
+  // background-color: #ffadfc;
+  // background-image: radial-gradient(
+  //     at 15% 38%,
+  //     hsla(259, 69%, 74%, 1) 0,
+  //     transparent 46%
+  //   ),
+  //   radial-gradient(at 50% 23%, hsla(319, 75%, 70%, 1) 0, transparent 42%),
+  //   radial-gradient(at 44% 72%, hsla(8, 95%, 68%, 1) 0, transparent 47%),
+  //   radial-gradient(at 89% 13%, hsla(289, 82%, 63%, 1) 0, transparent 53%),
+  //   radial-gradient(at 81% 70%, hsla(268, 94%, 73%, 1) 0, transparent 53%),
+  //   radial-gradient(at 9% 78%, hsla(218, 78%, 69%, 1) 0, transparent 46%);
+
   section {
     position: relative;
     width: 100%;
+    // margin: 30px 0;
     padding: 50px 0;
+
+    &#about {
+      font-family: "Comfortaa", sans-serif;
+      font-size: 1.2em;
+      height: auto;
+      text-align: center;
+      text-indent: 5%;
+      color: #fafafa;
+      // .container .about {
+      //   background: #ffffffd8;
+      //   border-radius: 1.5vh;
+      //   color: #363636;
+      //   padding: 25px 10px;
+      //   line-height: 2em;
+      // }
+    }
   }
 }
 .disable_selection {
@@ -224,67 +299,74 @@ section.presentation_block {
       width: 60%;
       font-weight: 400;
       font-size: 1.1em;
-      line-height: 1.6em;
+      line-height: 1.8em;
       text-align: justify;
-      // color: inverse(10%);
+      color: #fafafa;
+      // background: #fafafaec;
+      // border-radius: 1.5vh;
       padding: 20px;
-      border-radius: 10px;
+
+      // color: inverse(10%);
     }
 
     .image {
       display: flex;
-      background: #fafafa;
+      background: #fafafaec;
       border-radius: 50%;
       padding: 4%;
       justify-content: center;
       align-items: center;
 
       img {
-        height: 10vw;
+        height: 7vw;
       }
     }
   }
 
   &.history {
     // background: #705936;
+    margin-top: 50px;
     // background: #2b2d4285;
-    color: #fafafa;
+    // color: #fafafa;
   }
 
   &.book {
     // background: #f98d8d85;
-    color: #fafafa;
+    // color: #fafafa;
   }
 
   &.gadget {
     // background: #aec1ed85;
-    color: #fafafa;
+    // color: #fafafa;
   }
 
   &.not_available {
     // background: #312b2b85;
-    color: #fafafa;
+    // color: #fafafa;
     .image {
       padding: 3%;
       // background: transparent;
       img {
-        height: 12vw;
+        height: 8vw;
       }
     }
   }
 
   &.opportunity {
     // background: #f7b03085;
-    color: #fafafa;
+    // color: #fafafa;
   }
 
   &.final {
     // background: #e3e1c985;
-    color: #312b2b;
+
+    // color: #fafafa;
+    // color: #312b2b;
     .image {
       padding: 2%;
+      background: #fafafa;
       img {
-        height: 12vw;
+        height: 10vw;
       }
     }
   }
