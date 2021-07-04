@@ -1,8 +1,10 @@
 <template>
   <div class="main-page">
     <!-- <div class="wrapper"> -->
-    <MainHeader />
-    <Presentation />
+    <div class="bg-wrapper">
+      <MainHeader />
+      <Presentation />
+    </div>
     <AboutStudyInc />
     <footer class="footer">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque maxime odit
@@ -20,11 +22,11 @@ import MainHeader from "@/components/MainHeader.vue";
 import Presentation from "@/components/Presentation.vue";
 import AboutStudyInc from "@/components/AboutStudyInc.vue";
 
-// import gsap from "gsap";
-// import ScrollTrigger from "gsap/ScrollTrigger";
+import gsap from "gsap";
+import scrollTo from "gsap/ScrollToPlugin";
 import smoothscroll from "smoothscroll-polyfill";
 
-// gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(scrollTo);
 
 export default {
   name: "MainPage",
@@ -70,11 +72,7 @@ export default {
     },
     scrollToPresentation() {
       this.currentSection = 1;
-      let item_offset = document.getElementById("history").offsetTop;
-      window.scrollTo({
-        top: item_offset,
-        behavior: "smooth",
-      });
+      gsap.to(window, { duration: 0.8, scrollTo: "#history" });
     },
     _scrollTo(id) {
       let el = document.getElementById(id);
@@ -155,7 +153,7 @@ export default {
     background-position: 0% 86%;
   }
 }
-.main-page {
+.main-page .bg-wrapper {
   background: linear-gradient(
     237deg,
     #a6c0fe,
