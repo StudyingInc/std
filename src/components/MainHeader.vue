@@ -416,7 +416,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`
+        `${viewHeight}px`,
       );
     },
   },
@@ -430,7 +430,6 @@ export default {
   //   #a6c0fe,
   //   #f68084,
   //   #9492ec,
-  //   #55cf96,
   //   #9795f0,
   //   #f072b6
   // );

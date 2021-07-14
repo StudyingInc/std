@@ -181,7 +181,7 @@ export default {
 
           // markers: true,
         },
-      }
+      },
     );
     gsap.from(".presentation", {
       opacity: 0,
