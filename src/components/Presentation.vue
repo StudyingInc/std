@@ -167,7 +167,8 @@ export default {
         background: "#2b2d42",
       },
       {
-        background: "#f68084",
+        // background: "#f68084",
+        background: "#7f7eda",
         // backgroundImage: this.gradients[2],
         scrollTrigger: {
           trigger: ".presentation",
@@ -183,6 +184,49 @@ export default {
         },
       },
     );
+
+    gsap.fromTo(
+      ".wave",
+      {
+        fill: "#2b2d42",
+      },
+      {
+        fill: "#7f7eda",
+        // backgroundImage: this.gradients[2],
+        scrollTrigger: {
+          trigger: ".presentation",
+          start: () =>
+            "+=" +
+            (window.innerHeight / window.innerWidth) * window.innerHeight +
+            " top",
+          end: "bottom center",
+          scrub: 1.5,
+          pinSpacing: false,
+        },
+      },
+    );
+
+    gsap.fromTo(
+      ".wave-mobile",
+      {
+        fill: "#2b2d42",
+      },
+      {
+        fill: "#7f7eda",
+        // backgroundImage: this.gradients[2],
+        scrollTrigger: {
+          trigger: ".presentation",
+          start: () =>
+            "+=" +
+            (window.innerHeight / window.innerWidth) * window.innerHeight +
+            " top",
+          end: "bottom center",
+          scrub: 1.5,
+          pinSpacing: false,
+        },
+      },
+    );
+
     gsap.from(".presentation", {
       opacity: 0,
       scrollTrigger: {
@@ -359,7 +403,7 @@ section.presentation_block {
 
   &.final {
     // background: #e3e1c985;
-
+    padding-bottom: 10px;
     // color: #fafafa;
     // color: #312b2b;
     .image {

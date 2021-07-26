@@ -153,21 +153,61 @@ export default {
     background-position: 0% 86%;
   }
 }
-.main-page .bg-wrapper {
-  background: linear-gradient(
-    237deg,
-    #a6c0fe,
-    #f68084,
-    #9492ec,
-    #9795f0,
-    #f072b6
-  );
-  background-size: 500% 500%;
 
-  -webkit-animation: bg_anim 40s ease infinite alternate;
-  -moz-animation: bg_anim 40s ease infinite alternate;
-  animation: bg_anim 40s ease infinite alternate;
+.main-page .bg-wrapper {
+  background: linear-gradient(52deg, #7f7eda, #7776d4, #f68084, #f563acaa);
+  background-size: 200% 200%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
 }
+
+@-webkit-keyframes AnimationName {
+  0% {
+    background-position: 0% 90%;
+  }
+  50% {
+    background-position: 100% 11%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
+}
+@-moz-keyframes AnimationName {
+  0% {
+    background-position: 0% 90%;
+  }
+  50% {
+    background-position: 100% 11%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
+}
+@keyframes AnimationName {
+  0% {
+    background-position: 0% 90%;
+  }
+  50% {
+    background-position: 100% 11%;
+  }
+  100% {
+    background-position: 0% 90%;
+  }
+}
+
+// .main-page .bg-wrapper {
+//   // #a6c0fe,
+//   // #f072b6
+//   // background: linear-gradient(237deg, #f68084, #9492ec, #9795f0);
+//   background: linear-gradient(237deg, red, green, blue, orange);
+//   background-size: 400% 500%;
+
+//   -webkit-animation: bg_anim 40s ease infinite alternate;
+//   -moz-animation: bg_anim 40s ease infinite alternate;
+//   animation: bg_anim 40s ease infinite alternate;
+// }
 
 footer {
   padding: 50px;
@@ -177,5 +217,14 @@ footer {
   letter-spacing: 1px;
   // margin: 10px;
   // border: 3px solid #000;
+}
+
+@media screen and (max-width: 500px) {
+  .main-page .bg-wrapper {
+    animation: none;
+    background: url("../assets/mesh9.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 200vh;
+  }
 }
 </style>
