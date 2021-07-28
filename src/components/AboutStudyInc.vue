@@ -66,10 +66,8 @@
 <script>
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-// import scrollTo from "gsap/ScrollToPlugin";
 
 gsap.registerPlugin(ScrollTrigger);
-// gsap.registerPlugin(scrollTo);
 
 export default {
   name: "MainPage",
@@ -78,105 +76,55 @@ export default {
     return {};
   },
   mounted() {
-    // gsap.to(window, { duration: 1, scrollTo: "#history" });
-
-    // ScrollTrigger.create({
-    //   trigger: ".about-study",
-    //   start: "20% bottom",
-    //   end: () => `+=${window.innerHeight}`,
-    //   pin: ".presentation",
-    //   // markers: true,
-    //   pinSpacing: false,
-    // });
-
-    gsap.from("#about", {
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".about-study",
-        start: "20% bottom",
-        end: () => `+=${window.innerHeight * 0.7}`,
-        // pin: ".presentation",
-        scrub: 0.5,
-        pinSpacing: false,
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    gsap.from(".about-study", {
-      // scale: 0.7,
-      scrollTrigger: {
-        trigger: "#about",
-        start: "top bottom",
-        end: () => `+=${window.innerHeight * 0.7}`,
-        // pin: ".presentation",
-        // scrub: 0.5,
-        pinSpacing: false,
-        toggleActions: "play none none reverse",
-      },
-    });
-
     //about-wrapper animation
     const about_tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about-wrapper",
-        start: "-30% center",
+        start: "top center",
         end: "bottom bottom",
+        markers: true,
         toggleActions: "play none none reverse",
       },
     });
     about_tl.fromTo(
       ".about-text",
-      { opacity: 0, x: "-10%" },
-      { opacity: 1, x: 0, duration: 0.7 },
+      { autoAlpha: 0.01, x: "-10%" },
+      { autoAlpha: 1, x: 0, duration: 0.5 },
+      0
     );
     about_tl.fromTo(
       ".about-wrapper img",
-      { opacity: 0, y: "10%" },
-      { opacity: 1, y: 0, duration: 0.7 },
-      0,
+      { autoAlpha: 0.01, y: "10%" },
+      { autoAlpha: 1, y: 0, duration: 0.5 },
+      0
     );
 
     //aims-wrapper animation
     const aims_tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".aims-wrapper",
-        start: "top 80%",
-        end: "start 80%",
+        start: "top center",
+        end: "bottom bottom",
         toggleActions: "play none none reverse",
       },
     });
     aims_tl.fromTo(
       ".aims-text",
-      { opacity: 0, x: "10%" },
-      { opacity: 1, x: 0, duration: 0.7 },
-      0,
+      { autoAlpha: 0.01, x: "10%" },
+      { autoAlpha: 1, x: 0, duration: 0.5 },
+      0
     );
     aims_tl.fromTo(
       ".aims-wrapper img",
-      { opacity: 0, y: "10%" },
-      { opacity: 1, y: 0, duration: 0.7 },
-      0,
+      { autoAlpha: 0.01, y: "10%" },
+      { autoAlpha: 1, y: 0, duration: 0.5 },
+      0
     );
   },
 };
 </script>
 
 <style lang="scss" scoped>
-// .circle {
-//   display: block;
-//   position: absolute;
-//   top: 20%;
-//   left: 0%;
-//   transform: translateX(-70%);
-//   border-radius: 100%;
-//   height: 700px;
-//   width: 700px;
-//   margin: 0;
-//   background: #7f7eda;
-//   filter: drop-shadow(0px 10px 5px rgb(0 0 0 / 0.2));
-//   // box-shadow: 5px 0px 10px 0px rgba(0, 0, 0, 0.3);
-// }
-
 .wave {
   display: block;
   filter: drop-shadow(0px 10px 5px rgb(0 0 0 / 0.2));
@@ -221,7 +169,6 @@ section {
       border-radius: 1rem;
 
       .about-text {
-        opacity: 0;
         position: absolute;
         height: 50%;
         width: 50%;
@@ -245,7 +192,6 @@ section {
       }
 
       .img {
-        opacity: 0;
         top: 5%;
         right: 0;
         z-index: 0;
@@ -267,7 +213,6 @@ section {
         width: 52%;
         right: 5%;
         bottom: 5%;
-        opacity: 0;
 
         z-index: 1;
         background: #fafafa99;
@@ -290,7 +235,6 @@ section {
         border-radius: 1em;
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
         height: 80%;
-        opacity: 0;
       }
     }
 
