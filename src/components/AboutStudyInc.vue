@@ -82,20 +82,20 @@ export default {
         trigger: ".about-wrapper",
         start: "top center",
         end: "bottom bottom",
-        markers: true,
+        // markers: true,
         toggleActions: "play none none reverse",
       },
     });
     about_tl.fromTo(
       ".about-text",
-      { autoAlpha: 0.01, x: "-10%" },
-      { autoAlpha: 1, x: 0, duration: 0.5 },
+      { opacity: 0.01, x: "-10%" },
+      { opacity: 1, x: 0, duration: 0.5 },
       0
     );
     about_tl.fromTo(
       ".about-wrapper img",
-      { autoAlpha: 0.01, y: "10%" },
-      { autoAlpha: 1, y: 0, duration: 0.5 },
+      { opacity: 0.01, y: "10%" },
+      { opacity: 1, y: 0, duration: 0.5 },
       0
     );
 
@@ -110,14 +110,14 @@ export default {
     });
     aims_tl.fromTo(
       ".aims-text",
-      { autoAlpha: 0.01, x: "10%" },
-      { autoAlpha: 1, x: 0, duration: 0.5 },
+      { opacity: 0.01, x: "10%" },
+      { opacity: 1, x: 0, duration: 0.5 },
       0
     );
     aims_tl.fromTo(
       ".aims-wrapper img",
-      { autoAlpha: 0.01, y: "10%" },
-      { autoAlpha: 1, y: 0, duration: 0.5 },
+      { opacity: 0.01, y: "10%" },
+      { opacity: 1, y: 0, duration: 0.5 },
       0
     );
   },
@@ -137,16 +137,24 @@ export default {
 
 .about-study {
   position: relative;
-  z-index: 10;
-  margin-top: -2px;
-  background: url("../assets/bg/14.jpg") no-repeat;
   // background: url("../assets/bg/19.jpg") no-repeat;
   // background: url("../assets/bg/24.jpg") no-repeat;
   // background: url("../assets/bg/42.jpg") no-repeat;
   // background: url("../assets/bg/44.jpg") no-repeat;
   // background: url("../assets/bg/53.jpg") no-repeat;
-  background-size: cover;
   // background-image: linear-gradient(155deg, #f68084 0%, #da6298 100%);
+  &::before {
+    background: url("../assets/bg/14.jpg") no-repeat center center;
+    background-size: cover;
+    content: " ";
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    will-change: transform;
+    z-index: -1;
+  }
 }
 section {
   font-family: "Comfortaa", sans-serif;
@@ -284,7 +292,7 @@ section {
         .about-wrapper,
         .aims-wrapper {
           position: initial;
-          display: block;
+          display: table;
           height: fit-content;
           width: 90%;
           margin-top: 60px;
@@ -292,7 +300,7 @@ section {
           .about-text,
           .aims-text {
             position: initial;
-            height: fit-content;
+            // height: fit-content;
             padding: 0;
             justify-content: flex-start;
             background: #fafafabb;
@@ -313,7 +321,7 @@ section {
 
               .h1-icon {
                 padding: 3px 0 3px 15px;
-                height: 90%;
+                height: 120%;
                 grid-area: icon;
               }
 
@@ -346,11 +354,11 @@ section {
               position: absolute;
               top: -5px;
               left: 0;
-              width: 130%;
+              width: 100%;
               height: 150px;
               background-image: url("../assets/mountains1.jpg");
               background-size: cover;
-              background-position: center 150px;
+              background-position: center 170px;
             }
           }
 
@@ -405,8 +413,8 @@ section {
         .about-wrapper,
         .aims-wrapper {
           position: initial;
-          display: block;
-          height: fit-content;
+          // display: block;
+          // height: fit-content;
           width: 90%;
           margin-top: 50px;
 
@@ -416,6 +424,7 @@ section {
               .h1-icon {
                 padding: 3px 0 3px 5px;
                 grid-area: icon;
+                height: auto;
                 width: 100%;
               }
 
@@ -438,6 +447,9 @@ section {
 
           .aims-text .h1-wrapper {
             padding: 20px;
+            &:before {
+              background-position: center 120px;
+            }
           }
 
           .about-text .h1-wrapper {
