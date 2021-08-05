@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <div id="preloadedImages"></div>
     <router-view></router-view>
   </div>
 </template>
@@ -25,6 +26,13 @@ export default {
   color: #2c3e50;
   color: #0d0d22;
   overflow: hidden;
+}
+
+#preloadedImages {
+  width: 0px;
+  height: 0px;
+  display: inline;
+  background-image: url();
 }
 
 .header {

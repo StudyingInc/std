@@ -168,7 +168,7 @@ export default {
 
           // markers: true,
         },
-      }
+      },
     );
 
     gsap.fromTo(
@@ -188,7 +188,7 @@ export default {
           scrub: 1.5,
           pinSpacing: false,
         },
-      }
+      },
     );
 
     gsap.fromTo(
@@ -208,7 +208,7 @@ export default {
           scrub: 1.5,
           pinSpacing: false,
         },
-      }
+      },
     );
 
     gsap.from(".presentation", {

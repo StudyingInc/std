@@ -1,6 +1,5 @@
 <template>
   <div class="about-study" id="about-study">
-    <!-- <figure class="circle"></figure> -->
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         class="wave"
@@ -32,7 +31,22 @@
               can ask for help when the issue of admission is most acute
             </p>
           </div>
-          <img src="@/assets/service.jpg" alt="" class="img about" />
+          <img
+            srcset="
+              @/assets/service_1024.jpg 1024w,
+              @/assets/service_720.jpg   720w,
+              @/assets/service_640.jpg   640w,
+              @/assets/service_320.jpg   320w
+            "
+            sizes="
+            (max-width: 480px) 320px,
+            (max-width: 720px) 640px,
+            (max-width: 1024px) 720px,
+            1024px
+            "
+            style="object-fit:cover;"
+            class="img about"
+          />
         </div>
       </div>
     </section>
@@ -56,7 +70,20 @@
               university admission painless
             </p>
           </div>
-          <img src="@/assets/global.jpg" alt="" class="img aims" />
+          <img
+            srcset="
+              @/assets/global_1024.jpg 1024w,
+              @/assets/global_720.jpg   720w,
+              @/assets/global_640.jpg   640w,
+              @/assets/global_320.jpg   320w
+            "
+            sizes="(max-width: 480px) 320px,
+            (max-width: 720px) 640px,
+            (max-width: 1024px) 720px,
+            1024px"
+            style="object-fit:cover;"
+            class="img aims"
+          />
         </div>
       </div>
     </section>
@@ -90,13 +117,13 @@ export default {
       ".about-text",
       { opacity: 0.01, x: "-10%" },
       { opacity: 1, x: 0, duration: 0.5 },
-      0
+      0,
     );
     about_tl.fromTo(
       ".about-wrapper img",
       { opacity: 0.01, y: "10%" },
       { opacity: 1, y: 0, duration: 0.5 },
-      0
+      0,
     );
 
     //aims-wrapper animation
@@ -112,13 +139,13 @@ export default {
       ".aims-text",
       { opacity: 0.01, x: "10%" },
       { opacity: 1, x: 0, duration: 0.5 },
-      0
+      0,
     );
     aims_tl.fromTo(
       ".aims-wrapper img",
       { opacity: 0.01, y: "10%" },
       { opacity: 1, y: 0, duration: 0.5 },
-      0
+      0,
     );
   },
 };
@@ -137,6 +164,7 @@ export default {
 
 .about-study {
   position: relative;
+  z-index: 0;
   // background: url("../assets/bg/19.jpg") no-repeat;
   // background: url("../assets/bg/24.jpg") no-repeat;
   // background: url("../assets/bg/42.jpg") no-repeat;
@@ -144,7 +172,7 @@ export default {
   // background: url("../assets/bg/53.jpg") no-repeat;
   // background-image: linear-gradient(155deg, #f68084 0%, #da6298 100%);
   &::before {
-    background: url("../assets/bg/14.jpg") no-repeat center center;
+    background: url("../assets/14.jpg") no-repeat center center;
     background-size: cover;
     content: " ";
     height: 100%;
@@ -153,6 +181,15 @@ export default {
     top: 0;
     width: 100%;
     will-change: transform;
+    z-index: -1;
+  }
+
+  .bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: -1;
   }
 }
@@ -377,7 +414,7 @@ section {
               left: 0;
               width: 130%;
               height: 150px;
-              background-image: url("../assets/service.jpg");
+              background-image: url("../assets/service1.jpg");
               background-size: cover;
               background-position: top center;
             }
