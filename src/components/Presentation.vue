@@ -117,6 +117,7 @@ export default {
           end: "top center",
           scrub: 1,
           pinSpacing: false,
+          toggleActions: "play none none reverse",
           // markers: true,
         },
       });
@@ -131,6 +132,7 @@ export default {
           end: "bottom 80%",
           scrub: 1,
           pinSpacing: false,
+          toggleActions: "play none none reverse",
           // markers: true,
         },
       });
@@ -155,7 +157,7 @@ export default {
         background: "#2b2d42",
       },
       {
-        background: "#7f7eda",
+        background: "#6b69d3",
         scrollTrigger: {
           trigger: ".presentation",
           start: () =>
@@ -168,7 +170,7 @@ export default {
 
           // markers: true,
         },
-      },
+      }
     );
 
     gsap.fromTo(
@@ -177,7 +179,7 @@ export default {
         fill: "#2b2d42",
       },
       {
-        fill: "#7f7eda",
+        fill: "#6b69d3",
         scrollTrigger: {
           trigger: ".presentation",
           start: () =>
@@ -188,7 +190,7 @@ export default {
           scrub: 1.5,
           pinSpacing: false,
         },
-      },
+      }
     );
 
     gsap.fromTo(
@@ -197,7 +199,7 @@ export default {
         fill: "#2b2d42",
       },
       {
-        fill: "#7f7eda",
+        fill: "#6b69d3",
         scrollTrigger: {
           trigger: ".presentation",
           start: () =>
@@ -208,7 +210,7 @@ export default {
           scrub: 1.5,
           pinSpacing: false,
         },
-      },
+      }
     );
 
     gsap.from(".presentation", {

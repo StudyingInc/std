@@ -51,7 +51,7 @@ export default {
     };
   },
   mounted() {
-    document.querySelectorAll(".keep_scrolling").forEach(el => {
+    document.querySelectorAll(".keep_scrolling").forEach((el) => {
       el.addEventListener("click", this.scrollToPresentation);
     });
 
@@ -67,7 +67,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`,
+        `${viewHeight}px`
       );
     },
     scrollToPresentation() {

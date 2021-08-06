@@ -1,5 +1,7 @@
 <template>
   <div class="about-study" id="about-study">
+    <img src="../assets/blob1.png" class="bun bun1" />
+    <img src="../assets/blob2.png" class="bun bun2" />
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
       <path
         class="wave"
@@ -117,13 +119,13 @@ export default {
       ".about-text",
       { opacity: 0.01, x: "-10%" },
       { opacity: 1, x: 0, duration: 0.5 },
-      0,
+      0
     );
     about_tl.fromTo(
       ".about-wrapper img",
       { opacity: 0.01, y: "10%" },
       { opacity: 1, y: 0, duration: 0.5 },
-      0,
+      0
     );
 
     //aims-wrapper animation
@@ -139,19 +141,84 @@ export default {
       ".aims-text",
       { opacity: 0.01, x: "10%" },
       { opacity: 1, x: 0, duration: 0.5 },
-      0,
+      0
     );
     aims_tl.fromTo(
       ".aims-wrapper img",
       { opacity: 0.01, y: "10%" },
       { opacity: 1, y: 0, duration: 0.5 },
-      0,
+      0
     );
+
+    gsap.from(".bun1", {
+      opacity: 0.001,
+      scale: 0.7,
+      duration: 0.7,
+      ease: "back.out(2)",
+      scrollTrigger: {
+        trigger: ".about-wrapper",
+        start: "top center",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".bun2", {
+      opacity: 0.001,
+      scale: 0.7,
+      duration: 0.7,
+      ease: "back.out(2)",
+      scrollTrigger: {
+        trigger: ".aims-wrapper",
+        start: "top center",
+        toggleActions: "play none none reverse",
+      },
+    });
+
+    const bun1_tl = gsap.timeline({
+      repeat: -1,
+    });
+
+    bun1_tl.to(".bun1", {
+      y: "-=50px",
+      duration: 4,
+      ease: "power1.inOut",
+    });
+    bun1_tl.to(".bun1", {
+      y: "+=50px",
+      duration: 4,
+      ease: "power1.inOut",
+    });
+
+    const bun2_tl = gsap.timeline({ repeat: -1 });
+
+    bun2_tl.to(".bun2", {
+      y: "-=60px",
+      duration: 5,
+      ease: "power1.inOut",
+    });
+    bun2_tl.to(".bun2", {
+      y: "+=60px",
+      duration: 5,
+      ease: "power1.inOut",
+    });
   },
 };
 </script>
 
 <style lang="scss" scoped>
+.bun {
+  position: absolute;
+  &.bun1 {
+    top: 500px;
+    width: 35%;
+  }
+  &.bun2 {
+    top: 1100px;
+    width: 35%;
+    right: -50px;
+  }
+}
+
 .wave {
   display: block;
   filter: drop-shadow(0px 10px 5px rgb(0 0 0 / 0.2));
@@ -164,7 +231,7 @@ export default {
 
 .about-study {
   position: relative;
-  z-index: 0;
+  z-index: -1;
   // background: url("../assets/bg/19.jpg") no-repeat;
   // background: url("../assets/bg/24.jpg") no-repeat;
   // background: url("../assets/bg/42.jpg") no-repeat;
@@ -172,16 +239,16 @@ export default {
   // background: url("../assets/bg/53.jpg") no-repeat;
   // background-image: linear-gradient(155deg, #f68084 0%, #da6298 100%);
   &::before {
-    background: url("../assets/14.jpg") no-repeat center center;
+    background: url("../assets/14.jpg") no-repeat top center;
     background-size: cover;
     content: " ";
     height: 100%;
     position: absolute;
-    left: 0;
     top: 0;
+    left: 0;
     width: 100%;
     will-change: transform;
-    z-index: -1;
+    z-index: -2;
   }
 
   .bg {
@@ -211,7 +278,7 @@ section {
       position: relative;
       height: 700px;
       padding: 0;
-      border-radius: 1rem;
+      border-radius: 1.5rem;
 
       .about-text {
         position: absolute;
@@ -226,8 +293,8 @@ section {
         backdrop-filter: blur(10px);
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
 
-        border-radius: 1em;
-        padding: 0em;
+        border-radius: 1.7em;
+        padding: 0.2em;
 
         display: flex;
         flex-direction: column;
@@ -241,7 +308,7 @@ section {
         right: 0;
         z-index: 0;
         position: absolute;
-        border-radius: 1em;
+        border-radius: 1.7em;
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
         height: 80%;
       }
@@ -263,7 +330,8 @@ section {
         background: #fafafa99;
         backdrop-filter: blur(10px);
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
-        border-radius: 1em;
+        border-radius: 1.7em;
+        padding: 0.2em;
 
         display: flex;
         flex-direction: column;
@@ -277,7 +345,7 @@ section {
         left: 0;
         z-index: 0;
         position: absolute;
-        border-radius: 1em;
+        border-radius: 1.7em;
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
         height: 80%;
       }
@@ -313,6 +381,23 @@ section {
   }
 }
 
+@media screen and (max-width: 1700px) {
+  .bun {
+    &.bun1 {
+      left: -50px;
+    }
+    &.bun2 {
+      right: -50px;
+    }
+  }
+}
+
+@media screen and (max-width: 1250px) {
+  .bun {
+    display: none;
+  }
+}
+
 @media screen and (max-width: 992px) {
   .about-study {
     padding-bottom: 60px;
@@ -345,6 +430,7 @@ section {
             width: 100%;
             top: 0;
             left: 0;
+            border-radius: 1em;
 
             .h1-wrapper {
               width: 100%;
@@ -414,7 +500,7 @@ section {
               left: 0;
               width: 130%;
               height: 150px;
-              background-image: url("../assets/service1.jpg");
+              background-image: url("../assets/service_720.jpg");
               background-size: cover;
               background-position: top center;
             }
@@ -462,7 +548,7 @@ section {
                 padding: 3px 0 3px 5px;
                 grid-area: icon;
                 height: auto;
-                width: 100%;
+                width: 70%;
               }
 
               h1 {
