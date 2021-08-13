@@ -416,7 +416,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`,
+        `${viewHeight}px`
       );
     },
   },
@@ -526,23 +526,31 @@ header {
       display: flex;
       grid-gap: 15px;
       margin-left: -5px;
+      transition: 0.2s all ease-in-out;
 
       &:hover {
+        a.nav_item {
+          transform: scale(0.9);
+          // filter: blur(1px);
+          opacity: 0.6;
+          // box-shadow: none;
+        }
         a.nav_item:after {
           opacity: 1;
         }
       }
       a.nav_item {
+        transition: 0.2s all ease-in-out;
         display: flex;
         justify-content: center;
         align-items: center;
-        width: 90px;
+        width: 95px;
         position: relative;
         color: #2b2d42;
-        font-size: 0.8em;
+        font-size: 0.9em;
 
         svg {
-          width: 75px;
+          width: 80px;
           transition: all 0.25s ease-in-out;
 
           path {
@@ -551,12 +559,15 @@ header {
         }
 
         &:hover {
+          transform: scale(1);
+          // filter: blur(0px);
+          opacity: 1;
           svg {
-            width: 90px;
+            // width: 85px;
           }
           &:after {
-            top: 110px;
-            font-size: 1.2em;
+            // top: 105px;
+            // font-size: 1.2em;
             font-weight: bolder;
           }
         }
