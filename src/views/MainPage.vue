@@ -6,6 +6,7 @@
       <Presentation />
     </div>
     <AboutStudyInc />
+    <Info />
     <footer class="footer">
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque maxime odit
       laboriosam laudantium alias accusamus eveniet corporis id quos natus iure
@@ -21,6 +22,7 @@
 import MainHeader from "@/components/MainHeader.vue";
 import Presentation from "@/components/Presentation.vue";
 import AboutStudyInc from "@/components/AboutStudyInc.vue";
+import Info from "@/components/Info.vue";
 
 import gsap from "gsap";
 import scrollTo from "gsap/ScrollToPlugin";
@@ -34,6 +36,7 @@ export default {
     MainHeader,
     Presentation,
     AboutStudyInc,
+    Info,
   },
   data() {
     return {
@@ -67,7 +70,7 @@ export default {
       body.classList.remove("hidden");
       document.documentElement.style.setProperty(
         "--viewHeight",
-        `${viewHeight}px`
+        `${viewHeight}px`,
       );
     },
     scrollToPresentation() {
