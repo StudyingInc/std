@@ -10,24 +10,21 @@
           through academic activities
         </h5>
         <p>
-          The International Student Ambassador (ISA) program is an innovation in
-          the world of modern diplomacy. Within the framework of this project,
-          the role of ambassadors is performed by students from different
-          countries, different faculties and different ages. Their activity
-          consists in the fact that they, first of all, establish new ties
-          between the two educational institutions, signing the so-called
-          cooperation agreement. This agreement becomes the legal basis for the
-          partnership of the two parties
+          ISA is a project of the Financial University under the Government of
+          the Russian Federation, thanks to which the university establishes new
+          ties with foreign partners, various exchange and cooperation programs
+          appear
         </p>
         <p>
-          Thanks to such activities of student ambassadors, a new partner
-          appears not only at the university, but also in the country as a
-          whole. By exchanging academic experience, countries can reach the top
-          in various spheres of life: get valuable personnel from other
-          countries, make scientific discoveries, give students more
-          opportunities to gain international experience. Thus, the ISA project
-          will be able to bring international diplomacy to a completely new
-          level.
+          Thanks to the ISA, our service has access and the opportunity to
+          cooperate with almost any educational organization in the world, as
+          this is a type of legally formalized international-level diplomacy
+        </p>
+        <p>
+          ISA is our partner in cooperation with various educational
+          organizations around the world. You also have the opportunity to
+          become a member of this project and strengthen the academic
+          cooperation of the Russian Federation with your country
         </p>
       </div>
       <div class="isa-numbers">
@@ -106,10 +103,10 @@
         ></path>
       </svg>
     </div>
-    <h2 class="admission-header">
-      Our role in your admission
-    </h2>
-    <div class="about-admission container">
+    <div class="about-admission container" id="admission">
+      <h2 class="admission-header">
+        Admission time!
+      </h2>
       <div class="admission-intro">
         <div class="admission-text">
           <p>
@@ -121,30 +118,31 @@
         </div>
         <!-- <div class="decor"></div> -->
         <div class="admission-list">
-          <b>Our service will be able to assist you in the following areas:</b>
-          <ul>
-            <li>Consultation on the choice of university</li>
-            <li>Assistance with the preparation of a package of documents</li>
-            <li>
-              In some cases, support at the first stages of training
-            </li>
-          </ul>
+          <div id="list">
+            <b
+              >Our service will be able to assist you in the following areas:</b
+            >
+            <ul>
+              <li>Consultation on the choice of university</li>
+              <li>Assistance with the preparation of a package of documents</li>
+              <li>
+                In some cases, support at the first stages of training
+              </li>
+            </ul>
+          </div>
+          <img src="../assets/rubber-ring.svg" alt="" />
         </div>
       </div>
 
-      <div class="decor roadmap-header"><h3>Admission roadmap</h3></div>
+      <div class="decor roadmap-header"><h3>Enrolling roadmap</h3></div>
 
       <div class="admission-path">
         <div class="step">
           <div class="step-text">
             <b>Budget</b>
             The first thing to start from is your budget, especially if it is
-            limited. On the one hand, this will significantly narrow the choice,
-            on the other hand, it will simplify it — you will not have to waste
-            <!-- time and consider initially unavailable options. Remember: the total
-            amount consists not only of tuition prices, which are set by the
-            university itself. A significant, and sometimes even a large item of
-            expenses is living abroad. -->
+            limited. Remember: the total amount consists not only of tuition
+            prices, which are set by the university itself
           </div>
           <div class="decor"></div>
           <!-- <img
@@ -159,11 +157,8 @@
             <b>Language</b>
             With the most limited budget, the language of instruction plays an
             important role. So, most students want to study in the most common
-            and, in their understanding, the most promising English language,
-            <!-- but few people can afford English-speaking countries such as the
-            United States, Great Britain or Australia. In this case, they are
-            replaced by cheaper English-language programs in the budget
-            countries of the Baltic States and Eastern Europe. -->
+            and the most promising English language, but few people can afford
+            English-speaking countries
           </div>
           <div class="decor"></div>
           <!-- <img src="@/assets/roadmap/earth.svg" alt="Languages" /> -->
@@ -174,13 +169,23 @@
             <b>Requirements</b>
             An important detail that applicants often do not take into account
             is the minimum requirements for education. Not all countries can
-            enroll in a bachelor's degree, having 11 years of school in Russia
-            <!-- or the CIS behind them. This is due to the difference in secondary
-            education systems: in many countries, schooling can last 12-13
-            years. -->
+            enroll in a bachelor's degree, having 11 years of school. In many
+            countries, schooling can last 12-13 years
           </div>
           <div class="decor"></div>
           <img src="@/assets/roadmap/whiteboard.svg" alt="Requirements" />
+        </div>
+
+        <div class="step">
+          <div class="step-text">
+            <b>Scholarships</b>
+            Scholarships and grants are a good opportunity to reduce tuition and
+            living expenses. It is quite difficult to get them: as a rule, it is
+            necessary to have very high scores and achievements corresponding to
+            the training profile
+          </div>
+          <div class="decor"></div>
+          <img src="@/assets/roadmap/trophy.svg" alt="Exams" />
         </div>
 
         <div class="step">
@@ -189,17 +194,112 @@
             The next step is passing the tests and exams required for admission
             to the selected university. Largely because of this stage, it is
             recommended to start preparing for admission at least a year before
-            admission. There are three types of exams: - Language: TOEFL, IELTS,
-            DELE, TestDaF, etc.; - General Education: SAT, GMAT, GRE, etc.; -
-            <!-- Profile: SAT Subject Tests, MCAT, etc. Foreign applicants must pass
-            a language test; the rest depend on the requirements of a particular
-            country or program. For example, to enroll in a bachelor's degree in
-            the United States, you need an SAT test. Universities in Europe, the
-            United States and some other countries accept GRE/GMAT as an
-            entrance exam for a master's degree. -->
+            admission
           </div>
           <div class="decor"></div>
           <img src="@/assets/roadmap/exam3.svg" alt="Exams" />
+        </div>
+      </div>
+    </div>
+
+    <div class="studying container" id="studying">
+      <div class="studying-header">Studying process</div>
+      <div class="studying-text intro">
+        The studying process is the main part of the time spent at the
+        university. Studying at the university is radically different from what
+        was taught at school. At the university, the student is mostly left to
+        himself and no one will motivate him, except himself
+      </div>
+      <div class="studying-grid first">
+        <img src="../assets/studying/first.png" alt="" />
+        <div class="text">
+          <!-- Is it easy for a first-year student to sit out an hour and a half of a
+          study pair during the adaptation period? -->
+          <!-- How can I understand what to do at the university? -->
+          When searching for an educational institution, we advise you to pay
+          attention to the presence of a department for providing assistance to
+          international students
+        </div>
+      </div>
+      <div class="studying-grid second">
+        <img src="../assets/studying/second.png" alt="" />
+        <div class="text">
+          <!-- How will he be able to maintain concentration during this time in
+          order to keep high-quality notes? -->
+          <!-- Who should I turn to for help with my studies? -->
+          Many questions about the applicant are primarily addressed to the
+          agency for studying abroad, which solves problems and coordinates
+          actions
+        </div>
+      </div>
+      <!-- <div class="studying-text outro">
+        With these and many other questions related to studying at the
+        university, you can contact us. Our specialists will always be ready to
+        help you and solve most of the problems that arise on your way to the
+        university
+      </div> -->
+      <div class="faq">
+        <h3 class="faq-header">FAQ about studying</h3>
+        <div class="faq-container">
+          <div class="questions">
+            <div class="question">
+              <div class="question-title">
+                <span class="decor"></span>
+                <div class="text">
+                  Is it easy for a first-year student to sit out an hour and a
+                  half of a study pair during the adaptation period?
+                </div>
+              </div>
+              <div class="question-answer">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
+                eligendi voluptatibus pariatur asperiores?
+              </div>
+            </div>
+            <div class="question">
+              <div class="question-title">
+                <span class="decor"></span>
+                <div class="text">
+                  How can I understand what to do at the university?
+                </div>
+              </div>
+              <div class="question-answer">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
+                eligendi voluptatibus pariatur asperiores?
+              </div>
+            </div>
+            <div class="question">
+              <div class="question-title">
+                <span class="decor"></span>
+                <div class="text">
+                  How will he be able to maintain concentration during this time
+                  in order to keep high-quality notes?
+                </div>
+              </div>
+              <div class="question-answer">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
+                eligendi voluptatibus pariatur asperiores?
+              </div>
+            </div>
+            <div class="question">
+              <div class="question-title">
+                <span class="decor"></span>
+                <div class="text">
+                  Who should I turn to for help with my studies?
+                </div>
+              </div>
+              <div class="question-answer">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
+                eligendi voluptatibus pariatur asperiores?
+              </div>
+            </div>
+          </div>
+          <div class="img">
+            <img src="../assets/questions.png" alt="" />
+          </div>
         </div>
       </div>
     </div>
@@ -213,60 +313,58 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger);
 export default {
   mounted() {
-    gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
-      gsap.from(block, {
-        opacity: 0.001,
-        scale: 0.7,
-        x: "50%",
-        duration: 1,
-        ease: "back.out(1)",
-        scrollTrigger: {
-          trigger: ".about-isa",
-          start: "top center",
-          toggleActions: "play none none reverse",
-        },
-      });
-    });
-
-    gsap.utils.toArray(".partner_img").forEach((img) => {
-      gsap.from(
-        img,
-        {
-          opacity: 0.001,
-          // delay: "0.2",
-          scale: 0.7,
-          // duration: 0.5,
-          scrollTrigger: {
-            trigger: ".isa-partners",
-            start: "top center",
-            toggleActions: "play none none reverse",
-          },
-        },
-        // "+=0.2",
-      );
-    });
-
-    gsap.from(".isa-partners h3", {
-      opacity: 0.001,
-      duration: 0.5,
-      scrollTrigger: {
-        trigger: ".isa-partners",
-        start: "top center",
-        toggleActions: "play none none reverse",
-      },
-    });
-
-    gsap.from(".isa-text", {
-      opacity: 0.001,
-      scale: 0.7,
-      x: "-30%",
-      duration: 1,
-      ease: "back.out(1)",
+    const isa_text_tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about-isa",
-        start: "top center",
-        toggleActions: "play none none reverse",
+        start: "10% center",
+        // toggleActions: "play none none reverse",
       },
+    });
+    isa_text_tl.from(
+      ".isa-text h2",
+      {
+        opacity: 0.001,
+        x: -150,
+        // x: "-20%",
+        duration: 0.45,
+        ease: "back.out(2)",
+      },
+      0
+    );
+    isa_text_tl.from(
+      ".isa-text h5",
+      {
+        opacity: 0.001,
+        x: -150,
+        // x: "-20%",
+        duration: 0.45,
+        ease: "back.out(2)",
+      },
+      0.6
+    );
+
+    isa_text_tl.from(
+      ".isa-text p",
+      {
+        opacity: 0.001,
+        x: -150,
+        // x: "-20%",
+        duration: 0.45,
+        ease: "back.out(2)",
+      },
+      1.2
+    );
+    gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
+      isa_text_tl.from(
+        block,
+        {
+          opacity: 0.001,
+          scale: 0.7,
+          duration: 0.45,
+          ease: "back.out(2)",
+        },
+        1.2
+      );
     });
 
     const bun1_tl = gsap.timeline({
@@ -298,17 +396,247 @@ export default {
       duration: 5,
       ease: "power1.inOut",
     });
+
+    //ISA partners
+    const partners_tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".isa-partners",
+        start: "80% bottom",
+        // toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.utils
+      .toArray(".isa-partners .container .partner_img")
+      .forEach((img) => {
+        partners_tl.from(img, {
+          opacity: 0.001,
+          scale: 0.7,
+          duration: 0.2,
+          ease: "sine.out",
+        });
+      });
+
+    partners_tl.from(
+      ".isa-partners h3",
+      {
+        duration: 0.75,
+        x: -100,
+        opacity: 0.001,
+      },
+      0
+    );
+
+    //admission part
+    gsap.from(".admission-header", {
+      opacity: 0.001,
+      x: -150,
+      duration: 0.7,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: ".admission-header",
+        start: "bottom 70%",
+        // toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from(".admission-text", {
+      opacity: 0.01,
+      x: -150,
+      duration: 0.7,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: ".admission-text",
+        start: "bottom 70%",
+        // toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from("#list", {
+      opacity: 0.01,
+      x: -150,
+      duration: 0.7,
+      ease: "power.out",
+      scrollTrigger: {
+        trigger: "#list",
+        start: "bottom 70%",
+        // toggleActions: "play none none reverse",
+      },
+    });
+    gsap.from(".roadmap-header", {
+      opacity: 0.01,
+      x: -150,
+      duration: 0.7,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: ".roadmap-header",
+        start: "bottom 70%",
+        // toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.from(".admission-list img", {
+      opacity: 0.001,
+      x: 150,
+      // scale: 0.7,
+      duration: 0.7,
+      ease: "power1.out",
+      scrollTrigger: {
+        trigger: ".admission-list img",
+        start: "top center",
+        // toggleActions: "play none none reverse",
+      },
+    });
+
+    gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
+      const step_tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: step,
+          start: "bottom 85%",
+          // scrub: 1,
+          // toggleActions: "play none none reverse",
+          // markers: true,
+        },
+      });
+      if (index % 2 == 0) {
+        step_tl.from(
+          step.querySelector("img"),
+          {
+            opacity: 0.01,
+            scale: 0.6,
+            duration: 0.7,
+            ease: "back.out(2)",
+          },
+          0
+        );
+
+        step_tl.from(
+          step.querySelector(".step-text"),
+          {
+            opacity: 0.01,
+            x: 100,
+            duration: 0.7,
+            ease: "power1.out",
+          },
+          0
+        );
+
+        step_tl.from(
+          step.querySelector(".decor"),
+          {
+            opacity: 0.01,
+            x: 100,
+            duration: 0.7,
+            ease: "power1.out",
+          },
+          0
+        );
+      } else {
+        step_tl.from(
+          step.querySelector("img"),
+          {
+            opacity: 0.01,
+            scale: 0.6,
+            duration: 0.7,
+            ease: "back.out(2)",
+          },
+          0
+        );
+
+        step_tl.from(
+          step.querySelector(".step-text"),
+          {
+            opacity: 0.01,
+            x: -100,
+            duration: 0.7,
+            ease: "power1.out",
+          },
+          0
+        );
+
+        step_tl.from(
+          step.querySelector(".decor"),
+          {
+            opacity: 0.01,
+            x: -100,
+            duration: 0.7,
+            ease: "power1.out",
+          },
+          0
+        );
+      }
+    });
+
+    //faq field
+    gsap.utils.toArray(".question-title").forEach((el) => {
+      el.addEventListener("click", function() {
+        const answer = this.nextSibling;
+        const decor = this.querySelector(".decor");
+
+        const duration = 0.4;
+
+        if (answer.classList.contains("open")) {
+          gsap.to(decor, { rotate: "0", duration: duration });
+          gsap.fromTo(
+            answer,
+            { x: 0 },
+            { height: "0", x: 100, duration: duration }
+          );
+          answer.classList.remove("open");
+          this.classList.remove("active");
+        } else {
+          document.querySelectorAll(".question-title").forEach((el) => {
+            const a = el.nextSibling;
+            const d = el.querySelector(".decor");
+            if (a.classList.contains("open")) {
+              a.classList.remove("open");
+              el.classList.remove("active");
+              gsap.to(d, {
+                rotate: "0",
+                duration: duration,
+              });
+              gsap.fromTo(
+                a,
+                { x: 0 },
+                { height: "0", x: 100, duration: duration }
+              );
+            }
+          });
+          gsap.to(decor, { rotate: "90deg" });
+          gsap.fromTo(
+            answer,
+            {
+              height: "0",
+              x: 100,
+            },
+            { x: 0, height: "auto", duration: duration }
+          );
+          answer.classList.add("open");
+          this.classList.add("active");
+        }
+      });
+    });
   },
 };
 </script>
 
 <style lang="scss">
+.isa-partners {
+  svg {
+    margin: -1px 0;
+
+    // background: #3d115c;
+    // background: #fafafad8;
+  }
+}
+
 .isa-wave-top {
+  z-index: 10;
   display: block;
   filter: drop-shadow(0px -7px 5px rgb(0 0 0 / 0.2));
 }
 
 .isa-wave-bottom {
+  z-index: 10;
+
   display: block;
   filter: drop-shadow(0px -5px 4px rgb(0 0 0 / 0.2));
 }
@@ -340,12 +668,26 @@ export default {
   gap: 10%;
   justify-content: center;
   align-items: center;
+  padding: 20px 0 50px 0;
+
+  .isa-text {
+    // font-size: 1.2em;
+    h2 {
+      font-size: 2.2em;
+    }
+    h5 {
+      font-size: 1.3em;
+    }
+    p {
+      font-size: 1em;
+    }
+  }
 
   .number-block {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 50px 0;
+    // margin: 50px 0;
     width: 300px;
     height: 250px;
     background-position: middle center;
@@ -392,7 +734,7 @@ export default {
   align-items: center;
   width: 100%;
   // padding: 0px 0;
-  margin: 50px 0;
+  margin: 20px 0;
 
   h3 {
     padding-top: 30px;
@@ -403,6 +745,7 @@ export default {
     font-family: "Zilla Slab", serif;
     // font-family: "Cormorant Garamond", serif;
     // font-weight: 600;
+    z-index: 0;
   }
 
   .container {
@@ -415,17 +758,17 @@ export default {
     align-items: center;
 
     img {
+      z-index: 0;
       height: 70px;
+      opacity: 1;
       // filter: brightness(500%) saturate(0);
-      transition: all ease-in-out 0.3s;
-
-      &:hover {
-        filter: brightness(100%) saturate(1);
-      }
+      // transition: all ease-in-out 0.3s;
     }
   }
 }
 .admission-header {
+  width: 100%;
+  font-size: 2.2em;
   text-align: center;
 }
 .about-admission {
@@ -439,7 +782,7 @@ export default {
   width: 100%;
   display: grid;
   // grid-template-columns: 45% 45%;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: auto 1fr;
   justify-content: center;
   align-items: center;
   column-gap: 10%;
@@ -463,6 +806,25 @@ export default {
   }
 }
 .admission-list {
+  display: grid;
+  grid-template-columns: 70% 25%;
+  column-gap: 5%;
+  position: relative;
+
+  text-align: justify;
+  img {
+    // transform: scale(-1, 1);
+    justify-self: center;
+    align-self: center;
+    height: 600px;
+    opacity: 0.3;
+    z-index: 0;
+    transform: rotate(-20deg);
+    position: absolute;
+    right: -500px;
+    top: -150px;
+  }
+
   ul {
     padding-left: 20px;
     // list-style: none;
@@ -479,28 +841,34 @@ export default {
 }
 
 .admission-path {
+  padding-bottom: 150px;
   display: flex;
   flex-direction: column;
 
   .step {
-    overflow: hidden;
+    z-index: 1;
+
+    // overflow: hidden;
     display: grid;
+    grid-template-rows: auto 1fr;
     grid-template-columns: 45% 10% 45%;
     justify-content: center;
     align-items: center;
 
     &:nth-child(odd) {
+      grid-template-areas: "im decor text";
+      .step-text {
+        // b {
+        text-align: justify;
+        // }
+      }
+    }
+    &:nth-child(even) {
       grid-template-areas: "text decor im";
       .step-text {
         b {
           text-align: right;
         }
-      }
-    }
-    &:nth-child(even) {
-      grid-template-areas: "im decor text";
-      .step-text {
-        text-align: justify;
       }
     }
 
@@ -566,11 +934,405 @@ export default {
       &:after {
         // line
         content: "";
+        position: absolute;
         background: var(--light);
         display: block;
         width: 4px;
         height: 100%;
         align-self: center;
+      }
+    }
+  }
+}
+
+.studying {
+  .studying-header {
+    width: 100%;
+    text-align: center;
+    font-size: 2.2em;
+    height: 80px;
+  }
+  .studying-text {
+    font-size: 1.1em;
+    line-height: 30px;
+  }
+  .studying-grid {
+    display: grid;
+    grid-template-rows: 230px 1fr;
+    align-items: center;
+    font-size: 1.1em;
+    position: relative;
+    &.first {
+      padding-top: 30px;
+      grid-template-columns: 65% 30%;
+      column-gap: 5%;
+      grid-template-areas: "text im";
+      img {
+        grid-area: im;
+        width: 340px;
+        justify-self: center;
+      }
+      .text {
+        grid-area: text;
+      }
+    }
+    &.second {
+      grid-template-areas: "im text";
+      grid-template-columns: 30% 65%;
+      column-gap: 5%;
+      padding-bottom: 60px;
+      img {
+        justify-self: center;
+        grid-area: im;
+        height: 300px;
+      }
+      .text {
+        grid-area: text;
+      }
+    }
+  }
+
+  .faq {
+    width: 100%;
+
+    .faq-header {
+      text-align: center;
+      margin: -30px 0 30px 0;
+      // padding-right: 80px;
+      line-height: 60px;
+    }
+    .faq-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: center;
+      column-gap: 100px;
+
+      .img {
+        width: 25%;
+        margin: auto;
+        img {
+          height: 270px;
+        }
+      }
+
+      .questions {
+        display: flex;
+        width: 70%;
+        justify-content: center;
+        flex-direction: column;
+        // background: #9994fb;
+        // backdrop-filter: 5px;
+        // color: var(--primary);
+        // border-radius: 15px;
+        // box-shadow: 10px 10px 5px #0000003a;
+        // padding: 10px 25px 25px 25px;
+
+        .question {
+          text-align: justify;
+
+          .question-title {
+            font-size: 1.1em;
+            font-weight: bolder;
+            margin: 15px 0;
+            display: grid;
+            grid-template-columns: 5% 93%;
+            grid-template-areas: "dec title";
+            align-items: center;
+            column-gap: 2%;
+            grid-area: title;
+
+            user-select: none;
+            cursor: pointer;
+
+            padding: 10px 15px;
+            border-radius: 10px;
+            transition: all 0.4s ease-out;
+
+            &:hover {
+              box-shadow: rgb(250, 250, 250, 0.4) -5px 5px,
+                rgba(250, 250, 250, 0.3) -10px 10px,
+                rgba(250, 250, 250, 0.2) -15px 15px,
+                rgba(250, 250, 250, 0.1) -20px 20px,
+                rgba(250, 250, 250, 0.05) -25px 25px,
+                rgba(250, 250, 250, 0.5) 0px 0px 0px 2px inset;
+            }
+
+            &.active {
+              box-shadow: rgba(250, 250, 250, 0.6) 0px 0px 0px 3px;
+            }
+
+            .decor {
+              grid-area: dec;
+              width: 30px;
+              height: 30px;
+              content: " ";
+              background: url(../assets/arrow.svg);
+              background-size: cover;
+              user-select: none;
+              pointer-events: none;
+              // position: absolute;
+              // left: -50px;
+              // top: -6px;
+              // z-index: 10;
+            }
+          }
+
+          .question-answer {
+            // display: none;
+            // display: block;
+            overflow: hidden;
+            margin: 0px 15px 0px 10%;
+            height: 0;
+          }
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 1200px) {
+  .about-isa .isa-numbers {
+    margin-top: 50px;
+    .number-block {
+      margin: 0px 0;
+      width: 90%;
+      height: 230px;
+
+      &:first-child {
+        margin-bottom: -20px;
+        margin-left: -20px;
+      }
+
+      &:nth-child(2) {
+      }
+
+      .number {
+        font-size: 2em;
+      }
+
+      b {
+        font-size: 0.85em;
+      }
+    }
+  }
+
+  .isa-partners {
+    h3 {
+      font-size: 1.8em;
+    }
+    .container {
+      gap: 35px;
+      img {
+        height: 60px;
+      }
+    }
+  }
+  .admission-list img {
+    height: 500px;
+    transform: rotate(-20deg);
+    right: -400px;
+    top: -130px;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .about-isa {
+    grid-template-columns: 90% 0%;
+    grid-gap: 0%;
+    margin-top: -1px;
+    .isa-numbers {
+      display: none;
+    }
+
+    .isa-text {
+      h2 {
+        text-align: center;
+        font-size: 2em;
+      }
+      h5 {
+        font-size: 1.1em;
+      }
+      p {
+        font-size: 0.9em;
+      }
+    }
+  }
+  .isa-partners {
+    h3 {
+      font-size: 1.8em;
+    }
+    .container {
+      gap: 30px;
+      img {
+        height: 50px;
+      }
+    }
+  }
+  .about-admission {
+    .admission-header {
+      font-size: 2em;
+    }
+    .admission-intro {
+      font-size: 0.95em;
+      .admission-list {
+        display: block;
+        img {
+          display: none;
+        }
+      }
+    }
+    .roadmap-header {
+      h3 {
+        font-size: 1.6em;
+      }
+    }
+    .admission-path .step {
+      &:nth-child(odd) {
+        grid-template-columns: 30% 5% 65%;
+        // column-gap: 5%;
+        grid-template-areas: "im decor text";
+        .step-text {
+          b {
+            text-align: left;
+          }
+        }
+      }
+      &:nth-child(even) {
+        grid-template-columns: 65% 5% 30%;
+        grid-template-areas: "text decor im";
+        .step-text {
+          b {
+            text-align: right;
+          }
+        }
+      }
+      .step-text {
+        b {
+          font-size: 1.2em;
+        }
+        font-size: 0.9em;
+      }
+      .decor {
+        &:before {
+          display: none;
+          width: 27px;
+          height: 27px;
+          border: 5px solid var(--light);
+        }
+        &:after {
+          display: none;
+          width: 3px;
+        }
+      }
+      img {
+        align-self: center;
+        height: 115px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .about-isa .isa-text {
+    h2 {
+      font-size: 2em;
+    }
+    h5 {
+      font-size: 1.1em;
+    }
+    p {
+      font-size: 0.9em;
+    }
+  }
+  .isa-partners {
+    h3 {
+      font-size: 1.5em;
+    }
+    .container {
+      padding: 20px 0;
+      // flex-wrap: wrap;
+      // justify-content: flex-start;
+      gap: 15px;
+      img {
+        height: 37px;
+      }
+    }
+  }
+  .about-admission {
+    .admission-header {
+      font-size: 2em;
+    }
+    .admission-intro {
+      font-size: 0.9em;
+    }
+    .roadmap-header {
+      h3 {
+        font-size: 1.6em;
+      }
+    }
+    .admission-path .step {
+      .step-text {
+        b {
+          font-size: 1.1em;
+        }
+        font-size: 0.8em;
+      }
+      img {
+        align-self: center;
+        height: 105px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .isa-partners {
+    h3 {
+      font-size: 1.3em;
+    }
+    .container {
+      padding: 10px 0;
+      // flex-wrap: wrap;
+      // justify-content: flex-start;
+      gap: 10px;
+      img {
+        height: 27px;
+      }
+    }
+  }
+  .about-isa .isa-text {
+    h2 {
+      font-size: 1.8em;
+    }
+    h5 {
+      font-size: 1em;
+    }
+    p {
+      font-size: 0.8em;
+    }
+  }
+  .about-admission {
+    .admission-header {
+      font-size: 1.8em;
+    }
+    .admission-intro {
+      font-size: 0.8em;
+    }
+    .roadmap-header {
+      h3 {
+        font-size: 1.4em;
+      }
+    }
+    .admission-path .step {
+      .step-text {
+        b {
+          font-size: 1.1em;
+        }
+        font-size: 0.75em;
+      }
+      img {
+        align-self: center;
+        height: 100px;
       }
     }
   }

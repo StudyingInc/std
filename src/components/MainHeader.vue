@@ -137,7 +137,7 @@
             large-scale perspective of your life into the future
           </p>
           <nav class="main_nav">
-            <router-link class="nav_item" to="admission">
+            <div class="nav_item" @click="navChecker" data-link="admission">
               <svg
                 width="110"
                 height="111"
@@ -152,8 +152,9 @@
                   fill="#2B2D42"
                 />
               </svg>
-            </router-link>
-            <router-link class="nav_item" to="study">
+            </div>
+            <div class="nav_item" @click="navChecker" data-link="studying">
+              <!-- studying -->
               <svg
                 width="111"
                 height="111"
@@ -242,8 +243,9 @@
                   </clipPath>
                 </defs>
               </svg>
-            </router-link>
-            <router-link class="nav_item" to="contacts">
+            </div>
+            <div class="nav_item" @click="navChecker" data-link="contacts">
+              <!-- contacts -->
               <svg
                 width="111"
                 height="111"
@@ -258,8 +260,9 @@
                   fill="#2B2D42"
                 />
               </svg>
-            </router-link>
-            <router-link class="nav_item" to="isa">
+            </div>
+            <div class="nav_item" @click="navChecker" data-link="info">
+              <!-- isa -->
               <svg
                 width="111"
                 height="111"
@@ -278,8 +281,9 @@
                   fill="#2B2D42"
                 />
               </svg>
-            </router-link>
-            <router-link class="nav_item" to="forum">
+            </div>
+            <div class="nav_item" @click="navChecker" data-link="about-study">
+              <!-- forum -->
               <svg
                 width="112"
                 height="111"
@@ -294,7 +298,7 @@
                   fill="#2B2D42"
                 />
               </svg>
-            </router-link>
+            </div>
           </nav>
         </div>
       </div>
@@ -390,6 +394,11 @@
 import SideNav from "@/components/SideNav";
 import { debounce } from "debounce";
 
+import gsap from "gsap";
+import scrollTo from "gsap/ScrollToPlugin";
+
+gsap.registerPlugin(scrollTo);
+
 export default {
   name: "MainHeader",
   computed: {},
@@ -419,27 +428,19 @@ export default {
         `${viewHeight}px`
       );
     },
+    navChecker(e) {
+      gsap.to(window, {
+        duration:
+          document.querySelector(`#${e.target.dataset.link}`).offsetTop *
+          0.0006,
+        scrollTo: `#${e.target.dataset.link}`,
+      });
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.animated {
-  // background: linear-gradient(
-  //   237deg,
-  //   #a6c0fe,
-  //   #f68084,
-  //   #9492ec,
-  //   #9795f0,
-  //   #f072b6
-  // );
-  // background-size: 600% 600%;
-
-  // -webkit-animation: bg_anim 40s ease infinite alternate;
-  // -moz-animation: bg_anim 40s ease infinite alternate;
-  // animation: bg_anim 40s ease infinite alternate;
-}
-
 @keyframes bg_anim {
   0% {
     background-position: 0% 86%;
@@ -516,7 +517,7 @@ header {
     }
 
     p {
-      font-size: 1.4em;
+      font-size: 1.3em;
       line-height: 1.7em;
       margin-bottom: 30px;
       text-shadow: -2px 2px 5px 2px rgba(0, 0, 0, 0.2);
@@ -526,20 +527,22 @@ header {
       display: flex;
       grid-gap: 15px;
       margin-left: -5px;
+      margin-top: 20px;
       transition: 0.2s all ease-in-out;
 
       &:hover {
-        a.nav_item {
+        .nav_item {
+          cursor: pointer;
           transform: scale(0.9);
           // filter: blur(1px);
           opacity: 0.6;
           // box-shadow: none;
         }
-        a.nav_item:after {
+        .nav_item:after {
           opacity: 1;
         }
       }
-      a.nav_item {
+      .nav_item {
         transition: 0.2s all ease-in-out;
         display: flex;
         justify-content: center;
@@ -550,10 +553,12 @@ header {
         font-size: 0.9em;
 
         svg {
+          pointer-events: none;
           width: 80px;
           transition: all 0.25s ease-in-out;
 
           path {
+            pointer-events: none;
             fill: var(--primary);
           }
         }
@@ -583,7 +588,7 @@ header {
           content: "Admission";
         }
         &:nth-child(2)::after {
-          content: "Study";
+          content: "Studying";
         }
         &:nth-child(3)::after {
           content: "Contacts";
@@ -592,7 +597,7 @@ header {
           content: "ISA";
         }
         &:nth-child(5)::after {
-          content: "Forum";
+          content: "About";
         }
       }
     }
@@ -746,8 +751,20 @@ header {
 }
 
 @media screen and (max-width: 1200px) {
-  header .container .notion h2 {
-    font-size: 2em;
+  header .container .notion {
+    h2 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.15em;
+    }
+    nav.main_nav .nav_item {
+      width: 85px;
+
+      svg {
+        width: 75px;
+      }
+    }
   }
 }
 
@@ -926,7 +943,7 @@ header {
         display: none;
         justify-content: space-around;
         flex-wrap: wrap;
-        a.nav_item {
+        .nav_item {
           display: flex;
           justify-content: center;
           align-items: center;
@@ -1011,7 +1028,7 @@ header {
     .main_nav {
       justify-content: space-around;
       flex-wrap: wrap;
-      a.nav_item {
+      .nav_item {
         display: flex;
         justify-content: center;
         align-items: center;
