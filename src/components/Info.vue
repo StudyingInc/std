@@ -246,14 +246,29 @@
               <div class="question-title">
                 <span class="decor"></span>
                 <div class="text">
-                  Is it easy for a first-year student to sit out an hour and a
-                  half of a study pair during the adaptation period?
+                  How can you help me study at the university?
                 </div>
               </div>
               <div class="question-answer">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
-                eligendi voluptatibus pariatur asperiores?
+                Our team consists of specialists who have faced any problems of
+                students. We know the solution to most situations that may arise
+                in the process of studying at the university
+              </div>
+            </div>
+            <div class="question">
+              <div class="question-title">
+                <span class="decor"></span>
+                <div class="text">
+                  In what areas can you help me in the learning process?
+                </div>
+              </div>
+              <div class="question-answer">
+                First, we can help with problems that arise directly in the
+                training itself, for example, difficulties in preparing for
+                exams or in class work. Secondly, we can help with the
+                adaptation of the student in the new system. In general, you can
+                contact us with any problems and we will definitely be able to
+                help you solve them
               </div>
             </div>
             <div class="question">
@@ -264,23 +279,11 @@
                 </div>
               </div>
               <div class="question-answer">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
-                eligendi voluptatibus pariatur asperiores?
-              </div>
-            </div>
-            <div class="question">
-              <div class="question-title">
-                <span class="decor"></span>
-                <div class="text">
-                  How will he be able to maintain concentration during this time
-                  in order to keep high-quality notes?
-                </div>
-              </div>
-              <div class="question-answer">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
-                eligendi voluptatibus pariatur asperiores?
+                Take the time to reflect on what you like to do and study, and
+                what of it you are really interested in. What are your goals?
+                What are the plans? The university is the next step to the
+                future professional activity. If you can't find motivation at
+                the university, please contact us, we will be able to help
               </div>
             </div>
             <div class="question">
@@ -291,9 +294,13 @@
                 </div>
               </div>
               <div class="question-answer">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                Corrupti ipsam deleniti maiores nobis. At, odit? Doloribus
-                eligendi voluptatibus pariatur asperiores?
+                When searching for an educational institution, we advise you to
+                pay attention to the presence of a department for providing
+                assistance to international students. The functional purpose of
+                the department is as follows: providing assistance to
+                international students in matters of a domestic, academic,
+                psychological and adaptive nature. If you can't find this
+                department, please contact us, we will help you do it
               </div>
             </div>
           </div>
@@ -984,7 +991,7 @@ export default {
       img {
         justify-self: center;
         grid-area: im;
-        height: 300px;
+        width: 400px;
       }
       .text {
         grid-area: text;
@@ -1007,6 +1014,7 @@ export default {
       justify-content: space-between;
       align-content: center;
       column-gap: 100px;
+      align-items: flex-start;
 
       .img {
         width: 25%;
@@ -1133,6 +1141,61 @@ export default {
     right: -400px;
     top: -130px;
   }
+
+  .studying {
+    .studying-header {
+      font-size: 2em;
+    }
+    .studying-text {
+      font-size: 1.1em;
+    }
+    .studying-grid {
+      grid-template-rows: 200px 1fr;
+      &.first {
+        img {
+          width: 280px;
+        }
+        .text {
+          font-size: 1em;
+        }
+      }
+      &.second {
+        img {
+          width: 330px;
+        }
+        .text {
+          font-size: 1em;
+        }
+      }
+    }
+    .faq {
+      .faq-header {
+        font-size: 1.8em;
+      }
+      .faq-container {
+        column-gap: 3%;
+
+        .questions {
+          width: 67%;
+          .question {
+            .question-title {
+              font-size: 1.1em;
+            }
+            .question-answer {
+              font-size: 1em;
+            }
+          }
+        }
+
+        .img {
+          width: 30%;
+          img {
+            height: 230px;
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -1230,6 +1293,63 @@ export default {
       }
     }
   }
+
+  .studying {
+    .studying-header {
+      font-size: 1.8em;
+    }
+    .studying-text {
+      font-size: 1em;
+    }
+    .studying-grid {
+      grid-template-rows: 180px 1fr;
+
+      &.first {
+        img {
+          width: 230px;
+        }
+        .text {
+          line-height: 27px;
+          font-size: 0.9em;
+        }
+      }
+      &.second {
+        padding-bottom: 60px;
+
+        img {
+          width: 270px;
+        }
+        .text {
+          line-height: 27px;
+          font-size: 0.9em;
+        }
+      }
+    }
+    .faq {
+      .faq-header {
+        font-size: 1.7em;
+      }
+      .faq-container {
+        column-gap: 0%;
+
+        .questions {
+          width: 100%;
+          .question {
+            .question-title {
+              font-size: 1.1em;
+            }
+            .question-answer {
+              font-size: 1em;
+            }
+          }
+        }
+
+        .img {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -1283,6 +1403,63 @@ export default {
       }
     }
   }
+
+  .studying {
+    .studying-header {
+      font-size: 1.8em;
+    }
+    .studying-text {
+      font-size: 0.9em;
+      line-height: 1.7;
+    }
+    .studying-grid {
+      grid-template-rows: 140px 1fr;
+
+      &.first {
+        img {
+          width: 170px;
+          // position: absolute;
+          // left: 5px;
+        }
+        .text {
+          line-height: 1.5;
+          font-size: 0.8em;
+        }
+      }
+      &.second {
+        img {
+          width: 190px;
+        }
+        .text {
+          line-height: 1.5;
+          font-size: 0.8em;
+        }
+      }
+    }
+    .faq {
+      .faq-header {
+        margin-bottom: 10px;
+        font-size: 1.6em;
+      }
+      .faq-container {
+        column-gap: 0%;
+
+        .questions {
+          width: 100%;
+          .question {
+            .question-title {
+              margin: 10px 0px;
+              grid-template-columns: 10% 87%;
+              font-size: 0.95em;
+            }
+            .question-answer {
+              font-size: 0.9em;
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1333,6 +1510,58 @@ export default {
       img {
         align-self: center;
         height: 100px;
+      }
+    }
+  }
+  .studying {
+    .studying-header {
+      font-size: 1.8em;
+    }
+    .studying-text {
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    .studying-grid {
+      &.first {
+        img {
+          width: 140px;
+          // position: absolute;
+          // left: 5px;
+        }
+        .text {
+          line-height: 1.5;
+          font-size: 0.75em;
+        }
+      }
+      &.second {
+        img {
+          width: 160px;
+        }
+        .text {
+          line-height: 1.5;
+          font-size: 0.75em;
+        }
+      }
+    }
+    .faq {
+      .faq-header {
+        font-size: 1.5em;
+      }
+      .faq-container {
+        column-gap: 0%;
+
+        .questions {
+          width: 100%;
+          .question {
+            .question-title {
+              grid-template-columns: 10% 87%;
+              font-size: 0.9em;
+            }
+            .question-answer {
+              font-size: 0.85em;
+            }
+          }
+        }
       }
     }
   }
