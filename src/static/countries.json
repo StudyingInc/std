@@ -1,0 +1,28 @@
+{
+  "data": [
+    {
+      "country": "Russia",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
+      "top": ["FU", "MSU", "HSE", "RES", "RANEPA"],
+      "number": 20
+    },
+    {
+      "country": "France",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
+      "top": ["content", "content", "content", "content", "content"],
+      "number": 13
+    },
+    {
+      "country": "Germany",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
+      "top": ["content", "content", "content", "content", "content"],
+      "number": 5
+    },
+    {
+      "country": "Romania",
+      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
+      "top": ["content", "content", "content", "content", "content"],
+      "number": 2
+    }
+  ]
+}

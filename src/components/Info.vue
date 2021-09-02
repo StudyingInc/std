@@ -116,7 +116,6 @@
             worked in the admissions committees of universities and colleges.
           </p>
         </div>
-        <!-- <div class="decor"></div> -->
         <div class="admission-list">
           <div id="list">
             <b
@@ -145,11 +144,6 @@
             prices, which are set by the university itself
           </div>
           <div class="decor"></div>
-          <!-- <img
-            src="https://cdn.pixabay.com/photo/2016/09/16/09/21/money-1673582_960_720.png"
-            alt="Budget"
-          /> -->
-          <!-- <img src="@/assets/roadmap/coins.svg" alt="Budget" /> -->
           <img src="@/assets/roadmap/calculator.svg" alt="Budget" />
         </div>
         <div class="step">
@@ -202,6 +196,116 @@
       </div>
     </div>
 
+    <section class="countries" id="countries">
+      <svg
+        id="wave"
+        class="wave-top"
+        style="transform:rotate(180deg); transition: 0.3s"
+        viewBox="0 0 1440 100"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="rgba(138, 133, 245, 1)" offset="0%"></stop>
+            <stop stop-color="rgba(173, 93, 220, 0.84)" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          style="transform:translate(0, 0px); opacity:1"
+          fill="url(#sw-gradient-0)"
+          d="M0,30L60,25C120,20,240,10,360,6.7C480,3,600,7,720,20C840,33,960,57,1080,56.7C1200,57,1320,33,1440,20C1560,7,1680,3,1800,11.7C1920,20,2040,40,2160,48.3C2280,57,2400,53,2520,56.7C2640,60,2760,70,2880,70C3000,70,3120,60,3240,56.7C3360,53,3480,57,3600,60C3720,63,3840,67,3960,71.7C4080,77,4200,83,4320,78.3C4440,73,4560,57,4680,43.3C4800,30,4920,20,5040,21.7C5160,23,5280,37,5400,36.7C5520,37,5640,23,5760,26.7C5880,30,6000,50,6120,61.7C6240,73,6360,77,6480,68.3C6600,60,6720,40,6840,41.7C6960,43,7080,67,7200,71.7C7320,77,7440,63,7560,56.7C7680,50,7800,50,7920,51.7C8040,53,8160,57,8280,51.7C8400,47,8520,33,8580,26.7L8640,20L8640,100L8580,100C8520,100,8400,100,8280,100C8160,100,8040,100,7920,100C7800,100,7680,100,7560,100C7440,100,7320,100,7200,100C7080,100,6960,100,6840,100C6720,100,6600,100,6480,100C6360,100,6240,100,6120,100C6000,100,5880,100,5760,100C5640,100,5520,100,5400,100C5280,100,5160,100,5040,100C4920,100,4800,100,4680,100C4560,100,4440,100,4320,100C4200,100,4080,100,3960,100C3840,100,3720,100,3600,100C3480,100,3360,100,3240,100C3120,100,3000,100,2880,100C2760,100,2640,100,2520,100C2400,100,2280,100,2160,100C2040,100,1920,100,1800,100C1680,100,1560,100,1440,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"
+        ></path>
+      </svg>
+
+      <div class="container">
+        <div class="countries-header">
+          Find your country
+        </div>
+        <div class="countries-container">
+          <div class="country-info">
+            <div class="country-info-card">
+              <div class="name">
+                {{ countries[current_country].country }}
+              </div>
+              <div class="text">
+                {{ countries[current_country].info }}
+              </div>
+              <div class="number">
+                <img src="../assets/university.svg" />
+                {{ countries[current_country].number }}
+              </div>
+              <div class="flag">
+                <img
+                  :src="
+                    require('../assets/flags/' +
+                      countries[current_country].country +
+                      '.svg')
+                  "
+                />
+              </div>
+            </div>
+            <div class="abbrs">
+              <span
+                class="abbr"
+                v-for="(abbr, i) in countries[current_country].top"
+                :key="i"
+              >
+                {{ abbr }}
+              </span>
+            </div>
+          </div>
+          <div class="country-select">
+            <input
+              type="text"
+              placeholder="Enter your country"
+              autocomplete="nope"
+              @input="search"
+            />
+            <div class="list">
+              <div
+                class="list-item"
+                v-for="country in countries"
+                :key="country.country"
+                @click="checkCountry"
+              >
+                <div class="list-item-flag">
+                  <img
+                    :src="
+                      require('../assets/flags/' + country.country + '.svg')
+                    "
+                  />
+                </div>
+
+                {{ country.country }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <svg
+        class="wave-bottom"
+        id="wave"
+        style="transform:rotate(0deg); transition: 0.3s"
+        viewBox="0 0 1440 100"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <defs>
+          <linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0">
+            <stop stop-color="rgba(138, 133, 245, 1)" offset="0%"></stop>
+            <stop stop-color="rgba(173, 93, 220, 0.84)" offset="100%"></stop>
+          </linearGradient>
+        </defs>
+        <path
+          style="transform:translate(0, 0px); opacity:1"
+          fill="url(#sw-gradient-0)"
+          d="M0,0L60,10C120,20,240,40,360,41.7C480,43,600,27,720,25C840,23,960,37,1080,46.7C1200,57,1320,63,1440,60C1560,57,1680,43,1800,38.3C1920,33,2040,37,2160,31.7C2280,27,2400,13,2520,21.7C2640,30,2760,60,2880,66.7C3000,73,3120,57,3240,43.3C3360,30,3480,20,3600,20C3720,20,3840,30,3960,40C4080,50,4200,60,4320,55C4440,50,4560,30,4680,26.7C4800,23,4920,37,5040,40C5160,43,5280,37,5400,36.7C5520,37,5640,43,5760,40C5880,37,6000,23,6120,25C6240,27,6360,43,6480,41.7C6600,40,6720,20,6840,10C6960,0,7080,0,7200,10C7320,20,7440,40,7560,51.7C7680,63,7800,67,7920,70C8040,73,8160,77,8280,80C8400,83,8520,87,8580,88.3L8640,90L8640,100L8580,100C8520,100,8400,100,8280,100C8160,100,8040,100,7920,100C7800,100,7680,100,7560,100C7440,100,7320,100,7200,100C7080,100,6960,100,6840,100C6720,100,6600,100,6480,100C6360,100,6240,100,6120,100C6000,100,5880,100,5760,100C5640,100,5520,100,5400,100C5280,100,5160,100,5040,100C4920,100,4800,100,4680,100C4560,100,4440,100,4320,100C4200,100,4080,100,3960,100C3840,100,3720,100,3600,100C3480,100,3360,100,3240,100C3120,100,3000,100,2880,100C2760,100,2640,100,2520,100C2400,100,2280,100,2160,100C2040,100,1920,100,1800,100C1680,100,1560,100,1440,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z"
+        ></path>
+      </svg>
+    </section>
+
     <div class="studying container" id="studying">
       <div class="studying-header">Studying process</div>
       <div class="studying-text intro">
@@ -213,9 +317,6 @@
       <div class="studying-grid first">
         <img src="../assets/studying/first.png" alt="" />
         <div class="text">
-          <!-- Is it easy for a first-year student to sit out an hour and a half of a
-          study pair during the adaptation period? -->
-          <!-- How can I understand what to do at the university? -->
           When searching for an educational institution, we advise you to pay
           attention to the presence of a department for providing assistance to
           international students
@@ -224,20 +325,11 @@
       <div class="studying-grid second">
         <img src="../assets/studying/second.png" alt="" />
         <div class="text">
-          <!-- How will he be able to maintain concentration during this time in
-          order to keep high-quality notes? -->
-          <!-- Who should I turn to for help with my studies? -->
           Many questions about the applicant are primarily addressed to the
           agency for studying abroad, which solves problems and coordinates
           actions
         </div>
       </div>
-      <!-- <div class="studying-text outro">
-        With these and many other questions related to studying at the
-        university, you can contact us. Our specialists will always be ready to
-        help you and solve most of the problems that arise on your way to the
-        university
-      </div> -->
       <div class="faq">
         <h3 class="faq-header">FAQ about studying</h3>
         <div class="faq-container">
@@ -317,9 +409,37 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import data from "../static/countries.json";
+
 gsap.registerPlugin(ScrollTrigger);
 export default {
+  data() {
+    return {
+      countries: data.data,
+      current_country: 0,
+      search_value: null,
+      debounce: null,
+    };
+  },
   mounted() {
+    this.current_country = Math.floor(Math.random() * this.countries.length);
+    document
+      .querySelectorAll(".list-item")
+      [this.current_country].classList.add("active");
+
+    let countries_selector = document.querySelector(".list");
+    let body = document.querySelector("body");
+    const scrollbarwidth = this.getScrollbarWidth();
+    countries_selector.addEventListener("mouseenter", function() {
+      body.style.cssText = `overflow: hidden; margin-right: ${scrollbarwidth}px; background: #fafafa`;
+    });
+
+    countries_selector.addEventListener("mouseleave", function() {
+      body.style.removeProperty("overflow");
+      body.style.removeProperty("margin-right");
+      body.style.removeProperty("background");
+    });
+
     const isa_text_tl = gsap.timeline({
       scrollTrigger: {
         trigger: ".about-isa",
@@ -622,10 +742,79 @@ export default {
       });
     });
   },
+  methods: {
+    checkCountry(e) {
+      const selectedCountry = e.target.textContent.replace(/\s/g, "");
+      this.countries.forEach((el, index) => {
+        if (el.country == selectedCountry) {
+          let items = document.querySelectorAll(".list-item");
+          if (this.current_country >= 0) {
+            items[this.current_country].classList.remove("active");
+          }
+          this.current_country = index;
+          items[this.current_country].classList.add("active");
+        }
+      });
+    },
+    getScrollbarWidth() {
+      // Creating invisible container
+      const outer = document.createElement("div");
+      outer.style.visibility = "hidden";
+      outer.style.overflow = "scroll"; // forcing scrollbar to appear
+      outer.style.msOverflowStyle = "scrollbar"; // needed for WinJS apps
+      document.body.appendChild(outer);
+
+      // Creating inner element and placing it in the container
+      const inner = document.createElement("div");
+      outer.appendChild(inner);
+
+      // Calculating difference between container's full width and the child width
+      const scrollbarWidth = outer.offsetWidth - inner.offsetWidth;
+
+      // Removing temporary elements from the DOM
+      outer.parentNode.removeChild(outer);
+
+      return scrollbarWidth;
+    },
+    search(e) {
+      this.search_value = e.target.value;
+      const length = this.search_value.length;
+      const list_items = document.querySelectorAll(".list-item");
+      this.countries.forEach((el, index) => {
+        if (
+          el.country.substr(0, length).toLowerCase() !=
+          this.search_value.toLowerCase()
+        ) {
+          list_items[index].classList.add("hidden");
+        } else {
+          list_items[index].classList.remove("hidden");
+        }
+      });
+    },
+  },
 };
 </script>
 
 <style lang="scss">
+body {
+  // &::-webkit-scrollbar {
+  //   width: 15px;
+  // }
+  // &::-webkit-scrollbar-track {
+  //   background: #fafafa; /* color of the tracking area */
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  //   background-color: rgba(0, 0, 0, 0.616); /* color of the scroll thumb */
+  //   // border-radius: 10px; /* roundness of the scroll thumb */
+  //   // border: 3px solid orange; /* creates padding around scroll thumb */
+  // }
+  .countries-scrolling {
+    overflow: hidden;
+  }
+}
+
 .isa-partners {
   svg {
     margin: -1px 0;
@@ -947,6 +1136,230 @@ export default {
         width: 4px;
         height: 100%;
         align-self: center;
+      }
+    }
+  }
+}
+
+.countries {
+  .wave-top {
+    margin: -1px 0px 50px 0px;
+    filter: drop-shadow(0px -7px 5px rgb(0 0 0 / 0.2));
+  }
+  .wave-bottom {
+    margin: 50px 0px 0px 0px;
+    filter: drop-shadow(0px -7px 5px rgb(0 0 0 / 0.2));
+  }
+
+  background: #fafafa;
+  color: #6a566a;
+
+  .countries-header {
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .countries-container {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    grid-template-rows: auto 1fr;
+    column-gap: 10%;
+
+    .country-info {
+      .country-info-card {
+        position: relative;
+        color: #fff;
+        // background: #6a566a;
+        background: #737ac7;
+        height: fit-content;
+        padding: 30px 30px 70px 30px;
+        border-radius: 30px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.253);
+
+        .name {
+          font-size: 1.8em;
+          margin: 0 0 20px 0;
+        }
+
+        .text {
+          font-size: 1em;
+        }
+
+        .number {
+          margin: 10px 0 0 0;
+          font-size: 1.5em;
+          text-align: right;
+          position: absolute;
+          right: 30px;
+          bottom: 20px;
+          img {
+            position: absolute;
+            left: -53px;
+            top: -8px;
+          }
+        }
+
+        .flag {
+          border-radius: 50%;
+          width: 50px;
+          height: 50px;
+          position: absolute;
+          right: 30px;
+          top: 20px;
+          width: 50px;
+          border: 2px solid #fff;
+          box-shadow: 0px 0px 10px 0 rgba(0, 0, 0, 0.315);
+        }
+      }
+      .abbrs {
+        margin: 30px 10% 0 10%;
+        width: 80%;
+        height: 50px;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+
+        font-weight: bold;
+        color: #fff;
+        background: #737ac7;
+        border-radius: 20px;
+        box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.315);
+        // padding: 10px;
+        overflow: hidden;
+
+        .abbr {
+          flex-grow: 1;
+          display: flex;
+
+          // background: #ccc;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+          user-select: none;
+
+          position: relative;
+          z-index: 0;
+          height: 100%;
+          transition: all 0.25s ease-in-out;
+          &:before {
+            content: " ";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 0;
+            width: 0;
+            border-radius: 20px;
+            background: #fafafa;
+            z-index: -1;
+
+            transition: all 0.25s ease-in-out;
+          }
+
+          &:hover {
+            color: #6a566a;
+            cursor: pointer;
+            transition: all 0.25s ease-in-out;
+
+            &:before {
+              top: -35%;
+              left: 0;
+              height: 170%;
+              width: 100%;
+              transition: all 0.25s ease-in-out;
+            }
+          }
+        }
+      }
+    }
+
+    .country-select {
+      font-size: 1.45em;
+      overflow: hidden;
+      // width: 120%;
+      input {
+        width: 95%;
+        height: 40px;
+        border: 2px solid #737ac7;
+        border-radius: 30px;
+        padding: 25px 20px 25px 20px;
+        transition: all 0.2s ease-in-out;
+        margin: 0px 1% 1% 1%;
+        background: #fafafa;
+        filter: drop-shadow(5px 5px 5px #0000002d);
+
+        &:focus {
+          background: #737ac7;
+          color: #fff;
+          filter: none;
+          transition: all 0.2s ease-in-out;
+
+          &::placeholder {
+            transition: all 0.2s ease-in-out;
+            color: transparent;
+          }
+        }
+      }
+
+      .list {
+        overflow: hidden;
+        margin-top: 30px;
+        width: 95%;
+        height: 300px;
+        border-radius: 30px;
+        border: 2px solid #737ac7;
+        overflow-y: scroll;
+        margin: 30px 1% 20px 1%;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.178);
+        backdrop-filter: blur(5px);
+
+        /* Hide scrollbar for Chrome */
+        &::-webkit-scrollbar {
+          display: none;
+        }
+        /* IE and Edge */
+        -ms-overflow-style: none;
+        /* Firefox */
+        scrollbar-width: none;
+
+        .list-item {
+          overflow: hidden;
+          height: 100px;
+          width: 110%;
+          margin-left: -5px;
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          transition: all 0.15s ease-in-out;
+          user-select: none;
+
+          &:hover {
+            cursor: pointer;
+            background: #737ac7;
+            color: #fff;
+          }
+
+          &.active {
+            cursor: pointer;
+            background: #737ac7;
+            color: #fff;
+            pointer-events: none;
+          }
+
+          &.hidden {
+            display: none;
+          }
+
+          .list-item-flag {
+            width: 60px;
+            height: 60px;
+            margin: 0 30px 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+          }
+        }
       }
     }
   }
