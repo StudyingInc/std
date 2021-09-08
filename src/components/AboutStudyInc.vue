@@ -158,14 +158,14 @@ export default {
     });
     about_tl.fromTo(
       ".about-text",
-      { opacity: 0.01, x: "-10%" },
-      { opacity: 1, x: 0, duration: 0.5 },
+      { autoAlpha: 0.01, x: "-10%" },
+      { autoAlpha: 1, x: 0, duration: 0.5 },
       0
     );
     about_tl.fromTo(
       ".about-wrapper img",
-      { opacity: 0.01, y: "10%" },
-      { opacity: 1, y: 0, duration: 0.5 },
+      { autoAlpha: 0.01, y: "10%" },
+      { autoAlpha: 1, y: 0, duration: 0.5 },
       0
     );
 
@@ -180,19 +180,19 @@ export default {
     });
     aims_tl.fromTo(
       ".aims-text",
-      { opacity: 0.01, x: "10%" },
-      { opacity: 1, x: 0, duration: 0.5 },
+      { autoAlpha: 0.01, x: "10%" },
+      { autoAlpha: 1, x: 0, duration: 0.5 },
       0
     );
     aims_tl.fromTo(
       ".aims-wrapper img",
-      { opacity: 0.01, y: "10%" },
-      { opacity: 1, y: 0, duration: 0.5 },
+      { autoAlpha: 0.01, y: "10%" },
+      { autoAlpha: 1, y: 0, duration: 0.5 },
       0
     );
 
     gsap.from(".bun1", {
-      opacity: 0.001,
+      autoAlpha: 0.001,
       scale: 0.7,
       duration: 0.7,
       ease: "back.out(2)",
@@ -204,7 +204,7 @@ export default {
     });
 
     gsap.from(".bun2", {
-      opacity: 0.001,
+      autoAlpha: 0.001,
       scale: 0.7,
       duration: 0.7,
       ease: "back.out(2)",
@@ -249,6 +249,8 @@ export default {
 <style lang="scss" scoped>
 .bun {
   position: absolute;
+  will-change: transform;
+
   &.bun1 {
     top: 500px;
     width: 27%;
@@ -328,6 +330,7 @@ section {
       border-radius: 1.5rem;
 
       .about-text {
+        will-change: transform;
         position: absolute;
         height: 50%;
         width: 50%;
@@ -351,6 +354,7 @@ section {
       }
 
       .img {
+        will-change: transform;
         top: 5%;
         right: 0;
         z-index: 0;
@@ -367,6 +371,7 @@ section {
       margin-bottom: 100px;
 
       .aims-text {
+        will-change: transform;
         position: absolute;
         height: fit-content;
         width: 52%;
@@ -388,6 +393,7 @@ section {
         text-align: center;
       }
       .img {
+        will-change: transform;
         top: 5%;
         left: 0;
         z-index: 0;
@@ -430,6 +436,8 @@ section {
 
 @media screen and (max-width: 1700px) {
   .bun {
+    will-change: transform;
+
     &.bun1 {
       left: -50px;
     }

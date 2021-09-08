@@ -409,7 +409,6 @@ export default {
     return {
       tab: "sign-in",
       nav_show: false,
-      mobile: false,
     };
   },
   mounted() {

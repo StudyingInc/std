@@ -1,10 +1,55 @@
 {
   "data": [
     {
+      "country": "Lithuania",
+      "info": "Lithuania is a wonderful and rapidly developing European country. A diploma from a Lithuanian university will significantly facilitate the process of employment both in Lithuania and in many other countries of Europe and the world as a whole. For example, in such attractive countries for living and working as the USA, Canada or Australia.",
+      "facts": "<li>The literacy rate of the population in Lithuania provides the country with the 8th position in the world ranking and the 4th among European countries.</li><li>Vilnius University is the oldest in Eastern Europe (founded in 1579).</li><li>In 2015, Lithuania was selected as one of the best tourist.</li>",
+      "top": [
+        { "abbr": "VU", "link": "https://www.vu.lt/en/" },
+        { "abbr": "VGTU", "link": "https://www.vgtu.lt/" },
+        { "abbr": "KTU", "link": "https://en.ktu.edu/" },
+        { "abbr": "LSMU", "link": "https://lsmuni.lt/en/" },
+        { "abbr": "EHU", "link": "https://en.ehu.lt/" }
+      ],
+      "number": 23
+    },
+    {
+      "country": "Poland",
+      "info": "The education system in Poland has gone much further over the past ten years and continues to develop actively today. At the same time, not only the number of educational institutions increases, but also the quality of teaching in them. If you decide to get an education in Poland, you can become a student of universities that were founded in the 14th century!",
+      "facts": "<li>The academic year at Polish universities begins in October.</li><li>In comparison with other countries of the European Union, the payment for education in Poland is optimal.</li><li>In most Polish universities, full-time education takes place four days a week, the rest of the time is intended for self-education.</li>",
+      "top": [
+        { "abbr": "UW", "link": "http://en.uw.edu.pl/" },
+        { "abbr": "UJ", "link": "https://en.uj.edu.pl/en" },
+        { "abbr": "AMU", "link": "http://international.amu.edu.pl/" },
+        { "abbr": "UWroc", "link": "https://uni.wroc.pl/en/" },
+        { "abbr": "UMK", "link": "https://www.umk.pl/en/" }
+      ],
+      "number": 457
+    },
+    {
       "country": "Russia",
-      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
-      "top": ["FU", "MSU", "HSE", "RES", "RANEPA"],
-      "number": 20
+      "info": "Russia is a big country, 741 universities are open here, universities are located in 82 regions-from Kaliningrad to Vladivostok. There are classical universities where you can get a variety of professions-from an engineer to a philologist; there are universities of a certain orientation – technical, humanitarian, medical.",
+      "facts": "<li>Citizens of some countries have the right to enter the university on an equal basis with Russians.</li><li>Russia is the most educated country in the world.</li><li>Rossotrudnichestvo selects foreign applicants through its network of representative offices, as well as through Russian embassies abroad.</li>",
+      "top": [
+        { "abbr": "MSU", "link": "https://www.msu.ru/en/" },
+        { "abbr": "FU", "link": "http://www.fa.ru/" },
+        { "abbr": "RUDN", "link": "http://www.rudn.ru/" },
+        { "abbr": "MISIS", "link": "https://misis.ru/" },
+        { "abbr": "MGMU", "link": "https://www.sechenov.ru/" }
+      ],
+      "number": 968
+    },
+    {
+      "country": "Ukraine",
+      "info": "The number of foreign students in higher educational institutions of Ukraine is growing every year. This beautiful European country has always been hospitable, with a warm and good attitude towards foreigners. Those who are looking for a high-quality and affordable education abroad can safely recommend studying in Ukraine.",
+      "facts": "<li>Ukrainian universities are included in the ranking of the best universities in the world.</li><li>Education in Ukraine is much cheaper than in other European countries.</li><li>Foreign students receive a temporary residence permit in Ukraine.</li>",
+      "top": [
+        { "abbr": "KPI", "link": "https://kpi.ua/ru" },
+        { "abbr": "KNU", "link": "http://www.univ.kiev.ua/ru/" },
+        { "abbr": "NMU", "link": "http://nmuofficial.com/en/" },
+        { "abbr": "NAU", "link": "https://nau.edu.ua/en/" }
+      ],
+      "number": 140
     },
     {
       "country": "France",
