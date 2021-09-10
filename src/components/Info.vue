@@ -227,14 +227,21 @@
             <div class="country-info-card">
               <div class="name">
                 {{ countries[current_country].country }}
-                <span class="facts-title" v-if="isFacts"> Facts </span>
+                <span class="facts-title" v-show="isFacts"> Facts </span>
               </div>
               <div
                 class="facts"
-                v-if="isFacts"
+                v-show="isFacts"
                 v-html="countries[current_country].facts"
+                ref="facts"
+                :style="{ height: maxHeight + 'px' }"
               ></div>
-              <div class="text" v-if="!isFacts">
+              <div
+                class="text"
+                v-show="!isFacts"
+                ref="text"
+                :style="{ height: maxHeight + 'px' }"
+              >
                 {{ countries[current_country].info }}
               </div>
 
@@ -438,7 +445,25 @@ export default {
       debounce: null,
       isMobile: false,
       isFacts: false,
+
+      factsHeight: null,
+      infoHeight: null,
+      maxHeight: null,
     };
+  },
+  watch: {
+    current_country: function() {
+      this.$refs.text.style.removeProperty("height");
+      this.$refs.facts.style.removeProperty("height");
+      this.$nextTick(() => {
+        this.getMaxHeight();
+      });
+    },
+  },
+  computed: {
+    getRandomCountry() {
+      return Math.floor(Math.random() * this.countries.length);
+    },
   },
   mounted() {
     // device detection
@@ -450,10 +475,13 @@ export default {
       this.isMobile = true;
     }
 
-    this.current_country = Math.floor(Math.random() * this.countries.length);
-    document
-      .querySelectorAll(".list-item")
-      [this.current_country].classList.add("active");
+    setTimeout(() => {
+      this.current_country =
+        Math.floor(Math.random() * (this.countries.length - 1)) + 1;
+      document
+        .querySelectorAll(".list-item")
+        [this.current_country].classList.add("active");
+    }, 0);
 
     if (this.isMobile == false) {
       let countries_selector = document.querySelector(".list");
@@ -811,8 +839,81 @@ export default {
       }
       this.isFacts = !this.isFacts;
     },
+    getMaxHeight() {
+      console.log(this.$refs.text);
+      console.log(this.$refs.facts);
+
+      if (this.isFacts == false) {
+        this.infoHeight = this.$refs.text.clientHeight;
+        this.$refs.facts.style.removeProperty("display");
+        this.factsHeight = this.$refs.facts.clientHeight;
+        console.log(this.factsHeight);
+        this.$refs.facts.style.cssText = "display: none;";
+      } else {
+        this.factsHeight = this.$refs.facts.clientHeight;
+        this.$refs.info.style.removeProperty("display");
+        this.infoHeight = this.$refs.info.clientHeight;
+        this.$refs.info.style.cssText = "display: none;";
+      }
+
+      console.log("current_country: " + this.current_country);
+      console.log("facts_height: " + this.factsHeight);
+      console.log("info_height: " + this.infoHeight);
+
+      let new_maxHeight = Math.max(this.factsHeight, this.infoHeight);
+      if (new_maxHeight == this.maxHeight) {
+        this.maxHeight += 1;
+      } else {
+        this.maxHeight = new_maxHeight;
+      }
+    },
+    returnMaxHeight() {
+      console.log(this.$refs.text);
+      console.log(this.$refs.facts);
+
+      if (this.isFacts == false) {
+        this.infoHeight = this.$refs.text.clientHeight;
+        this.$refs.facts.style.removeProperty("display");
+        this.factsHeight = this.$refs.facts.clientHeight;
+        console.log(this.factsHeight);
+        this.$refs.facts.style.cssText = "display: none;";
+      } else {
+        this.factsHeight = this.$refs.facts.clientHeight;
+        this.$refs.info.style.removeProperty("display");
+        this.infoHeight = this.$refs.info.clientHeight;
+        this.$refs.info.style.cssText = "display: none;";
+      }
+
+      console.log("current_country: " + this.current_country);
+      console.log("facts_height: " + this.factsHeight);
+      console.log("info_height: " + this.infoHeight);
+
+      let new_maxHeight = Math.max(this.factsHeight, this.infoHeight);
+      if (new_maxHeight == this.maxHeight) {
+        return (this.maxHeight += 1);
+      } else {
+        return new_maxHeight;
+      }
+    },
     checkCountry(e) {
       const selectedCountry = e.target.textContent.replace(/\s/g, "");
+      if (this.isFacts) this.factsBtnChecker();
+      this.countries.forEach((el, index) => {
+        if (el.country == selectedCountry) {
+          let items = document.querySelectorAll(".list-item");
+          if (this.current_country >= 0) {
+            items[this.current_country].classList.remove("active");
+          }
+          this.current_country = index;
+          items[this.current_country].classList.add("active");
+        }
+      });
+    },
+
+    chooseCountry(number) {
+      const selectedCountry = document
+        .querySelectorAll(".list-item")
+        [number].textContent.replace(/\s/g, "");
       if (this.isFacts) this.factsBtnChecker();
       this.countries.forEach((el, index) => {
         if (el.country == selectedCountry) {
@@ -865,11 +966,11 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  .countries-scrolling {
-    overflow: hidden;
-  }
-}
+// body {
+//   .countries-scrolling {
+//     overflow: hidden;
+//   }
+// }
 
 .isa-partners {
   svg {
@@ -1240,6 +1341,7 @@ body {
     grid-template-columns: 50% 40%;
     grid-template-rows: auto 1fr;
     column-gap: 10%;
+    transition: all 0.35s ease-in-out;
 
     .country-info {
       .country-info-card {
@@ -1262,15 +1364,15 @@ body {
           list-style: none;
 
           li {
-            margin: 0 0 15px 0;
+            margin: 0 0 7px 0;
             &:before {
               content: " ";
               display: inline-block;
               margin: 0 10px 0 0;
               background-image: url("../assets/listStyle.svg");
               background-size: cover;
-              width: 12px;
-              height: 12px;
+              width: 11px;
+              height: 11px;
             }
           }
         }
@@ -1278,9 +1380,15 @@ body {
         .text {
           font-size: 1em;
           margin-bottom: 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
         }
 
         .facts {
+          // display: flex;
+          // flex-direction: column;
+          // justify-content: space-evenly;
           margin-bottom: 20px;
         }
 
@@ -1316,56 +1424,61 @@ body {
           position: absolute;
           left: 30px;
           bottom: 27px;
-          box-shadow: 0 0 0 2px #fff, 0 0 10px rgba(0, 0, 0, 0.164);
-          border-radius: 12px;
+          box-shadow: 0 0 0 2px #fff, rgba(0, 0, 0, 0.315) 5px 5px 7px;
+          border-radius: 15px;
           // padding: 8px;
           font-weight: bolder;
-          transition: all 0.25s ease-in-out;
+          transition: all 0.35s ease-in-out;
           z-index: 0;
           overflow: hidden;
           cursor: pointer;
 
           .facts-open {
-            margin: 0 5px 0 10px;
-            padding: 5px 10px 5px 5px;
+            margin: 0 6px 0 10px;
+            padding: 5px 10px 5px 7px;
             pointer-events: none;
+            transition: all 0.35s ease-in-out;
 
             &.active {
+              transition: all 0.35s ease-in-out;
               color: #6a566a;
             }
           }
 
           .facts-close {
-            margin: 0 10px 0 5px;
-            padding: 5px 5px 5px 10px;
+            margin: 0 10px 0 6px;
+            padding: 5px 5px 5px 12px;
             pointer-events: none;
+            transition: all 0.35s ease-in-out;
 
             &.active {
               color: #6a566a;
+              transition: all 0.35s ease-in-out;
             }
           }
 
           .decor {
             pointer-events: none;
-            transition: all 0.25s ease-in-out;
+            transition: all 0.35s ease-in-out;
             position: absolute;
             content: " ";
-            left: 0;
+            left: -10%;
             top: 0;
             height: 100%;
-            width: 50%;
+            width: 100%;
             z-index: -1;
             background: #fff;
-            border-radius: 12px;
-            box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #fff;
+            border-radius: 15px;
+            box-shadow: inset 0 0 0 2px #fff, 0 0 0 2px #fff,
+              0 0 15px rgba(0, 0, 0, 0.3);
 
             &.first {
               top: 0;
-              left: 0;
+              left: -52%;
             }
             &.second {
               top: 0;
-              left: 50%;
+              left: 47%;
             }
           }
         }

@@ -3,8 +3,8 @@
     <!-- <div class="wrapper"> -->
     <div class="bg-wrapper">
       <MainHeader />
-      <Presentation />
     </div>
+    <Presentation />
     <AboutStudyInc />
     <Info />
     <footer class="footer">

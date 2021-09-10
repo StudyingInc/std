@@ -39,9 +39,10 @@
       ],
       "number": 968
     },
+    
     {
       "country": "Ukraine",
-      "info": "The number of foreign students in higher educational institutions of Ukraine is growing every year. This beautiful European country has always been hospitable, with a warm and good attitude towards foreigners. Those who are looking for a high-quality and affordable education abroad can safely recommend studying in Ukraine.",
+      "info": "This beautiful European country has always been hospitable, with a warm and good attitude towards foreigners. Those who are looking for a high-quality and affordable education abroad can safely recommend studying in Ukraine.",
       "facts": "<li>Ukrainian universities are included in the ranking of the best universities in the world.</li><li>Education in Ukraine is much cheaper than in other European countries.</li><li>Foreign students receive a temporary residence permit in Ukraine.</li>",
       "top": [
         { "abbr": "KPI", "link": "https://kpi.ua/ru" },
@@ -50,24 +51,6 @@
         { "abbr": "NAU", "link": "https://nau.edu.ua/en/" }
       ],
       "number": 140
-    },
-    {
-      "country": "France",
-      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
-      "top": ["content", "content", "content", "content", "content"],
-      "number": 13
-    },
-    {
-      "country": "Germany",
-      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
-      "top": ["content", "content", "content", "content", "content"],
-      "number": 5
-    },
-    {
-      "country": "Romania",
-      "info": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora totam iusto eius consectetur atque aspernatur possimus magnam incidunt repellat blanditiis",
-      "top": ["content", "content", "content", "content", "content"],
-      "number": 2
     }
   ]
 }
