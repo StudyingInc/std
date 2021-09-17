@@ -2,7 +2,7 @@
   <div class="main-page">
     <!-- <div class="wrapper"> -->
     <div class="bg-wrapper">
-      <MainHeader />
+      <MainHeader :isMobile="isMobile" />
     </div>
     <Presentation />
     <AboutStudyInc />
@@ -40,7 +40,7 @@ export default {
   },
   data() {
     return {
-      mobile: false,
+      isMobile: false,
       sections: [
         "header",
         "history",
@@ -54,6 +54,14 @@ export default {
     };
   },
   mounted() {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      this.isMobile = true;
+    }
+
     document.querySelectorAll(".keep_scrolling").forEach((el) => {
       el.addEventListener("click", this.scrollToPresentation);
     });
@@ -222,12 +230,14 @@ footer {
   // border: 3px solid #000;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 992px) {
   .main-page .bg-wrapper {
     animation: none;
-    background: url("../assets/mesh9.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+      url("../assets/mobile-header-picture1_1280.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 200vh;
+    background-position: right 50% bottom 20%;
+    background-size: cover;
   }
 }
 </style>

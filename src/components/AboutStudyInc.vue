@@ -146,102 +146,108 @@ export default {
     return {};
   },
   mounted() {
-    //about-wrapper animation
-    const about_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about-wrapper",
-        start: "top center",
-        end: "bottom bottom",
-        // markers: true,
-        // toggleActions: "play none none reverse",
-      },
-    });
-    about_tl.fromTo(
-      ".about-text",
-      { autoAlpha: 0.01, x: "-10%" },
-      { autoAlpha: 1, x: 0, duration: 0.5 },
-      0
-    );
-    about_tl.fromTo(
-      ".about-wrapper img",
-      { autoAlpha: 0.01, y: "10%" },
-      { autoAlpha: 1, y: 0, duration: 0.5 },
-      0
-    );
+    setTimeout(() => {
+      //about-wrapper animation
+      const about_tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-wrapper",
+          start: "top center",
+          end: "bottom bottom",
+          // markers: true,
+          // toggleActions: "play none none reverse",
+        },
+      });
+      about_tl.fromTo(
+        ".about-text",
+        { autoAlpha: 0.01, x: "-10%" },
+        { autoAlpha: 1, x: 0, duration: 0.5 },
+        0
+      );
+      about_tl.fromTo(
+        ".about-wrapper img",
+        { autoAlpha: 0.01, y: "10%" },
+        { autoAlpha: 1, y: 0, duration: 0.5 },
+        0
+      );
 
-    //aims-wrapper animation
-    const aims_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".aims-wrapper",
-        start: "top center",
-        end: "bottom bottom",
-        // toggleActions: "play none none reverse",
-      },
-    });
-    aims_tl.fromTo(
-      ".aims-text",
-      { autoAlpha: 0.01, x: "10%" },
-      { autoAlpha: 1, x: 0, duration: 0.5 },
-      0
-    );
-    aims_tl.fromTo(
-      ".aims-wrapper img",
-      { autoAlpha: 0.01, y: "10%" },
-      { autoAlpha: 1, y: 0, duration: 0.5 },
-      0
-    );
+      //aims-wrapper animation
+      const aims_tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".aims-wrapper",
+          start: "top center",
+          end: "bottom bottom",
+          // toggleActions: "play none none reverse",
+        },
+      });
+      aims_tl.fromTo(
+        ".aims-text",
+        { autoAlpha: 0.01, x: "10%" },
+        { autoAlpha: 1, x: 0, duration: 0.5 },
+        0
+      );
+      aims_tl.fromTo(
+        ".aims-wrapper img",
+        { autoAlpha: 0.01, y: "10%" },
+        { autoAlpha: 1, y: 0, duration: 0.5 },
+        0
+      );
 
-    gsap.from(".bun1", {
-      autoAlpha: 0.001,
-      scale: 0.7,
-      duration: 0.7,
-      ease: "back.out(2)",
-      scrollTrigger: {
-        trigger: ".about-wrapper",
-        start: "top center",
-        toggleActions: "play none none reverse",
-      },
-    });
+      gsap.from(".bun1", {
+        autoAlpha: 0.001,
+        scale: 0.7,
+        duration: 0.7,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: ".about-wrapper",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
 
-    gsap.from(".bun2", {
-      autoAlpha: 0.001,
-      scale: 0.7,
-      duration: 0.7,
-      ease: "back.out(2)",
-      scrollTrigger: {
-        trigger: ".aims-wrapper",
-        start: "top center",
-        toggleActions: "play none none reverse",
-      },
-    });
+      gsap.from(".bun2", {
+        autoAlpha: 0.001,
+        scale: 0.7,
+        duration: 0.7,
+        ease: "back.out(2)",
+        scrollTrigger: {
+          trigger: ".aims-wrapper",
+          start: "top center",
+          toggleActions: "play none none reverse",
+        },
+      });
 
-    const bun1_tl = gsap.timeline({
-      repeat: -1,
-    });
+      const bun1_tl = gsap.timeline({
+        repeat: -1,
+      });
 
-    bun1_tl.to(".bun1", {
-      y: "-=50px",
-      duration: 4,
-      ease: "power1.inOut",
-    });
-    bun1_tl.to(".bun1", {
-      y: "+=50px",
-      duration: 4,
-      ease: "power1.inOut",
-    });
+      bun1_tl.to(".bun1", {
+        y: "-=50px",
+        z: 0.1,
+        duration: 4,
+        ease: "power1.inOut",
+      });
+      bun1_tl.to(".bun1", {
+        y: "+=50px",
+        z: 0.1,
+        duration: 4,
+        ease: "power1.inOut",
+      });
 
-    const bun2_tl = gsap.timeline({ repeat: -1 });
+      const bun2_tl = gsap.timeline({ repeat: -1 });
 
-    bun2_tl.to(".bun2", {
-      y: "-=60px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-    bun2_tl.to(".bun2", {
-      y: "+=60px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
+      bun2_tl.to(".bun2", {
+        y: "-=60px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
+      bun2_tl.to(".bun2", {
+        y: "+=60px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
+    }, 300);
   },
 };
 </script>
@@ -340,7 +346,7 @@ section {
 
         z-index: 1;
         background: #dfdfdf99;
-        backdrop-filter: blur(10px);
+        // backdrop-filter: blur(10px);
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
 
         border-radius: 1.7em;
@@ -380,7 +386,7 @@ section {
 
         z-index: 1;
         background: #fafafa99;
-        backdrop-filter: blur(10px);
+        // backdrop-filter: blur(10px);
         box-shadow: -3px 3px 7px rgba(0, 0, 0, 0.3);
         border-radius: 1.7em;
         padding: 0.2em;

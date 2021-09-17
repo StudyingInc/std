@@ -1,8 +1,9 @@
 <template>
-  <header id="header" class="animated" :class="{ show_nav: nav_show }">
+  <header id="header" class="animated">
+    <TopLine v-if="query" :isMobile="isMobile" />
     <div class="container">
       <div class="notion">
-        <div class="topline">
+        <div class="topline" v-if="!query">
           <router-link to="">
             <svg
               class="full_logo"
@@ -98,37 +99,6 @@
               />
             </svg>
           </router-link>
-
-          <div
-            id="nav_trigger"
-            v-body-scroll-lock="nav_show"
-            @click="nav_show = !nav_show"
-          >
-            <svg
-              viewBox="0 0 30 30"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <line
-                :class="{ rotated: nav_show }"
-                x1="0.5"
-                y1="10"
-                x2="29.5"
-                y2="10"
-                stroke="#2B2D42"
-                stroke-linecap="round"
-              />
-              <line
-                :class="{ rotated: nav_show }"
-                x1="0.5"
-                y1="20"
-                x2="29.5"
-                y2="20"
-                stroke="#2B2D42"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
         </div>
         <div class="header_content">
           <h2>A dream of prestigious education is a reality</h2>
@@ -137,7 +107,12 @@
             large-scale perspective of your life into the future
           </p>
           <nav class="main_nav">
-            <div class="nav_item" @click="navChecker" data-link="admission">
+            <div
+              class="nav_item"
+              @click="navChecker"
+              data-custom="admission"
+              data-offset="150"
+            >
               <svg
                 width="110"
                 height="111"
@@ -153,7 +128,7 @@
                 />
               </svg>
             </div>
-            <div class="nav_item" @click="navChecker" data-link="studying">
+            <div class="nav_item" @click="navChecker" data-link="countries">
               <!-- studying -->
               <svg
                 width="111"
@@ -261,7 +236,12 @@
                 />
               </svg>
             </div>
-            <div class="nav_item" @click="navChecker" data-link="info">
+            <div
+              class="nav_item"
+              @click="navChecker"
+              data-custom="info"
+              data-offset="200"
+            >
               <!-- isa -->
               <svg
                 width="111"
@@ -282,7 +262,12 @@
                 />
               </svg>
             </div>
-            <div class="nav_item" @click="navChecker" data-link="about-study">
+            <div
+              class="nav_item"
+              @click="navChecker"
+              data-custom="about-study"
+              data-offset="-300"
+            >
               <!-- forum -->
               <svg
                 width="112"
@@ -385,13 +370,15 @@
       Scroll to get acquainted
     </div>
 
-    <div class="dark" :class="{ to_top: nav_show }"></div>
-    <SideNav :class="{ show_nav: nav_show }" />
+    <!-- <div class="dark" :class="{ to_top: nav_show }"></div> -->
+    <!-- <SideNav :class="{ show_nav: nav_show }" /> -->
   </header>
 </template>
 
 <script>
-import SideNav from "@/components/SideNav";
+// import SideNav from "@/components/SideNav";
+import TopLine from "@/components/TopLine.vue";
+
 import { debounce } from "debounce";
 
 import gsap from "gsap";
@@ -403,15 +390,28 @@ export default {
   name: "MainHeader",
   computed: {},
   components: {
-    SideNav,
+    // SideNav,
+    TopLine,
+  },
+  props: {
+    isMobile: Boolean,
   },
   data() {
     return {
+      query: false,
       tab: "sign-in",
       nav_show: false,
     };
   },
+
+  created() {
+    window.addEventListener("resize", debounce(this.queryChecker, 200));
+  },
+  destroyed() {
+    window.removeEventListener("resize", debounce(this.queryChecker, 200));
+  },
   mounted() {
+    this.queryChecker();
     this.getClientHeight();
     window.addEventListener("resize", debounce(this.getClientHeight, 200));
   },
@@ -427,13 +427,31 @@ export default {
         `${viewHeight}px`
       );
     },
+    queryChecker() {
+      if (window.matchMedia("(max-width: 991px)").matches) {
+        this.query = true;
+      } else {
+        this.query = false;
+      }
+    },
     navChecker(e) {
-      gsap.to(window, {
-        duration:
-          document.querySelector(`#${e.target.dataset.link}`).offsetTop *
-          0.0006,
-        scrollTo: `#${e.target.dataset.link}`,
-      });
+      const element = e.target.hasAttribute("data-custom")
+        ? document.querySelector(`#${e.target.dataset.custom}`)
+        : document.querySelector(`#${e.target.dataset.link}`);
+      const offset = element.offsetTop;
+      if (e.target.hasAttribute("data-custom")) {
+        gsap.to(window, {
+          duration: offset * 0.0006,
+          scrollTo: offset - e.target.dataset.offset,
+        });
+      } else {
+        gsap.to(window, {
+          duration:
+            document.querySelector(`#${e.target.dataset.link}`).offsetTop *
+            0.0006,
+          scrollTo: `#${e.target.dataset.link}`,
+        });
+      }
     },
   },
 };
@@ -477,6 +495,8 @@ header {
 
   .dark {
     z-index: -1;
+    // pointer-events: none;
+    // user-select: none;
   }
 }
 
@@ -787,13 +807,147 @@ header {
 
       &.to_top {
         background: rgba(0, 0, 0, 0.6);
-        z-index: 1;
+        z-index: 0;
+        pointer-events: none;
+        user-select: none;
       }
     }
   }
 
   header {
     height: var(--viewHeight);
+
+    .query-topline {
+      padding: 5px 20px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.692);
+      // backdrop-filter: blur(2px);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.055);
+
+      $transition--easing: cubic-bezier(0.77, 0, 0.175, 1);
+      $transition--length: 0.8;
+
+      &:before,
+      &:after {
+        content: "";
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(#eaeaea, 0.4);
+        z-index: 100;
+        top: 0;
+        left: 0;
+        transition: transform $transition--easing $transition--length + s;
+        transform: translateX(0%) translateY(-100%);
+      }
+
+      &:after {
+        background: rgba(#ffffff, 1);
+        transition-delay: 0s;
+      }
+      &:before {
+        transition-delay: 0.1s;
+      }
+
+      &.nav_active {
+        &:before,
+        &:after {
+          transform: translateX(0%) translateY(0%);
+        }
+
+        &:after {
+          transition-delay: 0.1s;
+        }
+        &:before {
+          transition-delay: 0s;
+        }
+        .container #nav_trigger .menu-line {
+          background: rgb(87, 87, 87);
+          &.line-left {
+            transform: translateX(1px) rotate(45deg);
+          }
+          &.line {
+            transform: rotate(-45deg);
+          }
+          &.line-right {
+            transform: translateX(-2px) rotate(45deg);
+          }
+        }
+      }
+      .container {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 30% 15%;
+        column-gap: 55%;
+        align-items: center;
+        justify-content: center;
+        align-content: center;
+        .full_logo {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: left;
+        }
+        #nav_trigger {
+          align-self: center;
+          justify-self: center;
+          cursor: pointer;
+          height: 18px;
+          width: 30px;
+          z-index: 101;
+
+          .menu-line {
+            display: flex;
+            pointer-events: none;
+            height: 2px;
+            margin-bottom: 4px;
+            background: var(--primary);
+            transition: all 0.3s ease-in-out;
+
+            &.line-left {
+              width: calc(50% + 1px);
+            }
+
+            &.line {
+              width: 100%;
+            }
+            &.line-right {
+              width: calc(50% + 1px);
+              margin-left: 50%;
+            }
+          }
+
+          .menu-items {
+            position: fixed;
+            opacity: 0;
+            width: 100vw;
+            height: 70vh;
+          }
+
+          // svg {
+          //   z-index: 100;
+
+          //   height: 30px;
+
+          //   line {
+          //     transition: all 0.3s ease-in-out;
+          //     transform-origin: center;
+
+          //     &.rotated {
+          //       stroke: #2b2d42;
+          //       &:first-child {
+          //         transform: translateX(-4px) translateY(2.5px) rotate(45deg);
+          //       }
+
+          //       &:nth-child(2) {
+          //         transform: translateX(-4px) translateY(-5px) rotate(-45deg);
+          //       }
+          //     }
+          //   }
+          // }
+        }
+      }
+    }
 
     .keep_scrolling {
       display: none;
@@ -802,7 +956,7 @@ header {
     .curtain {
       background: #fff6;
       height: calc(0.4 * var(--viewHeight));
-      display: flex;
+      display: none;
       flex-direction: column;
       justify-content: space-evenly;
       align-items: center;
@@ -876,19 +1030,17 @@ header {
         }
       }
     }
-    .container {
-      height: calc(0.6 * var(--viewHeight));
-    }
 
     .container .notion {
       width: 100%;
-      height: calc(0.6 * var(--viewHeight));
-      padding-top: 50px;
+      margin-top: 0;
+      padding-top: 0;
 
       .header_content {
-        height: calc(0.6 * var(--viewHeight) - 100px);
+        height: 80%;
         display: flex;
         flex-direction: column;
+        align-items: center;
         justify-content: center;
         h2 {
           font-size: 1.9em;
@@ -903,38 +1055,53 @@ header {
       }
 
       .topline {
+        position: relative;
+        align-items: center;
+        // z-index: 1;
+
+        // &:before {
+        //   content: "";
+        //   position: absolute;
+        //   width: 150%;
+        //   top: -20px;
+        //   left: -25%;
+        //   height: calc(175% + 20px);
+        //   background: #fafafa96;
+        //   z-index: -1;
+        // }
+
         .full_logo {
           height: 35px;
           margin-left: -15px;
           margin-bottom: 0;
         }
         #nav_trigger {
-          z-index: 100;
           cursor: pointer;
           display: block;
           height: 35px;
           width: 35px;
+          position: relative;
 
-          svg {
-            width: 30px;
-            height: 30px;
+          // svg {
+          //   width: 30px;
+          //   height: 30px;
 
-            line {
-              transition: all 0.3s ease-in-out;
-              transform-origin: center;
+          //   line {
+          //     transition: all 0.3s ease-in-out;
+          //     transform-origin: center;
 
-              &.rotated {
-                stroke: #fafafa;
-                &:first-child {
-                  transform: translateX(-4px) translateY(2.5px) rotate(45deg);
-                }
+          //     &.rotated {
+          //       stroke: #fafafa;
+          //       &:first-child {
+          //         transform: translateX(-4px) translateY(2.5px) rotate(45deg);
+          //       }
 
-                &:nth-child(2) {
-                  transform: translateX(-4px) translateY(-5px) rotate(-45deg);
-                }
-              }
-            }
-          }
+          //       &:nth-child(2) {
+          //         transform: translateX(-4px) translateY(-5px) rotate(-45deg);
+          //       }
+          //     }
+          //   }
+          // }
         }
       }
 
@@ -972,251 +1139,251 @@ header {
   }
 }
 
-@media screen and (max-width: 991px) and (orientation: landscape) {
-  header {
-    .header_content {
-      height: var(--viewHeight);
-      height: -webkit-fill-available;
-    }
+// @media screen and (max-width: 991px) and (orientation: landscape) {
+//   header {
+//     .header_content {
+//       height: var(--viewHeight);
+//       height: -webkit-fill-available;
+//     }
 
-    .container {
-      height: var(--viewHeight);
-      .notion {
-        padding-top: 30px;
-        .header_content {
-          height: var(--viewHeight);
-          margin-top: 45px;
+//     .container {
+//       height: var(--viewHeight);
+//       .notion {
+//         // padding-top: 30px;
+//         .header_content {
+//           height: var(--viewHeight);
+//           margin-top: 45px;
 
-          h2 {
-            margin-bottom: 10px;
-          }
-        }
-      }
-    }
+//           h2 {
+//             margin-bottom: 10px;
+//           }
+//         }
+//       }
+//     }
 
-    .curtain {
-      display: none;
-    }
-  }
-}
+//     .curtain {
+//       display: none;
+//     }
+//   }
+// }
 
-@media screen and (max-width: 767px) and (orientation: portrait) {
-  header .curtain .cards .card {
-    h2 {
-      font-size: 1.3em;
-    }
-    p {
-      font-size: 0.8em;
-    }
-  }
+// @media screen and (max-width: 767px) and (orientation: portrait) {
+//   header .curtain .cards .card {
+//     h2 {
+//       font-size: 1.3em;
+//     }
+//     p {
+//       font-size: 0.8em;
+//     }
+//   }
 
-  header .container .notion {
-    width: 100%;
-    padding-top: 50px;
-    h2 {
-      font-size: 1.5em;
-    }
-    p {
-      font-size: 1.2em;
-    }
+//   header .container .notion {
+//     width: 100%;
+//     // padding-top: 50px;
+//     h2 {
+//       font-size: 1.5em;
+//     }
+//     p {
+//       font-size: 1.2em;
+//     }
 
-    .topline .full_logo {
-      margin-bottom: 0px;
-    }
+//     .topline .full_logo {
+//       margin-bottom: 0px;
+//     }
 
-    .main_nav {
-      justify-content: space-around;
-      flex-wrap: wrap;
-      .nav_item {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 50px;
-        position: relative;
-        color: #2b2d42;
-        font-size: 0.8em;
-      }
-    }
-  }
-}
+//     .main_nav {
+//       justify-content: space-around;
+//       flex-wrap: wrap;
+//       .nav_item {
+//         display: flex;
+//         justify-content: center;
+//         align-items: center;
+//         width: 50px;
+//         position: relative;
+//         color: #2b2d42;
+//         font-size: 0.8em;
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 767px) and (max-height: 360px) and (orientation: landscape) {
-  header {
-    .header_content .container .notion .header_content {
-      h2 {
-        margin-bottom: 10px;
-        font-size: 1.5em;
-      }
-      p {
-        font-size: 1.1em;
-      }
-    }
+// @media screen and (max-width: 767px) and (max-height: 360px) and (orientation: landscape) {
+//   header {
+//     .header_content .container .notion .header_content {
+//       h2 {
+//         margin-bottom: 10px;
+//         font-size: 1.5em;
+//       }
+//       p {
+//         font-size: 1.1em;
+//       }
+//     }
 
-    .topline .full_logo {
-      height: 32px;
-    }
-  }
-}
+//     .topline .full_logo {
+//       height: 32px;
+//     }
+//   }
+// }
 
-@media screen and (max-width: 767px) and (max-height: 360px) and (orientation: landscape) {
-  header {
-    .header_content {
-      height: var(--viewHeight);
-    }
+// @media screen and (max-width: 767px) and (max-height: 360px) and (orientation: landscape) {
+//   header {
+//     .header_content {
+//       height: var(--viewHeight);
+//     }
 
-    .container {
-      height: var(--viewHeight);
-      .notion {
-        padding-top: 30px;
-        .header_content {
-          height: var(--viewHeight);
-          margin-top: 45px;
+//     .container {
+//       height: var(--viewHeight);
+//       .notion {
+//         // padding-top: 30px;
+//         .header_content {
+//           height: var(--viewHeight);
+//           margin-top: 45px;
 
-          h2 {
-            margin-bottom: 10px;
-            font-size: 1.5em;
-          }
-          p {
-            font-size: 1.1em;
-          }
-        }
+//           h2 {
+//             margin-bottom: 10px;
+//             font-size: 1.5em;
+//           }
+//           p {
+//             font-size: 1.1em;
+//           }
+//         }
 
-        .topline .full_logo {
-          height: 32px;
-        }
-      }
-    }
+//         .topline .full_logo {
+//           height: 32px;
+//         }
+//       }
+//     }
 
-    .curtain {
-      display: none;
-    }
-  }
-}
+//     .curtain {
+//       display: none;
+//     }
+//   }
+// }
 
-@media screen and (max-width: 767px) and (max-height: 300px) and (orientation: landscape) {
-  header .container .notion .header_content {
-    margin-top: 20px;
-  }
-}
+// @media screen and (max-width: 767px) and (max-height: 300px) and (orientation: landscape) {
+//   header .container .notion .header_content {
+//     // margin-top: 20px;
+//   }
+// }
 
-@media screen and (max-width: 500px) and (orientation: portrait) {
-  header {
-    .curtain {
-      .keep_scrolling {
-        font-size: 0.8em;
-      }
-      height: calc(0.4 * var(--viewHeight));
-      h1 {
-        font-size: 1.4em;
-      }
-    }
+// @media screen and (max-width: 500px) and (orientation: portrait) {
+//   header {
+//     .curtain {
+//       .keep_scrolling {
+//         font-size: 0.8em;
+//       }
+//       height: calc(0.4 * var(--viewHeight));
+//       h1 {
+//         font-size: 1.4em;
+//       }
+//     }
 
-    .container .notion {
-      width: 100%;
-      padding-top: 50px;
+//     .container .notion {
+//       width: 100%;
+//       // padding-top: 50px;
 
-      .header_content {
-        h2 {
-          font-size: 1.5em;
-        }
-        p {
-          font-size: 1.1em;
-          text-align: center;
-        }
-      }
+//       .header_content {
+//         h2 {
+//           font-size: 1.5em;
+//         }
+//         p {
+//           font-size: 1.1em;
+//           text-align: center;
+//         }
+//       }
 
-      .topline {
-        .full_logo {
-          margin: 0;
-        }
-        .nav_trigger {
-          height: 30px;
-          width: 30px;
-        }
-      }
-    }
-  }
-}
+//       .topline {
+//         .full_logo {
+//           margin: 0;
+//         }
+//         .nav_trigger {
+//           height: 30px;
+//           width: 30px;
+//         }
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 375px) and (orientation: portrait) {
-  header .container {
-    height: calc(0.6 * var(--viewHeight));
-  }
-  header .container .notion {
-    padding-top: 20px;
-    .topline {
-      .full_logo {
-        height: 30px;
-        width: 140px;
-        margin: 0;
-      }
-    }
+// @media screen and (max-width: 375px) and (orientation: portrait) {
+//   header .container {
+//     height: calc(0.6 * var(--viewHeight));
+//   }
+//   header .container .notion {
+//     // padding-top: 20px;
+//     .topline {
+//       .full_logo {
+//         height: 30px;
+//         width: 140px;
+//         margin: 0;
+//       }
+//     }
 
-    .header_content {
-      height: calc(0.6 * var(--viewHeight));
-      h2 {
-        font-size: 1.2em;
-      }
-      p {
-        font-size: 1em;
-        text-align: center;
-      }
-    }
-  }
-  header .curtain {
-    height: calc(0.4 * var(--viewHeight));
+//     .header_content {
+//       height: calc(0.6 * var(--viewHeight));
+//       h2 {
+//         font-size: 1.2em;
+//       }
+//       p {
+//         font-size: 1em;
+//         text-align: center;
+//       }
+//     }
+//   }
+//   header .curtain {
+//     height: calc(0.4 * var(--viewHeight));
 
-    h1 {
-      font-size: 1.2em;
-    }
-    .cards .card {
-      h2 {
-        font-size: 1em;
-      }
-      p {
-        font-size: 0.65em;
-      }
-    }
-  }
-}
+//     h1 {
+//       font-size: 1.2em;
+//     }
+//     .cards .card {
+//       h2 {
+//         font-size: 1em;
+//       }
+//       p {
+//         font-size: 0.65em;
+//       }
+//     }
+//   }
+// }
 
-@media screen and (max-width: 375px) and (max-height: 700px) and (orientation: portrait) {
-  .curtain .keep_scrolling {
-    bottom: 10px;
-  }
-}
+// @media screen and (max-width: 375px) and (max-height: 700px) and (orientation: portrait) {
+//   .curtain .keep_scrolling {
+//     bottom: 10px;
+//   }
+// }
 
-@media screen and (max-width: 375px) and (max-height: 600px) and (orientation: portrait) {
-  header {
-    .container {
-      height: calc(0.55 * var(--viewHeight));
-      .notion .header_content {
-        height: calc(0.55 * var(--viewHeight));
-      }
-    }
-    .curtain {
-      height: calc(0.45 * var(--viewHeight));
-    }
-  }
-}
+// @media screen and (max-width: 375px) and (max-height: 600px) and (orientation: portrait) {
+//   header {
+//     .container {
+//       height: calc(0.55 * var(--viewHeight));
+//       .notion .header_content {
+//         height: calc(0.55 * var(--viewHeight));
+//       }
+//     }
+//     .curtain {
+//       height: calc(0.45 * var(--viewHeight));
+//     }
+//   }
+// }
 
-@media screen and (max-width: 300px) and (orientation: portrait) {
-  header {
-    .container {
-      height: calc(0.5 * var(--viewHeight));
-      .notion .header_content {
-        height: calc(0.5 * var(--viewHeight));
-        h2 {
-          font-size: 1.1em;
-        }
-        p {
-          font-size: 0.8em;
-        }
-      }
-    }
-    .curtain {
-      height: calc(0.5 * var(--viewHeight));
-    }
-  }
-}
+// @media screen and (max-width: 300px) and (orientation: portrait) {
+//   header {
+//     .container {
+//       height: calc(0.5 * var(--viewHeight));
+//       .notion .header_content {
+//         height: calc(0.5 * var(--viewHeight));
+//         h2 {
+//           font-size: 1.1em;
+//         }
+//         p {
+//           font-size: 0.8em;
+//         }
+//       }
+//     }
+//     .curtain {
+//       height: calc(0.5 * var(--viewHeight));
+//     }
+//   }
+// }
 </style>

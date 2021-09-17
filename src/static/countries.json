@@ -1,6 +1,97 @@
 {
   "data": [
     {
+      "country": "Czech Republic",
+      "info": "In the Czech Republic, you can get a high-quality European education for free. Higher education in the Czech Republic has unique historical traditions, follows modern trends and is rated higher and higher in the world rankings every year. The prestigious ranking of the best universities in the world by QS World University today includes nine Czech universities.",
+      "facts": "<li>Education at state universities is free if you study in the Czech language.</li><li>There is no age limit for higher education in the Czech Republic.</li><li>The most important thing that will be required to start studying is to pass the procedure for recognizing education received in another country.</li>",
+      "top": [
+        { "abbr": "CUNI", "link": "https://cuni.cz/UKEN-1.html" },
+        { "abbr": "VSE", "link": "https://www.vse.cz/english/" },
+        { "abbr": "CVUT", "link": "https://www.cvut.cz/en" },
+        { "abbr": "VUT", "link": "https://www.vut.cz/en/?aid_redir=1" },
+        { "abbr": "MUNI", "link": "https://www.muni.cz/en" }
+      ],
+      "number": 70
+    },
+    {
+      "country": "Denmark",
+      "info": "Denmark is popular among international students due to its openness, the spread of the English language and the relative cheapness of high-quality education. Education in Denmark is known for the applied nature of education. Every university lecturer is a practicing specialist in his field.",
+      "facts": "<li>The country's universities offer more than 700 programs in English, but their share in each university is different.</li><li>Education in Denmark is free for EU and Swiss citizens.</li><li>The Danish Government scholarships are intended for those who aim to integrate into Danish society, study its language and culture.</li>",
+      "top": [
+        { "abbr": "KU", "link": "https://www.ku.dk/english/" },
+        { "abbr": "AU", "link": "https://international.au.dk/" },
+        { "abbr": "AAU", "link": "https://www.en.aau.dk/" },
+        { "abbr": "SDU", "link": "https://www.sdu.dk/en" },
+        { "abbr": "DTU", "link": "https://www.dtu.dk/english" }
+      ],
+      "number": 8
+    },
+    {
+      "country": "Estonia",
+      "info": "Estonia is rightfully considered one of the \"think tanks\" of Europe: the state and business representatives have long been betting on the development of modern computer technologies. Of course, such an impressive breakthrough would not have been possible without a high-quality higher education system.",
+      "facts": "<li>Estonia is one of the best countries in the European Union in terms of higher education.</li><li>As Estonian is hard-to-learn, there are more than 100 programs in English in the country.</li><li>The rating system in Estonia is 6-point, where 5 is the best result, and 0 means failure in the exam.</li>",
+      "top": [
+        { "abbr": "UT", "link": "https://www.ut.ee/en" },
+        { "abbr": "TLU", "link": "https://www.tlu.ee/en" },
+        { "abbr": "TALTECH", "link": "https://taltech.ee/en/" },
+        { "abbr": "EBS", "link": "https://ebs.ee/en" },
+        { "abbr": "EMU", "link": "https://www.emu.ee/en" }
+      ],
+      "number": 7
+    },
+    {
+      "country": "Finland",
+      "info": "In the specialty market, Finland is famous for its achievements in the fields of forest management, environmental protection, biotechnology, IT and contemporary art. In addition, a significant part of the Finnish population speaks English fluently, so living will not be complicated by ignorance of the local language.",
+      "facts": "<li>Finnish educational system is considered one of the best in the world.</li><li>School education in Finland consists of two levels and lasts for 9-10 years.</li><li>Education in the country's universities is conducted in Finnish, Swedish and English.</li>",
+      "top": [
+        { "abbr": "UH", "link": "https://www.helsinki.fi/en" },
+        { "abbr": "AU", "link": "https://www.aalto.fi/en" },
+        { "abbr": "UTU", "link": "https://www.utu.fi/en" },
+        { "abbr": "JYU", "link": "https://www.jyu.fi/en" },
+        { "abbr": "TAMK", "link": "https://www.tuni.fi/en" }
+      ],
+      "number": 20
+    },
+    {
+      "country": "Greece",
+      "info": "Greek education is considered average by European standards. However, the teaching of exact and natural sciences here is at quite a high level. And also, in any case, it is a diploma of a European university, which is quoted in any EU country and in the world. A separate plus is the cost. Education in Greece is either free or relatively inexpensive.",
+      "facts": "<li>During classes, students do not move from office to office. Almost all classes are held in the same class.</li><li>There is no locker room in educational institutions. If students come in jackets, they also sit in them in class.</li><li>The Greeks pay the state about 20% in taxes to maintain free medicine and education in the country.</li>",
+      "top": [
+        { "abbr": "AUTH", "link": "https://www.auth.gr/en/" },
+        { "abbr": "NTUA", "link": "https://www.ntua.gr/en/" },
+        { "abbr": "UPT", "link": "https://www.upatras.gr/en/" },
+        { "abbr": "UOA", "link": "https://en.uoa.gr/" },
+        { "abbr": "AUEB", "link": "https://www.aueb.gr/en" }
+      ],
+      "number": 40
+    },
+    {
+      "country": "Hungary",
+      "info": "Studying abroad is always prestigious and promising. Especially if we are talking about educational institutions of the European Union. Therefore, if you are looking for a decent place to study, we recommend that you take a closer look at Hungarian higher education institutions.",
+      "facts": "<li>The higher education system is dual – there are both colleges and universities here.</li><li>Training in both college and university is 4-5 years.</li><li>Every week, students must submit 2-3 written assignments.</li>",
+      "top": [
+        { "abbr": "SZTE", "link": "https://u-szeged.hu/english" },
+        { "abbr": "UD", "link": "https://www.edu.unideb.hu/" },
+        { "abbr": "ELTE", "link": "https://www.elte.hu/en/" },
+        { "abbr": "PTE", "link": "https://international.pte.hu/" },
+        { "abbr": "BME", "link": "https://www.bme.hu/?language=en" }
+      ],
+      "number": 68
+    },
+    {
+      "country": "Latvia",
+      "info": "In addition to the beaches of the Baltic Sea, clean air and old cozy streets, Latvia can offer high-quality higher education of European standard. Foreign students, as well as citizens of the country, are fully available to study at most public and private universities, since many programs are taught in English.",
+      "facts": "<li>The Academic Library of the University of Latvia (Bibliotheca Rigensis) was founded in 1524.</li><li>Not all higher education institutions in Latvia are subordinate to the Ministry of Education.</li><li>Many popular specialties, even such as architecture and medicine, can be studied completely in English.</li>",
+      "top": [
+        { "abbr": "LU", "link": "https://www.lu.lv/en/" },
+        { "abbr": "RTU", "link": "https://www.rtu.lv/en" },
+        { "abbr": "TURIBA", "link": "https://www.turiba.lv/en" },
+        { "abbr": "LLU", "link": "https://www.llu.lv/en" },
+        { "abbr": "RBS", "link": "http://www.rbs.lv/ru" }
+      ],
+      "number": 17
+    },
+    {
       "country": "Lithuania",
       "info": "Lithuania is a wonderful and rapidly developing European country. A diploma from a Lithuanian university will significantly facilitate the process of employment both in Lithuania and in many other countries of Europe and the world as a whole. For example, in such attractive countries for living and working as the USA, Canada or Australia.",
       "facts": "<li>The literacy rate of the population in Lithuania provides the country with the 8th position in the world ranking and the 4th among European countries.</li><li>Vilnius University is the oldest in Eastern Europe (founded in 1579).</li><li>In 2015, Lithuania was selected as one of the best tourist.</li>",
@@ -12,6 +103,32 @@
         { "abbr": "EHU", "link": "https://en.ehu.lt/" }
       ],
       "number": 23
+    },
+    {
+      "country": "Netherlands",
+      "info": "The Netherlands is one of the most popular non-English-speaking countries in Europe among foreign students, offering higher education in English. There are a number of reasons for the popularity of studying in the Netherlands, among which are the impeccable reputation of Dutch education, the high quality and flexibility of university programs, the relatively low cost of studying and living in the country.",
+      "facts": "<li>Most international students study economics and business, humanities, social sciences and natural sciences and arts.</li><li>After graduating from a Dutch university, you have the opportunity to stay in the country for up to 1 year to search for a job.</li><li>Most often, those who studied for one of the popular or scarce specialties remain in the Netherlands.</li>",
+      "top": [
+        { "abbr": "WUR", "link": "https://www.wur.nl/en.htm" },
+        { "abbr": "UVA", "link": "https://www.uva.nl/en" },
+        { "abbr": "LU", "link": "https://www.universiteitleiden.nl/en" },
+        { "abbr": "EUR", "link": "https://www.eur.nl/en" },
+        { "abbr": "TUD", "link": "https://www.tudelft.nl/" }
+      ],
+      "number": 36
+    },
+    {
+      "country": "Norway",
+      "info": "Norwegian higher education is known for its high academic standard, innovative teaching methods, close and friendly relations between students and teachers. The Norwegian higher education system has many interesting combinations of subjects, a wide range of English-language courses and training programs for foreign students.",
+      "facts": "<li>Education in Norway is conducted in English.</li><li>Admission to Norwegian universities is usually based on previous grades and a motivation letter.</li><li>Education in state universities is free for all groups of the population.</li>",
+      "top": [
+        { "abbr": "UIO", "link": "https://www.uio.no/english/" },
+        { "abbr": "UIB", "link": "https://www.uib.no/en" },
+        { "abbr": "UIT", "link": "https://en.uit.no/" },
+        { "abbr": "NTNU", "link": "https://www.ntnu.edu/" },
+        { "abbr": "NMBU", "link": "https://www.nmbu.no/en" }
+      ],
+      "number": 10
     },
     {
       "country": "Poland",
@@ -27,6 +144,19 @@
       "number": 457
     },
     {
+      "country": "Romania",
+      "info": "Studying at Romanian universities is an opportunity to get high-quality knowledge, a European diploma and good prospects in building a future career in Romanian companies or in finding a job in the most developed countries of the world. Since 2007, Romania has been a member of the European Union, has a favorable climate and many historical monuments, including beautiful castles.",
+      "facts": "<li>Compulsory education in Romania begins at the age of five, it is free and accessible to all citizens of the country.</li><li>Higher education in Romania fully complies with the Bologna process and assumes a three-stage system of education.</li><li>Students are provided with scholarships to improve their academic performance.</li>",
+      "top": [
+        { "abbr": "UBC", "link": "https://unibuc.ro/?lang=en" },
+        { "abbr": "UAIC", "link": "https://www.uaic.ro/en/" },
+        { "abbr": "UBB", "link": "https://www.ubbcluj.ro/en/" },
+        { "abbr": "UPB", "link": "https://upb.ro/en/" },
+        { "abbr": "TUASI", "link": "https://www.tuiasi.ro/?lang=en" }
+      ],
+      "number": 88
+    },
+    {
       "country": "Russia",
       "info": "Russia is a big country, 741 universities are open here, universities are located in 82 regions-from Kaliningrad to Vladivostok. There are classical universities where you can get a variety of professions-from an engineer to a philologist; there are universities of a certain orientation – technical, humanitarian, medical.",
       "facts": "<li>Citizens of some countries have the right to enter the university on an equal basis with Russians.</li><li>Russia is the most educated country in the world.</li><li>Rossotrudnichestvo selects foreign applicants through its network of representative offices, as well as through Russian embassies abroad.</li>",
@@ -39,7 +169,32 @@
       ],
       "number": 968
     },
-    
+    {
+      "country": "Serbia",
+      "info": "When applying to some Serbian universities, you can be sure that the diplomas that you will receive at the end of your studies are recognized in most countries. According to recent studies, tuition fees at Serbian universities are among the lowest in the world. If you want to choose an inexpensive, but high-quality place to get an education, Serbia is definitely for you.",
+      "facts": "<li>Serbia is a member of the Bologna process.</li><li>There are higher schools in the country where you can get specialized professional higher education.</li><li>In the country, even foreign students can get a scholarship from the Serbian government.</li>",
+      "top": [
+        { "abbr": "BG", "link": "https://www.bg.ac.rs/en/" },
+        { "abbr": "UNS", "link": "https://www.uns.ac.rs/index.php/en/" },
+        { "abbr": "NIS", "link": "https://www.ni.ac.rs/en/" },
+        { "abbr": "MISIS", "link": "https://en.kg.ac.rs/" },
+        { "abbr": "UKG", "link": "https://megatrend.edu.rs/en/home-page/" }
+      ],
+      "number": 18
+    },
+    {
+      "country": "Sweden",
+      "info": "Like other Scandinavian countries, Sweden is famous for a high standard of living and a serious approach to the quality of education. The fact that Sweden has the largest number of multinational companies per capita makes this country very attractive for career development.",
+      "facts": "<li>Teachers are looking for an individual approach to each student. If necessary, they stay for additional classes after classes.</li><li>In Swedish universities, \"psychological games\" are sometimes held to identify the inner state of a student.</li><li>Teachers pay attention not so much to the final answer, but to the course of thoughts of the student.</li>",
+      "top": [
+        { "abbr": "KI", "link": "https://ki.se/en" },
+        { "abbr": "SU", "link": "https://www.su.se/cmlink/stockholm-university" },
+        { "abbr": "UU", "link": "https://www.uu.se/en" },
+        { "abbr": "LU", "link": "https://www.lunduniversity.lu.se/" },
+        { "abbr": "GU", "link": "https://www.gu.se/en" }
+      ],
+      "number": 14
+    },
     {
       "country": "Ukraine",
       "info": "This beautiful European country has always been hospitable, with a warm and good attitude towards foreigners. Those who are looking for a high-quality and affordable education abroad can safely recommend studying in Ukraine.",
@@ -48,7 +203,7 @@
         { "abbr": "KPI", "link": "https://kpi.ua/ru" },
         { "abbr": "KNU", "link": "http://www.univ.kiev.ua/ru/" },
         { "abbr": "NMU", "link": "http://nmuofficial.com/en/" },
-        { "abbr": "NAU", "link": "https://nau.edu.ua/en/" }
+        { "abbr": "NAU", "link": "https://nau.edu.ua/en/" } 
       ],
       "number": 140
     }

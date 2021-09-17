@@ -460,12 +460,23 @@ export default {
       });
     },
   },
-  computed: {
-    getRandomCountry() {
-      return Math.floor(Math.random() * this.countries.length);
-    },
-  },
   mounted() {
+    setTimeout(() => {
+      this.current_country =
+        Math.floor(Math.random() * (this.countries.length - 1)) + 1;
+      document
+        .querySelectorAll(".list-item")
+        [this.current_country].classList.add("active");
+    }, 100);
+
+    // this.$nextTick(() => {
+    //   this.current_country =
+    //     Math.floor(Math.random() * (this.countries.length - 1)) + 1;
+    //   document
+    //     .querySelectorAll(".list-item")
+    //     [this.current_country].classList.add("active");
+    // });
+
     // device detection
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -474,14 +485,6 @@ export default {
     ) {
       this.isMobile = true;
     }
-
-    setTimeout(() => {
-      this.current_country =
-        Math.floor(Math.random() * (this.countries.length - 1)) + 1;
-      document
-        .querySelectorAll(".list-item")
-        [this.current_country].classList.add("active");
-    }, 0);
 
     if (this.isMobile == false) {
       let countries_selector = document.querySelector(".list");
@@ -497,307 +500,314 @@ export default {
       });
     }
 
-    const isa_text_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".about-isa",
-        start: "10% center",
-        // toggleActions: "play none none reverse",
-      },
-    });
-    isa_text_tl.from(
-      ".isa-text h2",
-      {
-        autoAlpha: 0.001,
-        x: -150,
-        // x: "-20%",
-        duration: 0.45,
-        ease: "back.out(2)",
-      },
-      0
-    );
-    isa_text_tl.from(
-      ".isa-text h5",
-      {
-        autoAlpha: 0.001,
-        x: -150,
-        // x: "-20%",
-        duration: 0.45,
-        ease: "back.out(2)",
-      },
-      0.6
-    );
-
-    isa_text_tl.from(
-      ".isa-text p",
-      {
-        autoAlpha: 0.001,
-        x: -150,
-        // x: "-20%",
-        duration: 0.45,
-        ease: "back.out(2)",
-      },
-      1.2
-    );
-    gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
+    setTimeout(() => {
+      const isa_text_tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".about-isa",
+          start: "10% center",
+          // toggleActions: "play none none reverse",
+          // markers: true,
+        },
+      });
       isa_text_tl.from(
-        block,
+        ".isa-text h2",
         {
           autoAlpha: 0.001,
-          scale: 0.7,
+          x: -150,
+          // x: "-20%",
+          duration: 0.45,
+          ease: "back.out(2)",
+        },
+        0
+      );
+      isa_text_tl.from(
+        ".isa-text h5",
+        {
+          autoAlpha: 0.001,
+          x: -150,
+          // x: "-20%",
+          duration: 0.45,
+          ease: "back.out(2)",
+        },
+        0.6
+      );
+
+      isa_text_tl.from(
+        ".isa-text p",
+        {
+          autoAlpha: 0.001,
+          x: -150,
+          // x: "-20%",
           duration: 0.45,
           ease: "back.out(2)",
         },
         1.2
       );
-    });
-
-    const bun1_tl = gsap.timeline({
-      repeat: -1,
-    });
-
-    bun1_tl.to("#bubble1", {
-      y: "-=30px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-    bun1_tl.to("#bubble1", {
-      y: "+=30px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-
-    const bun2_tl = gsap.timeline({ repeat: -1 });
-
-    bun2_tl.delay(1);
-
-    bun2_tl.to("#bubble2", {
-      y: "-=30px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-    bun2_tl.to("#bubble2", {
-      y: "+=30px",
-      duration: 5,
-      ease: "power1.inOut",
-    });
-
-    //ISA partners
-    const partners_tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".isa-partners",
-        start: "80% bottom",
-        // toggleActions: "play none none reverse",
-      },
-    });
-
-    gsap.utils
-      .toArray(".isa-partners .container .partner_img")
-      .forEach((img) => {
-        partners_tl.from(img, {
-          autoAlpha: 0.001,
-          scale: 0.7,
-          duration: 0.2,
-          ease: "sine.out",
-        });
+      gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
+        isa_text_tl.from(
+          block,
+          {
+            autoAlpha: 0.001,
+            scale: 0.7,
+            duration: 0.45,
+            ease: "back.out(2)",
+          },
+          1.2
+        );
       });
 
-    partners_tl.from(
-      ".isa-partners h3",
-      {
-        duration: 0.75,
-        x: -100,
-        autoAlpha: 0.001,
-      },
-      0
-    );
+      const bun1_tl = gsap.timeline({
+        repeat: -1,
+      });
 
-    //admission part
-    gsap.from(".admission-header", {
-      autoAlpha: 0.001,
-      x: -150,
-      duration: 0.7,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".admission-header",
-        start: "bottom 70%",
-        // toggleActions: "play none none reverse",
-      },
-    });
-    gsap.from(".admission-text", {
-      autoAlpha: 0.01,
-      x: -150,
-      duration: 0.7,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".admission-text",
-        start: "bottom 70%",
-        // toggleActions: "play none none reverse",
-      },
-    });
-    gsap.from("#list", {
-      autoAlpha: 0.01,
-      x: -150,
-      duration: 0.7,
-      ease: "power.out",
-      scrollTrigger: {
-        trigger: "#list",
-        start: "bottom 70%",
-        // toggleActions: "play none none reverse",
-      },
-    });
-    gsap.from(".roadmap-header", {
-      autoAlpha: 0.01,
-      x: -150,
-      duration: 0.7,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".roadmap-header",
-        start: "bottom 70%",
-        // toggleActions: "play none none reverse",
-      },
-    });
+      bun1_tl.to("#bubble1", {
+        y: "-=30px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
+      bun1_tl.to("#bubble1", {
+        y: "+=30px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
 
-    gsap.from(".admission-list img", {
-      autoAlpha: 0.001,
-      x: 150,
-      // scale: 0.7,
-      duration: 0.7,
-      ease: "power1.out",
-      scrollTrigger: {
-        trigger: ".admission-list img",
-        start: "top center",
-        // toggleActions: "play none none reverse",
-      },
-    });
+      const bun2_tl = gsap.timeline({ repeat: -1 });
 
-    gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
-      const step_tl = gsap.timeline({
+      bun2_tl.delay(1);
+
+      bun2_tl.to("#bubble2", {
+        y: "-=30px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
+      bun2_tl.to("#bubble2", {
+        y: "+=30px",
+        z: 0.1,
+        duration: 5,
+        ease: "power1.inOut",
+      });
+
+      //ISA partners
+      const partners_tl = gsap.timeline({
         scrollTrigger: {
-          trigger: step,
-          start: "bottom 85%",
-          // scrub: 1,
+          trigger: ".isa-partners",
+          start: "80% bottom",
           // toggleActions: "play none none reverse",
-          // markers: true,
         },
       });
-      if (index % 2 == 0) {
-        step_tl.from(
-          step.querySelector("img"),
-          {
-            autoAlpha: 0.01,
-            scale: 0.6,
-            duration: 0.7,
-            ease: "back.out(2)",
-          },
-          0
-        );
 
-        step_tl.from(
-          step.querySelector(".step-text"),
-          {
-            autoAlpha: 0.01,
-            x: 100,
-            duration: 0.7,
-            ease: "power1.out",
-          },
-          0
-        );
-
-        step_tl.from(
-          step.querySelector(".decor"),
-          {
-            autoAlpha: 0.01,
-            x: 100,
-            duration: 0.7,
-            ease: "power1.out",
-          },
-          0
-        );
-      } else {
-        step_tl.from(
-          step.querySelector("img"),
-          {
-            autoAlpha: 0.01,
-            scale: 0.6,
-            duration: 0.7,
-            ease: "back.out(2)",
-          },
-          0
-        );
-
-        step_tl.from(
-          step.querySelector(".step-text"),
-          {
-            autoAlpha: 0.01,
-            x: -100,
-            duration: 0.7,
-            ease: "power1.out",
-          },
-          0
-        );
-
-        step_tl.from(
-          step.querySelector(".decor"),
-          {
-            autoAlpha: 0.01,
-            x: -100,
-            duration: 0.7,
-            ease: "power1.out",
-          },
-          0
-        );
-      }
-    });
-
-    //faq field
-    document.querySelectorAll(".question-title").forEach((el) => {
-      el.addEventListener("click", function() {
-        const answer = this.nextSibling;
-        const decor = this.querySelector(".decor");
-
-        const duration = 0.4;
-
-        if (answer.classList.contains("open")) {
-          gsap.to(decor, { rotate: "0", duration: duration });
-          gsap.fromTo(
-            answer,
-            { x: 0 },
-            { height: "0", x: 100, duration: duration }
-          );
-          answer.classList.remove("open");
-          this.classList.remove("active");
-        } else {
-          document.querySelectorAll(".question-title").forEach((el) => {
-            const a = el.nextSibling;
-            const d = el.querySelector(".decor");
-            if (a.classList.contains("open")) {
-              a.classList.remove("open");
-              el.classList.remove("active");
-              gsap.to(d, {
-                rotate: "0",
-                duration: duration,
-              });
-              gsap.fromTo(
-                a,
-                { x: 0 },
-                { height: "0", x: 100, duration: duration }
-              );
-            }
+      gsap.utils
+        .toArray(".isa-partners .container .partner_img")
+        .forEach((img) => {
+          partners_tl.from(img, {
+            autoAlpha: 0.001,
+            scale: 0.7,
+            duration: 0.2,
+            ease: "sine.out",
           });
-          gsap.to(decor, { rotate: "90deg" });
-          gsap.fromTo(
-            answer,
+        });
+
+      partners_tl.from(
+        ".isa-partners h3",
+        {
+          duration: 0.75,
+          x: -100,
+          autoAlpha: 0.001,
+        },
+        0
+      );
+
+      //admission part
+      gsap.from(".admission-header", {
+        autoAlpha: 0.001,
+        x: -150,
+        duration: 0.7,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ".admission-header",
+          start: "bottom 70%",
+          // toggleActions: "play none none reverse",
+        },
+      });
+      gsap.from(".admission-text", {
+        autoAlpha: 0.01,
+        x: -150,
+        duration: 0.7,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ".admission-text",
+          start: "bottom 70%",
+          // toggleActions: "play none none reverse",
+        },
+      });
+      gsap.from("#list", {
+        autoAlpha: 0.01,
+        x: -150,
+        duration: 0.7,
+        ease: "power.out",
+        scrollTrigger: {
+          trigger: "#list",
+          start: "bottom 70%",
+          // toggleActions: "play none none reverse",
+        },
+      });
+      gsap.from(".roadmap-header", {
+        autoAlpha: 0.01,
+        x: -150,
+        duration: 0.7,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ".roadmap-header",
+          start: "bottom 70%",
+          // toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.from(".admission-list img", {
+        autoAlpha: 0.001,
+        x: 150,
+        // scale: 0.7,
+        duration: 0.7,
+        ease: "power1.out",
+        scrollTrigger: {
+          trigger: ".admission-list img",
+          start: "top center",
+          // toggleActions: "play none none reverse",
+        },
+      });
+
+      gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
+        const step_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: step,
+            start: "bottom 85%",
+            // scrub: 1,
+            // toggleActions: "play none none reverse",
+            // markers: true,
+          },
+        });
+        if (index % 2 == 0) {
+          step_tl.from(
+            step.querySelector("img"),
             {
-              height: "0",
-              x: 100,
+              autoAlpha: 0.01,
+              scale: 0.6,
+              duration: 0.7,
+              ease: "back.out(2)",
             },
-            { x: 0, height: "auto", duration: duration }
+            0
           );
-          answer.classList.add("open");
-          this.classList.add("active");
+
+          step_tl.from(
+            step.querySelector(".step-text"),
+            {
+              autoAlpha: 0.01,
+              x: 100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
+
+          step_tl.from(
+            step.querySelector(".decor"),
+            {
+              autoAlpha: 0.01,
+              x: 100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
+        } else {
+          step_tl.from(
+            step.querySelector("img"),
+            {
+              autoAlpha: 0.01,
+              scale: 0.6,
+              duration: 0.7,
+              ease: "back.out(2)",
+            },
+            0
+          );
+
+          step_tl.from(
+            step.querySelector(".step-text"),
+            {
+              autoAlpha: 0.01,
+              x: -100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
+
+          step_tl.from(
+            step.querySelector(".decor"),
+            {
+              autoAlpha: 0.01,
+              x: -100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
         }
       });
-    });
+
+      //faq field
+      document.querySelectorAll(".question-title").forEach((el) => {
+        el.addEventListener("click", function() {
+          const answer = this.nextSibling;
+          const decor = this.querySelector(".decor");
+
+          const duration = 0.4;
+
+          if (answer.classList.contains("open")) {
+            gsap.to(decor, { rotate: "0", duration: duration });
+            gsap.fromTo(
+              answer,
+              { x: 0 },
+              { height: "0", x: 100, duration: duration }
+            );
+            answer.classList.remove("open");
+            this.classList.remove("active");
+          } else {
+            document.querySelectorAll(".question-title").forEach((el) => {
+              const a = el.nextSibling;
+              const d = el.querySelector(".decor");
+              if (a.classList.contains("open")) {
+                a.classList.remove("open");
+                el.classList.remove("active");
+                gsap.to(d, {
+                  rotate: "0",
+                  duration: duration,
+                });
+                gsap.fromTo(
+                  a,
+                  { x: 0 },
+                  { height: "0", x: 100, duration: duration }
+                );
+              }
+            });
+            gsap.to(decor, { rotate: "90deg" });
+            gsap.fromTo(
+              answer,
+              {
+                height: "0",
+                x: 100,
+              },
+              { x: 0, height: "auto", duration: duration }
+            );
+            answer.classList.add("open");
+            this.classList.add("active");
+          }
+        });
+      });
+    }, 300);
   },
   methods: {
     factsBtnChecker() {
@@ -840,14 +850,10 @@ export default {
       this.isFacts = !this.isFacts;
     },
     getMaxHeight() {
-      console.log(this.$refs.text);
-      console.log(this.$refs.facts);
-
       if (this.isFacts == false) {
         this.infoHeight = this.$refs.text.clientHeight;
         this.$refs.facts.style.removeProperty("display");
         this.factsHeight = this.$refs.facts.clientHeight;
-        console.log(this.factsHeight);
         this.$refs.facts.style.cssText = "display: none;";
       } else {
         this.factsHeight = this.$refs.facts.clientHeight;
@@ -855,10 +861,6 @@ export default {
         this.infoHeight = this.$refs.info.clientHeight;
         this.$refs.info.style.cssText = "display: none;";
       }
-
-      console.log("current_country: " + this.current_country);
-      console.log("facts_height: " + this.factsHeight);
-      console.log("info_height: " + this.infoHeight);
 
       let new_maxHeight = Math.max(this.factsHeight, this.infoHeight);
       if (new_maxHeight == this.maxHeight) {
@@ -867,53 +869,8 @@ export default {
         this.maxHeight = new_maxHeight;
       }
     },
-    returnMaxHeight() {
-      console.log(this.$refs.text);
-      console.log(this.$refs.facts);
-
-      if (this.isFacts == false) {
-        this.infoHeight = this.$refs.text.clientHeight;
-        this.$refs.facts.style.removeProperty("display");
-        this.factsHeight = this.$refs.facts.clientHeight;
-        console.log(this.factsHeight);
-        this.$refs.facts.style.cssText = "display: none;";
-      } else {
-        this.factsHeight = this.$refs.facts.clientHeight;
-        this.$refs.info.style.removeProperty("display");
-        this.infoHeight = this.$refs.info.clientHeight;
-        this.$refs.info.style.cssText = "display: none;";
-      }
-
-      console.log("current_country: " + this.current_country);
-      console.log("facts_height: " + this.factsHeight);
-      console.log("info_height: " + this.infoHeight);
-
-      let new_maxHeight = Math.max(this.factsHeight, this.infoHeight);
-      if (new_maxHeight == this.maxHeight) {
-        return (this.maxHeight += 1);
-      } else {
-        return new_maxHeight;
-      }
-    },
     checkCountry(e) {
-      const selectedCountry = e.target.textContent.replace(/\s/g, "");
-      if (this.isFacts) this.factsBtnChecker();
-      this.countries.forEach((el, index) => {
-        if (el.country == selectedCountry) {
-          let items = document.querySelectorAll(".list-item");
-          if (this.current_country >= 0) {
-            items[this.current_country].classList.remove("active");
-          }
-          this.current_country = index;
-          items[this.current_country].classList.add("active");
-        }
-      });
-    },
-
-    chooseCountry(number) {
-      const selectedCountry = document
-        .querySelectorAll(".list-item")
-        [number].textContent.replace(/\s/g, "");
+      const selectedCountry = e.target.textContent.trim();
       if (this.isFacts) this.factsBtnChecker();
       this.countries.forEach((el, index) => {
         if (el.country == selectedCountry) {
@@ -966,12 +923,6 @@ export default {
 </script>
 
 <style lang="scss">
-// body {
-//   .countries-scrolling {
-//     overflow: hidden;
-//   }
-// }
-
 .isa-partners {
   svg {
     margin: -1px 0;
@@ -981,13 +932,13 @@ export default {
   }
 }
 .isa-wave-top {
-  z-index: 10;
+  // z-index: 10;
   display: block;
   filter: drop-shadow(0px -7px 5px rgb(0 0 0 / 0.2));
 }
 
 .isa-wave-bottom {
-  z-index: 10;
+  // z-index: 10;
 
   display: block;
   filter: drop-shadow(0px -5px 4px rgb(0 0 0 / 0.2));
@@ -1003,7 +954,7 @@ export default {
 
   text-align: justify;
   padding: 0 0 100px 0;
-  margin-top: -1px;
+  margin-top: -2px;
 
   .wave {
     filter: drop-shadow(0px -10px -5px rgb(0 0 0 / 0.2));
@@ -1105,7 +1056,7 @@ export default {
     font-family: "Zilla Slab", serif;
     // font-family: "Cormorant Garamond", serif;
     // font-weight: 600;
-    z-index: 0;
+    // z-index: 0;
   }
 
   .container {
@@ -1119,7 +1070,7 @@ export default {
 
     img {
       will-change: transform;
-      z-index: 0;
+      // z-index: 0;
       height: 70px;
       opacity: 1;
       // filter: brightness(500%) saturate(0);
@@ -1185,7 +1136,7 @@ export default {
     align-self: center;
     height: 600px;
     opacity: 0.3;
-    z-index: 0;
+    // z-index: 0;
     transform: rotate(-20deg);
     position: absolute;
     right: -500px;
@@ -1215,7 +1166,7 @@ export default {
 
   .step {
     will-change: transform;
-    z-index: 1;
+    // z-index: 1;
 
     // overflow: hidden;
     display: grid;
@@ -1357,11 +1308,15 @@ export default {
         .name {
           font-size: 1.8em;
           margin: 0 0 20px 0;
-          width: 85%;
+          width: 80%;
         }
 
         .facts {
           list-style: none;
+          display: flex;
+          flex-direction: column;
+          align-items: justify;
+          justify-content: center;
 
           li {
             margin: 0 0 7px 0;
@@ -1437,6 +1392,7 @@ export default {
             margin: 0 6px 0 10px;
             padding: 5px 10px 5px 7px;
             pointer-events: none;
+            user-select: none;
             transition: all 0.35s ease-in-out;
 
             &.active {
@@ -1449,6 +1405,7 @@ export default {
             margin: 0 10px 0 6px;
             padding: 5px 5px 5px 12px;
             pointer-events: none;
+            user-select: none;
             transition: all 0.35s ease-in-out;
 
             &.active {
@@ -1606,7 +1563,7 @@ export default {
         overflow-y: scroll;
         margin: 30px 0 20px 0;
         box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.253), inset 0 0 0 2px #737ac7;
-        backdrop-filter: blur(5px);
+        // backdrop-filter: blur(5px);
 
         /* Hide scrollbar for Chrome */
         &::-webkit-scrollbar {

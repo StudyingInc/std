@@ -53,9 +53,8 @@
         </div>
 
         <p>
-          However, education is not characterized only by the use of new
-          technologies. One of the most important parameters of training is its
-          availability. In this regard, our world is moving quite slowly
+          Unfortunately, studying is not available for a lot of people nowadays.
+          Our aim is to make it affordable for everyone
         </p>
       </div>
     </section>
@@ -70,10 +69,8 @@
         </div>
 
         <p>
-          Getting a child into a decent university or college is a problem for
-          most families. And it's not just the cost of tuition or the difficulty
-          of passing exams. The main problem of admission today is a lack of
-          understanding of how and where you can enroll
+          The main problem of admission today is a lack of understanding of how
+          and where you can enroll
         </p>
       </div>
     </section>
@@ -85,10 +82,9 @@
         </div>
 
         <p>
-          Unfortunately, in the school system, a lot of time is devoted to
-          passing exams, and little time is given to expanding horizons and
-          informing about opportunities. It is to fill this gap in education
-          that we are opening Study.Inc
+          If people enroll to the university, they have to be prepared for
+          everything they will meet inside. That’s is why we are opening
+          Study.Inc
         </p>
       </div>
     </section>
@@ -103,124 +99,134 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   data() {
-    return {};
+    return {
+      isMobile: false,
+    };
   },
   mounted() {
-    gsap.utils.toArray(".presentation_block").forEach((section /*, i*/) => {
-      gsap.from("#" + section.id + " .image", {
-        scale: 0.3,
-        autoAlpha: 0.001,
-        scrollTrigger: {
-          id: "image",
-          trigger: section,
-          start: "top 80%",
-          end: "top center",
-          scrub: 1,
-          pinSpacing: false,
-          toggleActions: "play none none reverse",
-          // markers: true,
-        },
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      this.isMobile = true;
+    }
+    setTimeout(() => {
+      gsap.utils.toArray(".presentation_block").forEach((section, index) => {
+        const el_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top 80%",
+          },
+        });
+        if (index % 2 == 0) {
+          el_tl.from(
+            section.querySelector(".image"),
+            {
+              autoAlpha: 0,
+              scale: 0.6,
+              duration: 0.7,
+              ease: "back.out(2)",
+            },
+            0
+          );
+          el_tl.from(
+            section.querySelector("p"),
+            {
+              autoAlpha: 0,
+              x: 100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
+        } else {
+          el_tl.from(
+            section.querySelector(".image"),
+            {
+              autoAlpha: 0,
+              scale: 0.6,
+              duration: 0.7,
+              ease: "back.out(2)",
+            },
+            0
+          );
+          el_tl.from(
+            section.querySelector("p"),
+            {
+              autoAlpha: 0,
+              x: -100,
+              duration: 0.7,
+              ease: "power1.out",
+            },
+            0
+          );
+        }
       });
-      gsap.from("#" + section.id + " p", {
-        y: () => window.innerHeight * 0.2,
-        autoAlpha: 0.001,
-        scrollTrigger: {
-          id: "p",
-          trigger: section,
-          start: "top 80%",
-          end: "bottom 80%",
-          scrub: 1,
-          pinSpacing: false,
-          toggleActions: "play none none reverse",
-          // markers: true,
-        },
-      });
-      gsap.to("#" + section.id, {
-        autoAlpha: 0.001,
-        scrollTrigger: {
-          id: section.id,
-          trigger: section,
-          start: "bottom 30%",
-          end: "bottom top",
-          scrub: 0.5,
-          pinSpacing: false,
-          // markers: true,
-        },
-      });
-    });
-    gsap.fromTo(
-      ".presentation",
-      { background: "#2b2d42" },
-      {
-        background: "#6b69d3",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".presentation",
-          // start: () =>
-          //   "+=" +
-          //   (window.innerHeight / window.innerWidth) * window.innerHeight +
-          //   " top",
-          start: "center center",
-          end: "bottom center",
-          // scrub: 1.5,
-          pinSpacing: false,
-          toggleActions: "play none none reverse",
-          // markers: true,
-        },
+
+      if (!this.isMobile) {
+        gsap.fromTo(
+          ".presentation",
+          { background: "#2b2d42" },
+          {
+            background: "#6b69d3",
+            duration: 1,
+            scrollTrigger: {
+              trigger: ".presentation",
+              // start: () =>
+              //   "+=" +
+              //   (window.innerHeight / window.innerWidth) * window.innerHeight +
+              //   " top",
+              start: "center center",
+              end: "bottom center",
+              // scrub: 1.5,
+              toggleActions: "play none none reverse",
+              // markers: true,
+            },
+          }
+        );
+        gsap.fromTo(
+          ".wave",
+          { fill: "#2b2d42" },
+          {
+            fill: "#6b69d3",
+            duration: 1,
+            scrollTrigger: {
+              trigger: ".presentation",
+              // start: () =>
+              //   "+=" +
+              //   (window.innerHeight / window.innerWidth) * window.innerHeight +
+              //   " top",
+              start: "center center",
+              end: "bottom center",
+              toggleActions: "play none none reverse",
+              // markers: true,
+              // scrub: 1.5,
+            },
+          }
+        );
+        gsap.fromTo(
+          ".wave-mobile",
+          { fill: "#2b2d42" },
+          {
+            fill: "#6b69d3",
+            duration: 1,
+            scrollTrigger: {
+              trigger: ".presentation",
+              // start: () =>
+              //   "+=" +
+              //   (window.innerHeight / window.innerWidth) * window.innerHeight +
+              //   " top",
+              start: "center center",
+              end: "bottom center",
+              toggleActions: "play none none reverse",
+              // markers: true,
+              // scrub: 1.5,
+            },
+          }
+        );
       }
-    );
-    gsap.fromTo(
-      ".wave",
-      { background: "#2b2d42" },
-      {
-        fill: "#6b69d3",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".presentation",
-          // start: () =>
-          //   "+=" +
-          //   (window.innerHeight / window.innerWidth) * window.innerHeight +
-          //   " top",
-          start: "center center",
-          end: "bottom center",
-          toggleActions: "play none none reverse",
-          // scrub: 1.5,
-          pinSpacing: false,
-        },
-      }
-    );
-    gsap.fromTo(
-      ".wave-mobile",
-      { background: "#2b2d42" },
-      {
-        fill: "#6b69d3",
-        duration: 1,
-        scrollTrigger: {
-          trigger: ".presentation",
-          // start: () =>
-          //   "+=" +
-          //   (window.innerHeight / window.innerWidth) * window.innerHeight +
-          //   " top",
-          start: "center center",
-          end: "bottom center",
-          toggleActions: "play none none reverse",
-          // scrub: 1.5,
-          pinSpacing: false,
-        },
-      }
-    );
-    // gsap.from(".presentation", {
-    //   autoAlpha: 0.001,
-    //   scrollTrigger: {
-    //     trigger: "#history",
-    //     start: () => "-=" + window.innerHeight * 0.8 + " top",
-    //     end: "center center",
-    //     scrub: 0.7,
-    //     pinSpacing: false,
-    //     // markers: true,
-    //     // once: true,
-    //   },
-    // });
+    }, 300);
   },
 };
 </script>
@@ -228,7 +234,7 @@ export default {
 <style lang="scss" scoped>
 .presentation {
   font-family: "Comfortaa";
-  z-index: 1;
+  // z-index: 1;
 
   background: #2b2d42;
 
@@ -248,7 +254,7 @@ export default {
         align-items: center;
         justify-content: center;
         position: relative;
-        z-index: 0;
+        // z-index: 0;
 
         img {
           width: 80%;
