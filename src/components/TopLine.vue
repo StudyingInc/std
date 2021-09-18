@@ -1,6 +1,6 @@
 <template>
   <div class="topline-wrapper">
-    <div class="query-topline" :class="{ nav_active: nav_show }">
+    <div class="topline" :class="{ nav_active: nav_show }">
       <div class="container">
         <svg
           class="full_logo"
@@ -122,7 +122,7 @@
         class="item"
         @click="navChecker"
         data-custom="about-study"
-        data-offset="-150"
+        data-offset="-60"
       >
         About Us
       </div>
@@ -187,21 +187,19 @@ export default {
       if (e.target.hasAttribute("data-custom")) {
         setTimeout(function() {
           gsap.to(window, {
-            duration: offset * 0.0008,
+            duration: 0,
             scrollTo: offset - e.target.dataset.offset,
             ease: "power1",
           });
-        }, 500);
+        }, 200);
       } else {
         setTimeout(function() {
           gsap.to(window, {
-            duration:
-              document.querySelector(`#${e.target.dataset.link}`).offsetTop *
-              0.0006,
+            duration: 0,
             scrollTo: `#${e.target.dataset.link}`,
             ease: "power1",
           });
-        }, 500);
+        }, 200);
       }
     },
   },
@@ -211,7 +209,7 @@ export default {
 <style lang="scss" scoped>
 .topline-wrapper {
   font-family: "Comfortaa", sans-serif;
-  color: var(--primary);
+  color: #2b2d42;
   font-weight: 600;
   font-size: calc(2vw + 10px);
 
@@ -258,7 +256,7 @@ export default {
       }
     }
   }
-  .query-topline {
+  .topline {
     padding: 5px 20px;
     width: 100%;
     background: rgba(255, 255, 255, 0.692);

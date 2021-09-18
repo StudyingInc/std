@@ -1,6 +1,19 @@
 {
   "data": [
     {
+      "country": "Austria",
+      "info": "Austrian universities are among the oldest in Europe and are highly ranked in world rankings. In total, there are more than thirty universities in Austria, and a dozen high-class universities operate in Vienna. A diploma from one of these institutions opens up excellent employment and naturalization opportunities in Austria and the EU.",
+      "facts": "<li>In Austria, it is difficult to complete the course in the time that is provided for according to the plan.</li><li>In Austrian universities, a friendly relationship between a student and a teacher prevails. Everyone's opinion is respected.</li><li>The average age of female students is 22.5 years, and the average age of male students is 23 years.</li>",
+      "top": [
+        { "abbr": "TUG", "link": "https://www.tugraz.at/en/home/" },
+        { "abbr": "JKU", "link": "https://www.jku.at/en" },
+        { "abbr": "UG", "link": "hhttps://www.uni-graz.at/en/" },
+        { "abbr": "PLUS", "link": "https://www.plus.ac.at/?lang=en" },
+        { "abbr": "MUV", "link": "https://www.meduniwien.ac.at/web//en" }
+      ],
+      "number": 34
+    },
+    {
       "country": "Czech Republic",
       "info": "In the Czech Republic, you can get a high-quality European education for free. Higher education in the Czech Republic has unique historical traditions, follows modern trends and is rated higher and higher in the world rankings every year. The prestigious ranking of the best universities in the world by QS World University today includes nine Czech universities.",
       "facts": "<li>Education at state universities is free if you study in the Czech language.</li><li>There is no age limit for higher education in the Czech Republic.</li><li>The most important thing that will be required to start studying is to pass the procedure for recognizing education received in another country.</li>",
@@ -53,6 +66,19 @@
       "number": 20
     },
     {
+      "country": "Germany",
+      "info": "Higher education at German universities is currently one of the most popular in the educational market. The country of medieval castles and mineral springs ranks third in the world in terms of the number of foreign students, their number exceeds 400 thousand. With a German diploma, you can find a job both in Germany itself, as well as in the UK and the USA.",
+      "facts": "<li>Higher education in Germany is mainly funded by the state and it is free for domestic and international students.</li><li>You can choose an educational program in Germany in English if your knowledge of German is not so good.</li><li>After graduating from university in Germany, you will have the opportunity to stay and look for a job.</li>",
+      "top": [
+        { "abbr": "TUM", "link": "https://www.tum.de/" },
+        { "abbr": "LMU", "link": "https://www.lmu.de/en/" },
+        { "abbr": "HU", "link": "https://www.uni-heidelberg.de/en" },
+        { "abbr": "HUB", "link": "https://www.hu-berlin.de/en" },
+        { "abbr": "KIT", "link": "https://www.kit.edu/english/" }
+      ],
+      "number": 376
+    },
+    {
       "country": "Greece",
       "info": "Greek education is considered average by European standards. However, the teaching of exact and natural sciences here is at quite a high level. And also, in any case, it is a diploma of a European university, which is quoted in any EU country and in the world. A separate plus is the cost. Education in Greece is either free or relatively inexpensive.",
       "facts": "<li>During classes, students do not move from office to office. Almost all classes are held in the same class.</li><li>There is no locker room in educational institutions. If students come in jackets, they also sit in them in class.</li><li>The Greeks pay the state about 20% in taxes to maintain free medicine and education in the country.</li>",
@@ -77,6 +103,32 @@
         { "abbr": "BME", "link": "https://www.bme.hu/?language=en" }
       ],
       "number": 68
+    },
+    {
+      "country": "Iceland",
+      "info": "Iceland is a small country with only seven universities, and only 5% of students are foreigners. Despite this, the number of programs offered in English is only growing. The peculiarity of Icelandic universities is that they focus more on teaching than on scientific research.",
+      "facts": "<li>Education is free of charge in public universities in Iceland.</li><li>Entrance exams are conducted only by individual faculties: medical or creative orientation.</li><li>Iceland's universities are quite young, the first of them appeared in 1911.</li>",
+      "top": [
+        { "abbr": "HU", "link": "https://www.holar.is/en/holar" },
+        { "abbr": "UNAK", "link": "https://www.unak.is/english" },
+        { "abbr": "UI", "link": "https://english.hi.is/university_of_iceland" },
+        { "abbr": "RU", "link": "https://en.ru.is/" },
+        { "abbr": "BU", "link": "https://www.bifrost.is/english" }
+      ],
+      "number": 7
+    },
+    {
+      "country": "Ireland",
+      "info": "The universities of Ireland are certainly not as popular as the British ones. However, the quality of education in Irish universities is not inferior in any way, and in some ways surpasses the English. The history of higher education in Ireland began in the Middle Ages. However, not only have the traditions been preserved here, but they always keep up with the times, constantly developing and improving the educational system.",
+      "facts": "<li>The most prestigious specialties are economic sciences, medicine, as well as information technologies.</li><li>The prices for studying in Irish higher education institutions are considered to be among the lowest among English-speaking countries.</li><li>It will not be difficult to find a job with a diploma from an Irish university.</li>",
+      "top": [
+        { "abbr": "TCD", "link": "https://www.tcd.ie/" },
+        { "abbr": "UCD", "link": "https://www.ucd.ie/" },
+        { "abbr": "NUI", "link": "http://www.nuigalway.ie/" },
+        { "abbr": "UCC", "link": "https://www.ucc.ie/en/" },
+        { "abbr": "DCU", "link": "https://www.dcu.ie/" }
+      ],
+      "number": 9
     },
     {
       "country": "Latvia",

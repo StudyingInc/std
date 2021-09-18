@@ -441,14 +441,14 @@ export default {
       const offset = element.offsetTop;
       if (e.target.hasAttribute("data-custom")) {
         gsap.to(window, {
-          duration: offset * 0.0006,
+          duration: offset * 0.00025,
           scrollTo: offset - e.target.dataset.offset,
         });
       } else {
         gsap.to(window, {
           duration:
             document.querySelector(`#${e.target.dataset.link}`).offsetTop *
-            0.0006,
+            0.00025,
           scrollTo: `#${e.target.dataset.link}`,
         });
       }

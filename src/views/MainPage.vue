@@ -1,5 +1,8 @@
 <template>
   <div class="main-page">
+    <div class="up-button" @click="scrollTop">
+      <img src="../assets/up.svg" />
+    </div>
     <!-- <div class="wrapper"> -->
     <div class="bg-wrapper">
       <MainHeader :isMobile="isMobile" />
@@ -54,6 +57,26 @@ export default {
     };
   },
   mounted() {
+    setTimeout(() => {
+      gsap.fromTo(
+        ".up-button",
+        {
+          autoAlpha: 0.01,
+          y: 200,
+        },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.5,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: ".presentation",
+            start: "top top",
+            toggleActions: "play none none reverse",
+          },
+        }
+      );
+    }, 200);
     if (
       /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
         navigator.userAgent
@@ -70,6 +93,9 @@ export default {
     window.__forceSmoothScrollPolyfill__ = true;
   },
   methods: {
+    scrollTop() {
+      gsap.to(window, { duration: this.isMobile ? 0 : 0.5, scrollTo: 0 });
+    },
     getClientHeight() {
       let viewHeight;
       let body = document.querySelector("body");
@@ -134,7 +160,6 @@ export default {
       if (document.getElementById(this.sections[this.currentSection]) != pos) {
         this._scrollTo(this.sections[this.currentSection]);
       }
-      console.log(this.currentSection);
     },
     swipeHandler(direction) {
       if (
@@ -152,7 +177,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @keyframes bg_anim {
   0% {
     background-position: 0% 86%;
@@ -165,13 +190,41 @@ export default {
   }
 }
 
-.main-page .bg-wrapper {
-  background: linear-gradient(52deg, #7f7eda, #7776d4, #f68084, #f563acaa);
-  background-size: 200% 200%;
+.main-page {
+  .up-button {
+    z-index: 10;
+    position: fixed;
+    right: calc(var(--viewHeight) - 0.97 * var(--viewHeight));
+    bottom: calc(var(--viewHeight) - 0.97 * var(--viewHeight));
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.274);
+    box-shadow: 5px 5px 8px rgba(25, 22, 68, 0.281);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
 
-  -webkit-animation: AnimationName 30s ease infinite;
-  -moz-animation: AnimationName 30s ease infinite;
-  animation: AnimationName 30s ease infinite;
+    &:hover {
+      background: rgba(255, 255, 255, 0.671);
+    }
+
+    img {
+      height: 55%;
+      width: 55%;
+      pointer-events: none;
+    }
+  }
+  .bg-wrapper {
+    background: linear-gradient(52deg, #7f7eda, #7776d4, #f68084, #f563acaa);
+    background-size: 200% 200%;
+
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+  }
 }
 
 @-webkit-keyframes AnimationName {
