@@ -7,11 +7,24 @@
       "top": [
         { "abbr": "TUG", "link": "https://www.tugraz.at/en/home/" },
         { "abbr": "JKU", "link": "https://www.jku.at/en" },
-        { "abbr": "UG", "link": "hhttps://www.uni-graz.at/en/" },
+        { "abbr": "UG", "link": "https://www.uni-graz.at/en/" },
         { "abbr": "PLUS", "link": "https://www.plus.ac.at/?lang=en" },
         { "abbr": "MUV", "link": "https://www.meduniwien.ac.at/web//en" }
       ],
       "number": 34
+    },
+    {
+      "country": "Belgium",
+      "info": "According to statistics, Belgium is one of the fourteen countries where education is recognized above the average European level. Many international students seek to continue or get an education from scratch in Belgium. There is a wide choice of both school institutions and universities where you can complete high-quality training programs and get a higher education.",
+      "facts": "<li>In Belgium, higher education is the responsibility of the communities, not the entire Government of the country.</li><li>In Belgium, three languages are used at the official and unofficial level: English, French and Flemish.</li><li>An important reason for choosing Belgium as a country for educational emigration is the lack of tuition fees.</li>",
+      "top": [
+        { "abbr": "UCL", "link": "https://uclouvain.be/en/index.html" },
+        { "abbr": "UA", "link": "https://www.uantwerpen.be/en/" },
+        { "abbr": "VUB", "link": "https://www.vub.be/en" },
+        { "abbr": "UL", "link": "https://www.uliege.be/cms/c_8699436/en/uliege-portal" },
+        { "abbr": "URB", "link": "https://www.ulb.be/en/ulb-homepage" }
+      ],
+      "number": 17
     },
     {
       "country": "Czech Republic",
@@ -235,6 +248,32 @@
       "number": 18
     },
     {
+      "country": "Slovakia",
+      "info": "Education at universities in Slovakia is of high enough quality that many applicants would like to get a high-level diploma of accreditation that does not require confirmation in Europe, for little money. Prices for food and accommodation in the country are modest. The choice of specialties in higher schools in Slovakia is relatively wide, the quality of education and the technological base fully meets European standards.",
+      "facts": "<li>The average cost of a student's stay in Slovakia is 250-300 euros per month.</li><li>The Slovak education system meets European standards, and the graduate diploma is quoted almost all over the world.</li><li>In Slovakia, local and foreign applicants have the right to receive higher specialized education free of charge.</li>",
+      "top": [
+        { "abbr": "EUB", "link": "https://euba.sk/en/" },
+        { "abbr": "UPJS", "link": "https://www.upjs.sk/en/?prefferedLang=EN" },
+        { "abbr": "UMB", "link": "https://www.umb.sk/en/" },
+        { "abbr": "UZ", "link": "https://www.uniza.sk/index.php/en/" },
+        { "abbr": "TRU", "link": "https://www.truni.sk/en" }
+      ],
+      "number": 33
+    },
+    {
+      "country": "Slovenia",
+      "info": "The main advantage of studying in Slovenia is the good quality of education. In addition, admission to college in Slovenia is carried out almost without exams. A great advantage will be obtaining a European diploma, which is valid throughout Europe and will help you find a job in any EU country.",
+      "facts": "<li>It is important to know that the acknowledgment of the certificate in Slovenia is necessary for admission.</li><li>If the education takes several years, you can apply for a residence permit at the Consulate.</li><li>The entire process of studying at the university is accompanied by extensive practice at existing enterprises and firms in Slovenia.</li>",
+      "top": [
+        { "abbr": "UL", "link": "https://www.uni-lj.si/university/" },
+        { "abbr": "UM", "link": "http://www.um.si/en/Pages/default.aspx" },
+        { "abbr": "UP", "link": "https://www.upr.si/en" },
+        { "abbr": "UNG", "link": "http://www.ung.si/en/" },
+        { "abbr": "ECM", "link": "https://en.almamater.si/" }
+      ],
+      "number": 6
+    },
+    {
       "country": "Sweden",
       "info": "Like other Scandinavian countries, Sweden is famous for a high standard of living and a serious approach to the quality of education. The fact that Sweden has the largest number of multinational companies per capita makes this country very attractive for career development.",
       "facts": "<li>Teachers are looking for an individual approach to each student. If necessary, they stay for additional classes after classes.</li><li>In Swedish universities, \"psychological games\" are sometimes held to identify the inner state of a student.</li><li>Teachers pay attention not so much to the final answer, but to the course of thoughts of the student.</li>",
@@ -246,6 +285,19 @@
         { "abbr": "GU", "link": "https://www.gu.se/en" }
       ],
       "number": 14
+    },
+    {
+      "country": "Switzerland",
+      "info": "Higher education in Switzerland can be obtained both at universities and at professional colleges. In addition, private universities of tourism and business schools should be allocated to a separate group. Eight Swiss universities are in the top 20 of the QS World University Rankings 2014/15. Four of them are also leaders in the share of foreign students studying in them.",
+      "facts": "<li>There is no unified educational system as such in Switzerland – each of the 26 cantons regulates this area itself.</li><li>Switzerland is a multilingual country. There are 4 official languages at once: German, French, Italian and Romansh.</li><li>Swiss education is rightfully considered one of the best in the world.</li>",
+      "top": [
+        { "abbr": "ETHZ", "link": "https://ethz.ch/en.html" },
+        { "abbr": "EPFL", "link": "https://www.epfl.ch/en/" },
+        { "abbr": "UZH", "link": "https://www.uzh.ch/en.html" },
+        { "abbr": "UB", "link": "https://www.unibas.ch/en.html" },
+        { "abbr": "UG", "link": "https://www.unige.ch/en/university/" }
+      ],
+      "number": 12
     },
     {
       "country": "Ukraine",

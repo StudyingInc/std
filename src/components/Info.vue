@@ -442,14 +442,16 @@ export default {
       countries: data.data,
       current_country: 0,
       search_value: null,
-      debounce: null,
-      isMobile: false,
+
       isFacts: false,
 
       factsHeight: null,
       infoHeight: null,
       maxHeight: null,
     };
+  },
+  props: {
+    isMobile: Boolean,
   },
   watch: {
     current_country: function() {
@@ -477,15 +479,6 @@ export default {
     //     [this.current_country].classList.add("active");
     // });
 
-    // device detection
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      this.isMobile = true;
-    }
-
     if (this.isMobile == false) {
       let countries_selector = document.querySelector(".list");
       let body = document.querySelector("body");
@@ -501,262 +494,578 @@ export default {
     }
 
     setTimeout(() => {
-      const isa_text_tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-isa",
-          start: "10% center",
-          // toggleActions: "play none none reverse",
-          // markers: true,
-        },
-      });
-      isa_text_tl.from(
-        ".isa-text h2",
-        {
-          autoAlpha: 0.001,
-          x: -150,
-          // x: "-20%",
-          duration: 0.45,
-          ease: "back.out(2)",
-        },
-        0
-      );
-      isa_text_tl.from(
-        ".isa-text h5",
-        {
-          autoAlpha: 0.001,
-          x: -150,
-          // x: "-20%",
-          duration: 0.45,
-          ease: "back.out(2)",
-        },
-        0.6
-      );
-
-      isa_text_tl.from(
-        ".isa-text p",
-        {
-          autoAlpha: 0.001,
-          x: -150,
-          // x: "-20%",
-          duration: 0.45,
-          ease: "back.out(2)",
-        },
-        1.2
-      );
-      gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
+      if (!this.isMobile) {
+        //desktop
+        const isa_text_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".about-isa",
+            start: "10% center",
+            // toggleActions: "play none none reverse",
+            // markers: true,
+          },
+        });
         isa_text_tl.from(
-          block,
+          ".isa-text h2",
           {
             autoAlpha: 0.001,
-            scale: 0.7,
+            x: -150,
+            // x: "-20%",
+            duration: 0.45,
+            ease: "back.out(2)",
+          },
+          0
+        );
+        isa_text_tl.from(
+          ".isa-text h5",
+          {
+            autoAlpha: 0.001,
+            x: -150,
+            // x: "-20%",
+            duration: 0.45,
+            ease: "back.out(2)",
+          },
+          0.6
+        );
+
+        isa_text_tl.from(
+          ".isa-text p",
+          {
+            autoAlpha: 0.001,
+            x: -150,
+            // x: "-20%",
             duration: 0.45,
             ease: "back.out(2)",
           },
           1.2
         );
-      });
-
-      const bun1_tl = gsap.timeline({
-        repeat: -1,
-      });
-
-      bun1_tl.to("#bubble1", {
-        y: "-=30px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
-      bun1_tl.to("#bubble1", {
-        y: "+=30px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
-
-      const bun2_tl = gsap.timeline({ repeat: -1 });
-
-      bun2_tl.delay(1);
-
-      bun2_tl.to("#bubble2", {
-        y: "-=30px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
-      bun2_tl.to("#bubble2", {
-        y: "+=30px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
-
-      //ISA partners
-      const partners_tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".isa-partners",
-          start: "80% bottom",
-          // toggleActions: "play none none reverse",
-        },
-      });
-
-      gsap.utils
-        .toArray(".isa-partners .container .partner_img")
-        .forEach((img) => {
-          partners_tl.from(img, {
-            autoAlpha: 0.001,
-            scale: 0.7,
-            duration: 0.2,
-            ease: "sine.out",
-          });
+        gsap.utils.toArray(".number-block").forEach((block /*, i*/) => {
+          isa_text_tl.from(
+            block,
+            {
+              autoAlpha: 0.001,
+              scale: 0.7,
+              duration: 0.45,
+              ease: "back.out(2)",
+            },
+            1.2
+          );
         });
 
-      partners_tl.from(
-        ".isa-partners h3",
-        {
-          duration: 0.75,
-          x: -100,
-          autoAlpha: 0.001,
-        },
-        0
-      );
+        const bun1_tl = gsap.timeline({
+          repeat: -1,
+        });
 
-      //admission part
-      gsap.from(".admission-header", {
-        autoAlpha: 0.001,
-        x: -150,
-        duration: 0.7,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".admission-header",
-          start: "bottom 70%",
-          // toggleActions: "play none none reverse",
-        },
-      });
-      gsap.from(".admission-text", {
-        autoAlpha: 0.01,
-        x: -150,
-        duration: 0.7,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".admission-text",
-          start: "bottom 70%",
-          // toggleActions: "play none none reverse",
-        },
-      });
-      gsap.from("#list", {
-        autoAlpha: 0.01,
-        x: -150,
-        duration: 0.7,
-        ease: "power.out",
-        scrollTrigger: {
-          trigger: "#list",
-          start: "bottom 70%",
-          // toggleActions: "play none none reverse",
-        },
-      });
-      gsap.from(".roadmap-header", {
-        autoAlpha: 0.01,
-        x: -150,
-        duration: 0.7,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".roadmap-header",
-          start: "bottom 70%",
-          // toggleActions: "play none none reverse",
-        },
-      });
+        bun1_tl.to("#bubble1", {
+          y: "-=30px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
+        bun1_tl.to("#bubble1", {
+          y: "+=30px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
 
-      gsap.from(".admission-list img", {
-        autoAlpha: 0.001,
-        x: 150,
-        // scale: 0.7,
-        duration: 0.7,
-        ease: "power1.out",
-        scrollTrigger: {
-          trigger: ".admission-list img",
-          start: "top center",
-          // toggleActions: "play none none reverse",
-        },
-      });
+        const bun2_tl = gsap.timeline({ repeat: -1 });
 
-      gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
-        const step_tl = gsap.timeline({
+        bun2_tl.delay(1);
+
+        bun2_tl.to("#bubble2", {
+          y: "-=30px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
+        bun2_tl.to("#bubble2", {
+          y: "+=30px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
+
+        //ISA partners
+        const partners_tl = gsap.timeline({
           scrollTrigger: {
-            trigger: step,
-            start: "bottom 85%",
-            // scrub: 1,
+            trigger: ".isa-partners",
+            start: "80% bottom",
+            // toggleActions: "play none none reverse",
+          },
+        });
+
+        gsap.utils
+          .toArray(".isa-partners .container .partner_img")
+          .forEach((img) => {
+            partners_tl.from(img, {
+              autoAlpha: 0.001,
+              scale: 0.7,
+              duration: 0.2,
+              ease: "sine.out",
+            });
+          });
+
+        partners_tl.from(
+          ".isa-partners h3",
+          {
+            duration: 0.75,
+            x: -100,
+            autoAlpha: 0.001,
+          },
+          0
+        );
+
+        //admission part
+        gsap.from(".admission-header", {
+          autoAlpha: 0.001,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".admission-header",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from(".admission-text", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".admission-text",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from("#list", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power.out",
+          scrollTrigger: {
+            trigger: "#list",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from(".roadmap-header", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".roadmap-header",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+
+        gsap.from(".admission-list img", {
+          autoAlpha: 0.001,
+          x: 150,
+          // scale: 0.7,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".admission-list img",
+            start: "top center",
+            // toggleActions: "play none none reverse",
+          },
+        });
+
+        gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
+          const step_tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: step,
+              start: "bottom 85%",
+              // scrub: 1,
+              // toggleActions: "play none none reverse",
+              // markers: true,
+            },
+          });
+          if (index % 2 == 0) {
+            step_tl.from(
+              step.querySelector("img"),
+              {
+                autoAlpha: 0.01,
+                scale: 0.6,
+                duration: 0.7,
+                ease: "back.out(2)",
+              },
+              0
+            );
+
+            step_tl.from(
+              step.querySelector(".step-text"),
+              {
+                autoAlpha: 0.01,
+                x: 100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+
+            step_tl.from(
+              step.querySelector(".decor"),
+              {
+                autoAlpha: 0.01,
+                x: 100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          } else {
+            step_tl.from(
+              step.querySelector("img"),
+              {
+                autoAlpha: 0.01,
+                scale: 0.6,
+                duration: 0.7,
+                ease: "back.out(2)",
+              },
+              0
+            );
+
+            step_tl.from(
+              step.querySelector(".step-text"),
+              {
+                autoAlpha: 0.01,
+                x: -100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+
+            step_tl.from(
+              step.querySelector(".decor"),
+              {
+                autoAlpha: 0.01,
+                x: -100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          }
+        });
+
+        //studying field
+        const st_timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".studying-header",
+            start: "top 70%",
+          },
+        });
+
+        st_timeline.from(
+          ".studying-header",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          0
+        );
+        st_timeline.from(
+          ".studying-text",
+          {
+            autoAlpha: 0.001,
+            x: 100,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          0.45
+        );
+        st_timeline.from(
+          ".studying-grid.first>.text",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          0.9
+        );
+        st_timeline.from(
+          ".studying-grid.first>img",
+          {
+            autoAlpha: 0.001,
+            scale: 0.7,
+            duration: 0.7,
+            ease: "back.out(2)",
+          },
+          0.9
+        );
+        st_timeline.from(
+          ".studying-grid.second>.text",
+          {
+            autoAlpha: 0.001,
+            x: 100,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          1.25
+        );
+        st_timeline.from(
+          ".studying-grid.second>img",
+          {
+            autoAlpha: 0.001,
+            scale: 0.7,
+            duration: 0.7,
+            ease: "back.out(2)",
+          },
+          1.25
+        );
+        st_timeline.from(
+          ".faq-header",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          1.7
+        );
+        st_timeline.from(
+          ".faq-container>.img",
+          {
+            autoAlpha: 0.001,
+            scale: 0.7,
+            duration: 0.7,
+            ease: "back.out(2)",
+          },
+          1.7
+        );
+        gsap.utils.toArray(".questions>.question").forEach((el, index) => {
+          st_timeline.from(
+            el,
+            {
+              autoAlpha: 0.001,
+              x: -100,
+              duration: 0.3,
+              ease: "back.out(2)",
+            },
+            1.7 + index * 0.35
+          );
+        });
+      } else {
+        //mobile
+        const isa_text_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".about-isa",
+            start: "10% center",
             // toggleActions: "play none none reverse",
             // markers: true,
           },
         });
-        if (index % 2 == 0) {
-          step_tl.from(
-            step.querySelector("img"),
-            {
-              autoAlpha: 0.01,
-              scale: 0.6,
-              duration: 0.7,
-              ease: "back.out(2)",
-            },
-            0
-          );
+        isa_text_tl.from(
+          ".isa-text h2",
+          {
+            autoAlpha: 0.001,
+            x: -80,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          0
+        );
+        isa_text_tl.from(
+          ".isa-text h5",
+          {
+            autoAlpha: 0.001,
+            x: -80,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          0.55
+        );
 
-          step_tl.from(
-            step.querySelector(".step-text"),
-            {
-              autoAlpha: 0.01,
-              x: 100,
-              duration: 0.7,
-              ease: "power1.out",
-            },
-            0
-          );
+        isa_text_tl.from(
+          ".isa-text p",
+          {
+            autoAlpha: 0.001,
+            x: -80,
+            duration: 0.4,
+            ease: "power1.out",
+          },
+          1.1
+        );
 
-          step_tl.from(
-            step.querySelector(".decor"),
-            {
-              autoAlpha: 0.01,
-              x: 100,
-              duration: 0.7,
-              ease: "power1.out",
-            },
-            0
-          );
-        } else {
-          step_tl.from(
-            step.querySelector("img"),
-            {
-              autoAlpha: 0.01,
-              scale: 0.6,
-              duration: 0.7,
-              ease: "back.out(2)",
-            },
-            0
-          );
+        //ISA partners
+        const partners_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".isa-partners",
+            start: "80% bottom",
+            // toggleActions: "play none none reverse",
+          },
+        });
 
-          step_tl.from(
-            step.querySelector(".step-text"),
-            {
+        gsap.utils
+          .toArray(".isa-partners .container .partner_img")
+          .forEach((img) => {
+            partners_tl.from(img, {
+              autoAlpha: 0.001,
+              scale: 0.7,
+              duration: 0.2,
+              ease: "sine.out",
+            });
+          });
+
+        partners_tl.from(
+          ".isa-partners h3",
+          {
+            duration: 0.75,
+            x: -100,
+            autoAlpha: 0.001,
+          },
+          0
+        );
+
+        //admission part
+        gsap.from(".admission-header", {
+          autoAlpha: 0.001,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".admission-header",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from(".admission-text", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".admission-text",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from("#list", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power.out",
+          scrollTrigger: {
+            trigger: "#list",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        gsap.from(".roadmap-header", {
+          autoAlpha: 0.01,
+          x: -150,
+          duration: 0.7,
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: ".roadmap-header",
+            start: "bottom 70%",
+            // toggleActions: "play none none reverse",
+          },
+        });
+
+        gsap.utils.toArray(".admission-path .step").forEach((step, index) => {
+          const admission_step_tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: step,
+              start: "bottom 85%",
+            },
+          });
+          if (index % 2) {
+            admission_step_tl.from(step, {
               autoAlpha: 0.01,
               x: -100,
-              duration: 0.7,
+              duration: 0.8,
               ease: "power1.out",
-            },
-            0
-          );
-
-          step_tl.from(
-            step.querySelector(".decor"),
-            {
+            });
+          } else {
+            admission_step_tl.from(step, {
               autoAlpha: 0.01,
+              x: 100,
+              duration: 0.8,
+              ease: "power1.out",
+            });
+          }
+        });
+
+        //studying field
+        const st_timeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".studying-header",
+            start: "top 70%",
+          },
+        });
+
+        st_timeline.from(
+          ".studying-header",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          0
+        );
+        st_timeline.from(
+          ".studying-text",
+          {
+            autoAlpha: 0.001,
+            x: 100,
+            duration: 0.6,
+            ease: "power1.out",
+          },
+          0.55
+        );
+        st_timeline.from(
+          ".studying-grid.first",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          1.1
+        );
+        st_timeline.from(
+          ".studying-grid.second",
+          {
+            autoAlpha: 0.001,
+            x: 100,
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          1.65
+        );
+        st_timeline.from(
+          ".faq-header",
+          {
+            autoAlpha: 0.001,
+            x: -100,
+            duration: 0.5,
+            ease: "power1.out",
+          },
+          2.2
+        );
+        gsap.utils.toArray(".questions>.question").forEach((el, index) => {
+          st_timeline.from(
+            el,
+            {
+              autoAlpha: 0.001,
               x: -100,
-              duration: 0.7,
+              duration: 0.3,
               ease: "power1.out",
             },
-            0
+            2.75 + index * 0.45
           );
-        }
-      });
+        });
+      }
 
       //faq field
       document.querySelectorAll(".question-title").forEach((el) => {
@@ -1161,16 +1470,17 @@ export default {
 
 .admission-path {
   padding-bottom: 150px;
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  // padding: 0;
 
   .step {
     will-change: transform;
     // z-index: 1;
+    // margin: 0 0 20px 0;
 
     // overflow: hidden;
     display: grid;
-    grid-template-rows: auto 1fr;
+    // grid-template-rows: repeat(5 1fr);
     grid-template-columns: 45% 10% 45%;
     justify-content: center;
     align-items: center;
@@ -2314,23 +2624,60 @@ export default {
         .name {
           margin-bottom: 15px;
           font-size: 1.6em;
+          margin-bottom: 5px;
         }
         .text {
           font-size: 0.8em;
+          margin-bottom: 15px;
         }
         .facts {
           font-size: 0.8em;
+          margin-bottom: 15px;
         }
         .number {
           margin-top: 0;
+          font-size: 1.15em;
+          img {
+            top: -9px;
+            height: 35px;
+            left: -43px;
+          }
         }
         .flag {
           height: 45px;
           width: 45px;
         }
+
+        .facts-btn {
+          font-size: 0.8em;
+          .facts-open {
+            margin: 0 2px 0 6px;
+            padding: 5px 8px 5px 7px;
+          }
+          .facts-close {
+            margin: 0 6px 0 2px;
+            padding: 5px 5px 5px 12px;
+          }
+        }
       }
       .abbrs {
         font-size: 0.75em;
+      }
+    }
+
+    .country-select {
+      input {
+        font-size: 0.9em;
+      }
+      .list {
+        font-size: 0.95em;
+        .list-item {
+          .list-item-flag {
+            margin: 0 15px 0 5px;
+            height: 52px;
+            width: 52px;
+          }
+        }
       }
     }
   }
@@ -2378,11 +2725,12 @@ export default {
           width: 100%;
           .question {
             .question-title {
-              grid-template-columns: 10% 87%;
-              font-size: 0.9em;
+              grid-template-columns: 10% 85%;
+              font-size: 0.85em;
+              column-gap: 5%;
             }
             .question-answer {
-              font-size: 0.85em;
+              font-size: 0.75em;
             }
           }
         }
@@ -2391,7 +2739,7 @@ export default {
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
   .isa-partners {
     h3 {
       font-size: 1.3em;
@@ -2423,6 +2771,7 @@ export default {
     .countries-container {
       .country-info {
         .country-info-card {
+          padding: 25px 30px 70px 30px;
           .name {
             margin-bottom: 15px;
             font-size: 1.4em;
@@ -2430,12 +2779,15 @@ export default {
           .text {
             font-size: 0.7em;
           }
+          .facts {
+            font-size: 0.7em;
+          }
           .number {
             margin-top: 0;
           }
           .flag {
-            height: 40px;
-            width: 40px;
+            height: 38px;
+            width: 38px;
           }
         }
         .abbrs {
@@ -2494,11 +2846,12 @@ export default {
           width: 100%;
           .question {
             .question-title {
-              grid-template-columns: 10% 87%;
-              font-size: 0.9em;
+              grid-template-columns: 10% 83%;
+              column-gap: 7%;
+              font-size: 0.8em;
             }
             .question-answer {
-              font-size: 0.85em;
+              font-size: 0.7em;
             }
           }
         }

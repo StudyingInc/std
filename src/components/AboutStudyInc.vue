@@ -33,22 +33,7 @@
               can ask for help when the issue of admission is most acute
             </p>
           </div>
-          <img
-            srcset="
-              @/assets/service_1024.jpg 1024w,
-              @/assets/service_720.jpg   720w,
-              @/assets/service_640.jpg   640w,
-              @/assets/service_320.jpg   320w
-            "
-            sizes="
-            (max-width: 480px) 320px,
-            (max-width: 720px) 640px,
-            (max-width: 1024px) 720px,
-            1024px
-            "
-            style="object-fit:cover;"
-            class="img about"
-          />
+          <img srcset="@/assets/service_1024.jpg" class="img about" />
         </div>
       </div>
     </section>
@@ -72,20 +57,7 @@
               university admission painless
             </p>
           </div>
-          <img
-            srcset="
-              @/assets/global_1024.jpg 1024w,
-              @/assets/global_720.jpg   720w,
-              @/assets/global_640.jpg   640w,
-              @/assets/global_320.jpg   320w
-            "
-            sizes="(max-width: 480px) 320px,
-            (max-width: 720px) 640px,
-            (max-width: 1024px) 720px,
-            1024px"
-            style="object-fit:cover;"
-            class="img aims"
-          />
+          <img src="../assets/global_1024.jpg" class="img aims" />
         </div>
       </div>
 
@@ -145,108 +117,146 @@ export default {
   data() {
     return {};
   },
+  props: {
+    isMobile: Boolean,
+  },
   mounted() {
     setTimeout(() => {
-      //about-wrapper animation
-      const about_tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top center",
-          end: "bottom bottom",
-          // markers: true,
-          // toggleActions: "play none none reverse",
-        },
-      });
-      about_tl.fromTo(
-        ".about-text",
-        { autoAlpha: 0.01, x: "-10%" },
-        { autoAlpha: 1, x: 0, duration: 0.5 },
-        0
-      );
-      about_tl.fromTo(
-        ".about-wrapper img",
-        { autoAlpha: 0.01, y: "10%" },
-        { autoAlpha: 1, y: 0, duration: 0.5 },
-        0
-      );
+      if (!this.isMobile) {
+        // about-wrapper animation
+        const about_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top center",
+            end: "bottom bottom",
+            // markers: true,
+            // toggleActions: "play none none reverse",
+          },
+        });
+        about_tl.fromTo(
+          ".about-text",
+          { autoAlpha: 0.01, x: "-10%" },
+          { autoAlpha: 1, x: 0, duration: 0.5 },
+          0
+        );
+        about_tl.fromTo(
+          ".about-wrapper img",
+          { autoAlpha: 0.01, y: "10%" },
+          { autoAlpha: 1, y: 0, duration: 0.5 },
+          0
+        );
 
-      //aims-wrapper animation
-      const aims_tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".aims-wrapper",
-          start: "top center",
-          end: "bottom bottom",
-          // toggleActions: "play none none reverse",
-        },
-      });
-      aims_tl.fromTo(
-        ".aims-text",
-        { autoAlpha: 0.01, x: "10%" },
-        { autoAlpha: 1, x: 0, duration: 0.5 },
-        0
-      );
-      aims_tl.fromTo(
-        ".aims-wrapper img",
-        { autoAlpha: 0.01, y: "10%" },
-        { autoAlpha: 1, y: 0, duration: 0.5 },
-        0
-      );
+        //aims-wrapper animation
+        const aims_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".aims-wrapper",
+            start: "top center",
+            end: "bottom bottom",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        aims_tl.fromTo(
+          ".aims-text",
+          { autoAlpha: 0.01, x: "10%" },
+          { autoAlpha: 1, x: 0, duration: 0.5 },
+          0
+        );
+        aims_tl.fromTo(
+          ".aims-wrapper img",
+          { autoAlpha: 0.01, y: "10%" },
+          { autoAlpha: 1, y: 0, duration: 0.5 },
+          0
+        );
 
-      gsap.from(".bun1", {
-        autoAlpha: 0.001,
-        scale: 0.7,
-        duration: 0.7,
-        ease: "back.out(2)",
-        scrollTrigger: {
-          trigger: ".about-wrapper",
-          start: "top center",
-          toggleActions: "play none none reverse",
-        },
-      });
+        gsap.from(".bun1", {
+          autoAlpha: 0.001,
+          scale: 0.7,
+          duration: 0.7,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
+        });
 
-      gsap.from(".bun2", {
-        autoAlpha: 0.001,
-        scale: 0.7,
-        duration: 0.7,
-        ease: "back.out(2)",
-        scrollTrigger: {
-          trigger: ".aims-wrapper",
-          start: "top center",
-          toggleActions: "play none none reverse",
-        },
-      });
+        gsap.from(".bun2", {
+          autoAlpha: 0.001,
+          scale: 0.7,
+          duration: 0.7,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: ".aims-wrapper",
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
+        });
 
-      const bun1_tl = gsap.timeline({
-        repeat: -1,
-      });
+        const bun1_tl = gsap.timeline({
+          repeat: -1,
+        });
 
-      bun1_tl.to(".bun1", {
-        y: "-=50px",
-        z: 0.1,
-        duration: 4,
-        ease: "power1.inOut",
-      });
-      bun1_tl.to(".bun1", {
-        y: "+=50px",
-        z: 0.1,
-        duration: 4,
-        ease: "power1.inOut",
-      });
+        bun1_tl.to(".bun1", {
+          y: "-=50px",
+          z: 0.1,
+          duration: 4,
+          ease: "power1.inOut",
+        });
+        bun1_tl.to(".bun1", {
+          y: "+=50px",
+          z: 0.1,
+          duration: 4,
+          ease: "power1.inOut",
+        });
 
-      const bun2_tl = gsap.timeline({ repeat: -1 });
+        const bun2_tl = gsap.timeline({ repeat: -1 });
 
-      bun2_tl.to(".bun2", {
-        y: "-=60px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
-      bun2_tl.to(".bun2", {
-        y: "+=60px",
-        z: 0.1,
-        duration: 5,
-        ease: "power1.inOut",
-      });
+        bun2_tl.to(".bun2", {
+          y: "-=60px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
+        bun2_tl.to(".bun2", {
+          y: "+=60px",
+          z: 0.1,
+          duration: 5,
+          ease: "power1.inOut",
+        });
+      } else {
+        // about-wrapper animation
+        const about_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".about-wrapper",
+            start: "top center",
+            end: "bottom bottom",
+            // markers: true,
+            // toggleActions: "play none none reverse",
+          },
+        });
+        about_tl.fromTo(
+          ".about-text",
+          { autoAlpha: 0.01, scale: 0.9 },
+          { scale: 1, autoAlpha: 1, x: 0, duration: 0.6, ease: "power1.out" },
+          0
+        );
+
+        //aims-wrapper animation
+        const aims_tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".aims-wrapper",
+            start: "top center",
+            end: "bottom bottom",
+            // toggleActions: "play none none reverse",
+          },
+        });
+        aims_tl.fromTo(
+          ".aims-text",
+          { autoAlpha: 0.01, scale: 0.9 },
+          { scale: 1, autoAlpha: 1, x: 0, duration: 0.6, ease: "power1.out" },
+          0
+        );
+      }
     }, 300);
   },
 };
@@ -296,7 +306,7 @@ export default {
   &::before {
     background: url("../assets/14.jpg") no-repeat top center;
     background-size: cover;
-    content: " ";
+    content: "";
     height: 100%;
     position: absolute;
     top: 0;

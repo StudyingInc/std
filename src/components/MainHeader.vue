@@ -219,7 +219,7 @@
                 </defs>
               </svg>
             </div>
-            <div class="nav_item" @click="navChecker" data-link="contacts">
+            <div class="nav_item" @click="navChecker" data-link="footer">
               <!-- contacts -->
               <svg
                 width="111"
@@ -821,7 +821,6 @@ header {
       padding: 5px 20px;
       width: 100%;
       background: rgba(255, 255, 255, 0.692);
-      // backdrop-filter: blur(2px);
       box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.055);
 
       $transition--easing: cubic-bezier(0.77, 0, 0.175, 1);
@@ -923,28 +922,6 @@ header {
             width: 100vw;
             height: 70vh;
           }
-
-          // svg {
-          //   z-index: 100;
-
-          //   height: 30px;
-
-          //   line {
-          //     transition: all 0.3s ease-in-out;
-          //     transform-origin: center;
-
-          //     &.rotated {
-          //       stroke: #2b2d42;
-          //       &:first-child {
-          //         transform: translateX(-4px) translateY(2.5px) rotate(45deg);
-          //       }
-
-          //       &:nth-child(2) {
-          //         transform: translateX(-4px) translateY(-5px) rotate(-45deg);
-          //       }
-          //     }
-          //   }
-          // }
         }
       }
     }
@@ -1045,11 +1022,9 @@ header {
         h2 {
           font-size: 1.9em;
           text-align: center;
-          // width: 80%;
           align-self: center;
         }
         p {
-          // display: none;
           text-align: center;
         }
       }
@@ -1057,18 +1032,6 @@ header {
       .topline {
         position: relative;
         align-items: center;
-        // z-index: 1;
-
-        // &:before {
-        //   content: "";
-        //   position: absolute;
-        //   width: 150%;
-        //   top: -20px;
-        //   left: -25%;
-        //   height: calc(175% + 20px);
-        //   background: #fafafa96;
-        //   z-index: -1;
-        // }
 
         .full_logo {
           height: 35px;
@@ -1081,27 +1044,6 @@ header {
           height: 35px;
           width: 35px;
           position: relative;
-
-          // svg {
-          //   width: 30px;
-          //   height: 30px;
-
-          //   line {
-          //     transition: all 0.3s ease-in-out;
-          //     transform-origin: center;
-
-          //     &.rotated {
-          //       stroke: #fafafa;
-          //       &:first-child {
-          //         transform: translateX(-4px) translateY(2.5px) rotate(45deg);
-          //       }
-
-          //       &:nth-child(2) {
-          //         transform: translateX(-4px) translateY(-5px) rotate(-45deg);
-          //       }
-          //     }
-          //   }
-          // }
         }
       }
 
@@ -1136,6 +1078,22 @@ header {
   }
   header .container .auth_and_search {
     display: none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  header .container .notion {
+    .header_content {
+      h2 {
+        font-size: 1.45em;
+        text-align: center;
+        align-self: center;
+      }
+      p {
+        font-size: 0.85em;
+        text-align: center;
+      }
+    }
   }
 }
 

@@ -126,7 +126,7 @@
       >
         About Us
       </div>
-      <div class="item">Contacts</div>
+      <div class="item" @click="navChecker" data-link="footer">Contacts</div>
     </div>
   </div>
 </template>
@@ -228,10 +228,10 @@ export default {
     flex-direction: column;
     align-items: left;
     justify-content: center;
-    row-gap: 5%;
     pointer-events: none;
 
     .item {
+      margin-bottom: 30px;
       transition: opacity 0.2s ease, transform 0.3s ease;
       opacity: 0;
       transform: translateX(-15%);
@@ -329,13 +329,14 @@ export default {
     .container {
       width: 100%;
       display: grid;
-      grid-template-columns: 30% 15%;
-      column-gap: 55%;
+      grid-template-columns: 35% 15%;
+      column-gap: 50%;
       align-items: center;
       justify-content: center;
       align-content: center;
       .full_logo {
         width: 100%;
+        max-width: 180px;
         display: flex;
         align-items: center;
         justify-content: left;
@@ -346,7 +347,6 @@ export default {
 
         display: flex;
         flex-direction: column;
-        row-gap: 4px;
         justify-content: center;
 
         cursor: pointer;
@@ -364,10 +364,12 @@ export default {
 
           &.line-left {
             width: calc(50% + 1px);
+            margin-bottom: 4px;
           }
 
           &.line {
             width: 100%;
+            margin-bottom: 4px;
           }
           &.line-right {
             width: calc(50% + 1px);

@@ -1,23 +1,15 @@
 <template>
   <div class="main-page">
     <div class="up-button" @click="scrollTop">
-      <img src="../assets/up.svg" />
+      <img src="../assets/_up.svg" />
     </div>
     <!-- <div class="wrapper"> -->
     <div class="bg-wrapper">
       <MainHeader :isMobile="isMobile" />
     </div>
-    <Presentation />
-    <AboutStudyInc />
-    <Info />
-    <footer class="footer">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque maxime odit
-      laboriosam laudantium alias accusamus eveniet corporis id quos natus iure
-      sed eius, nobis velit mollitia inventore nemo possimus nam autem
-      repellendus. Dolorum itaque reiciendis aliquid sit excepturi nisi error?
-      Modi debitis qui, praesentium officiis illo aut impedit veritatis rerum!
-    </footer>
-    <!-- </div> -->
+    <Presentation :isMobile="isMobile" />
+    <AboutStudyInc :isMobile="isMobile" />
+    <Info :isMobile="isMobile" />
   </div>
 </template>
 
@@ -41,9 +33,11 @@ export default {
     AboutStudyInc,
     Info,
   },
+  props: {
+    isMobile: Boolean,
+  },
   data() {
     return {
-      isMobile: false,
       sections: [
         "header",
         "history",
@@ -77,13 +71,6 @@ export default {
         }
       );
     }, 200);
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      this.isMobile = true;
-    }
 
     document.querySelectorAll(".keep_scrolling").forEach((el) => {
       el.addEventListener("click", this.scrollToPresentation);
@@ -94,7 +81,11 @@ export default {
   },
   methods: {
     scrollTop() {
-      gsap.to(window, { duration: this.isMobile ? 0 : 0.5, scrollTo: 0 });
+      gsap.to(window, {
+        duration: this.isMobile ? 0 : 0.8,
+        scrollTo: 0,
+        ease: "sine",
+      });
     },
     getClientHeight() {
       let viewHeight;
@@ -196,24 +187,24 @@ export default {
     position: fixed;
     right: calc(var(--viewHeight) - 0.97 * var(--viewHeight));
     bottom: calc(var(--viewHeight) - 0.97 * var(--viewHeight));
-    width: 50px;
-    height: 50px;
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
-    background: rgba(255, 255, 255, 0.274);
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.589);
     box-shadow: 5px 5px 8px rgba(25, 22, 68, 0.281);
     cursor: pointer;
     transition: background 0.3s ease-in-out;
 
     &:hover {
-      background: rgba(255, 255, 255, 0.671);
+      background: rgba(255, 255, 255, 0.835);
     }
 
     img {
-      height: 55%;
-      width: 55%;
+      height: 45%;
+      width: 45%;
       pointer-events: none;
     }
   }
@@ -291,6 +282,20 @@ footer {
     background-repeat: no-repeat;
     background-position: right 50% bottom 20%;
     background-size: cover;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .main-page {
+    .up-button {
+      width: 45px;
+      height: 45px;
+      img {
+        height: 45%;
+        width: 45%;
+        pointer-events: none;
+      }
+    }
   }
 }
 </style>

@@ -7,8 +7,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: "/",
-    name: "MainPage",
-    component: () => import("../views/MainPage.vue"),
+    name: "App",
+    component: () => import("../App.vue"),
   },
   {
     path: "/admission",

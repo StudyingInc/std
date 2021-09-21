@@ -1,16 +1,35 @@
 <template>
   <div id="app">
-    <div id="preloadedImages"></div>
-    <router-view></router-view>
+    <MainPage :isMobile="isMobile" />
+    <Footer :isMobile="isMobile" />
   </div>
 </template>
 
 <script>
 import "./static/styles.css";
+import MainPage from "./views/MainPage.vue";
+import Footer from "./components/Footer.vue";
 
 export default {
   name: "App",
-  components: {},
+  components: {
+    MainPage,
+    Footer,
+  },
+  data() {
+    return {
+      isMobile: false,
+    };
+  },
+  created() {
+    if (
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      )
+    ) {
+      this.isMobile = true;
+    }
+  },
 };
 </script>
 
@@ -26,13 +45,6 @@ export default {
   color: #2c3e50;
   color: #0d0d22;
   overflow: hidden;
-}
-
-#preloadedImages {
-  width: 0px;
-  height: 0px;
-  display: inline;
-  background-image: url();
 }
 
 .header {

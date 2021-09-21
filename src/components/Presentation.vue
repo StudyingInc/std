@@ -99,72 +99,66 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default {
   data() {
-    return {
-      isMobile: false,
-    };
+    return {};
+  },
+  props: {
+    isMobile: Boolean,
   },
   mounted() {
-    if (
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-        navigator.userAgent
-      )
-    ) {
-      this.isMobile = true;
-    }
     setTimeout(() => {
-      gsap.utils.toArray(".presentation_block").forEach((section, index) => {
-        const el_tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: section,
-            start: "top 80%",
-          },
-        });
-        if (index % 2 == 0) {
-          el_tl.from(
-            section.querySelector(".image"),
-            {
-              autoAlpha: 0,
-              scale: 0.6,
-              duration: 0.7,
-              ease: "back.out(2)",
-            },
-            0
-          );
-          el_tl.from(
-            section.querySelector("p"),
-            {
-              autoAlpha: 0,
-              x: 100,
-              duration: 0.7,
-              ease: "power1.out",
-            },
-            0
-          );
-        } else {
-          el_tl.from(
-            section.querySelector(".image"),
-            {
-              autoAlpha: 0,
-              scale: 0.6,
-              duration: 0.7,
-              ease: "back.out(2)",
-            },
-            0
-          );
-          el_tl.from(
-            section.querySelector("p"),
-            {
-              autoAlpha: 0,
-              x: -100,
-              duration: 0.7,
-              ease: "power1.out",
-            },
-            0
-          );
-        }
-      });
-
       if (!this.isMobile) {
+        gsap.utils.toArray(".presentation_block").forEach((section, index) => {
+          const el_tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+            },
+          });
+          if (index % 2 == 0) {
+            el_tl.from(
+              section.querySelector(".image"),
+              {
+                autoAlpha: 0,
+                scale: 0.6,
+                duration: 0.7,
+                ease: "back.out(2)",
+              },
+              0
+            );
+            el_tl.from(
+              section.querySelector("p"),
+              {
+                autoAlpha: 0,
+                x: 100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          } else {
+            el_tl.from(
+              section.querySelector(".image"),
+              {
+                autoAlpha: 0,
+                scale: 0.6,
+                duration: 0.7,
+                ease: "back.out(2)",
+              },
+              0
+            );
+            el_tl.from(
+              section.querySelector("p"),
+              {
+                autoAlpha: 0,
+                x: -100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          }
+        });
+
         gsap.fromTo(
           ".presentation",
           { background: "#2b2d42" },
@@ -225,6 +219,38 @@ export default {
             },
           }
         );
+      } else {
+        gsap.utils.toArray(".presentation_block").forEach((section, index) => {
+          const el_tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+            },
+          });
+          if (index % 2 == 0) {
+            el_tl.from(
+              section,
+              {
+                autoAlpha: 0,
+                x: 100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          } else {
+            el_tl.from(
+              section,
+              {
+                autoAlpha: 0,
+                x: -100,
+                duration: 0.7,
+                ease: "power1.out",
+              },
+              0
+            );
+          }
+        });
       }
     }, 300);
   },
