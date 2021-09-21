@@ -1,7 +1,7 @@
 <template>
   <div class="main-page">
     <div class="up-button" @click="scrollTop">
-      <img src="../assets/_up.svg" />
+      <img src="../assets/arrows.svg" alt="#" />
     </div>
     <!-- <div class="wrapper"> -->
     <div class="bg-wrapper">
