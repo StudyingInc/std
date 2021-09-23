@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-194bd9b5"],{"560f":function(n,c,t){"use strict";t.r(c);var e=function(){var n=this,c=n.$createElement,t=n._self._c||c;return t("div",[t("TopLine"),t("div",{staticClass:"about"},[n._v("edu page")])],1)},u=[],i=t("d6c0"),o={name:"Study",components:{TopLine:i["a"]}},s=o,a=(t("bc54"),t("2877")),d=Object(a["a"])(s,e,u,!1,null,"59ccd03b",null);c["default"]=d.exports},"7c8d":function(n,c,t){},bc54:function(n,c,t){"use strict";t("7c8d")}}]);
+//# sourceMappingURL=chunk-194bd9b5.3d2dd6bd.js.map

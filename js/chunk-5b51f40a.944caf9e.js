@@ -1,0 +1,2 @@
+(window["webpackJsonp"]=window["webpackJsonp"]||[]).push([["chunk-5b51f40a"],{5916:function(n,e,t){"use strict";t.r(e);var a=function(){var n=this,e=n.$createElement,t=n._self._c||e;return t("div",[t("TopLine"),t("div",{staticClass:"about"},[n._v("forum page")])],1)},o=[],c=t("d6c0"),u={name:"Forum",components:{TopLine:c["a"]}},i=u,s=(t("a401"),t("2877")),r=Object(s["a"])(i,a,o,!1,null,"0ee66226",null);e["default"]=r.exports},a401:function(n,e,t){"use strict";t("a966")},a966:function(n,e,t){}}]);
+//# sourceMappingURL=chunk-5b51f40a.944caf9e.js.map
