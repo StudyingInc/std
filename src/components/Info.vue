@@ -2622,9 +2622,8 @@ export default {
     .country-info {
       .country-info-card {
         .name {
-          margin-bottom: 15px;
+          margin-bottom: 20px;
           font-size: 1.6em;
-          margin-bottom: 5px;
         }
         .text {
           font-size: 0.8em;
